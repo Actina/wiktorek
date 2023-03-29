@@ -1,0 +1,4 @@
+<resources>
+    <string name="etoll_application_name" translatable="false">e-TOLL PL</string>
+    <string name="etoll_map_apikey" translatable="false">AIzaSyDaqUJQY6fiP-jHvXCvrIOEVhGMd0OtNpk</string>
+</resources>

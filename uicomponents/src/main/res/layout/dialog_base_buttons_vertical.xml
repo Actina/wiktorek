@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonStandard="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.mobile.ui.components.dialogs.basic.BasicTwoActionsDialogFragment.DialogViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_high">
+
+        <View
+            android:id="@+id/dialog_isle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`dialogBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel_button_outlined"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:layout_marginBottom="@dimen/s_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{()->viewModelSchema.onNegativeButtonPressed()}"
+            android:singleLine="true"
+            android:visibility="@{viewModelSchema.cancelButtonStyleRedOutlined}"
+            app:layout_constraintBottom_toTopOf="@id/confirm_button_blue"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_red_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_red_selector`}"
+            nkspo:translatedText="@{viewModelSchema.cancelButtonText}"
+            tools:text="Sample cancel text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirm_button_blue"
+            style="@style/Widget.Button.Blue.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:layout_marginBottom="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onPositiveButtonPressed()}"
+            android:singleLine="true"
+            android:visibility="@{viewModelSchema.buttonStyleBlue}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cancel_button_outlined"
+            app:layout_constraintVertical_bias="1.0"
+            buttonStandard:backgroundTintListInMode="@{`button_blue_selector`}"
+            buttonStandard:rippleListInMode="@{`button_blue_selector`}"
+            buttonStandard:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{viewModelSchema.buttonText}"
+            tools:text="Sample confirm text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

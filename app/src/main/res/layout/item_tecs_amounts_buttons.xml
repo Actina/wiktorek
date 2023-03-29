@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="pl.gov.mf.etoll.front.tecs.amountSelection.AmountOrderKey" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.tecs.amountSelection.TecsAmountSelectionCellViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingLeft="@dimen/padding_cell_horizontal"
+        android:paddingTop="@dimen/xs_spacing"
+        android:paddingRight="@dimen/padding_cell_horizontal"
+        android:paddingBottom="@dimen/padding_content_vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lowest_amount"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:maxLines="1"
+            android:text="@{item.getSuggestedAmountWithCurrency(AmountOrderKey.LOWEST)}"
+            app:autoSizeMaxTextSize="16dp"
+            app:autoSizeMinTextSize="5dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/low_midle_amount"
+            app:layout_constraintTop_toTopOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            tools:text="200" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/low_midle_amount"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_cell_horizontal"
+            android:maxLines="1"
+            android:text="@{item.getSuggestedAmountWithCurrency(AmountOrderKey.LOW_MIDDLE)}"
+            app:autoSizeMaxTextSize="16dp"
+            app:autoSizeMinTextSize="5dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/lowest_amount"
+            app:layout_constraintRight_toLeftOf="@id/high_middle_amount"
+            app:layout_constraintTop_toTopOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            tools:text="300" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/high_middle_amount"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_cell_horizontal"
+            android:maxLines="1"
+            android:text="@{item.getSuggestedAmountWithCurrency(AmountOrderKey.HIGH_MIDDLE)}"
+            app:autoSizeMaxTextSize="16dp"
+            app:autoSizeMinTextSize="5dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/low_midle_amount"
+            app:layout_constraintRight_toLeftOf="@id/highest_amount"
+            app:layout_constraintTop_toTopOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            tools:text="400" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/highest_amount"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_cell_horizontal"
+            android:maxLines="1"
+            android:text="@{item.getSuggestedAmountWithCurrency(AmountOrderKey.HIGHEST)}"
+            app:autoSizeMaxTextSize="16dp"
+            app:autoSizeMinTextSize="5dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/high_middle_amount"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            tools:text="500" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

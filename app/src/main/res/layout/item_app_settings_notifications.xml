@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.settings.appsettings.adapteritem.NotificationsItem.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingStart="@dimen/xxl_spacing"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/xxl_spacing"
+        android:paddingBottom="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/app_settings_notifications_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`app_settings_notifications_header`}"
+            tools:text="@string/app_settings_notifications_header_pl" />
+
+        <TextView
+            android:id="@+id/app_settings_notifications_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_settings_notifications_header"
+            app:switchPadding="@dimen/m_spacing"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`app_settings_notifications_content`}"
+            tools:text="@string/app_settings_notifications_content_pl" />
+
+        <View
+            android:id="@+id/app_settings_sound_tile"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:clickable="true"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{()->item.onSoundNotificationsSelected()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_settings_notifications_content"
+            app:layout_constraintVertical_bias="0.0"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <TextView
+            android:id="@+id/app_settings_sound_text"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="@id/app_settings_sound_tile"
+            app:layout_constraintStart_toEndOf="@id/sound_check_box"
+            app:layout_constraintTop_toTopOf="@id/app_settings_sound_tile"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`app_settings_notifications_sound`}"
+            tools:text="@string/app_settings_notifications_sound_pl" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/sound_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sm_spacing"
+            android:checked="@{item.soundChecked}"
+            android:clickable="false"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="@id/app_settings_sound_tile"
+            app:layout_constraintStart_toStartOf="@id/app_settings_sound_tile"
+            app:layout_constraintTop_toTopOf="@id/app_settings_sound_tile"
+            nkspo:tintInMode="@{`checkbox_tint_mode_selector`}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

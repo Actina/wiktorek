@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.settings.darkmode.DarkModeSettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/dark_mode_settings_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`dark_mode_header`}"
+                tools:text="@string/dark_mode_header_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dark_mode_settings_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipChildren="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/dark_mode_settings_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dark_mode_settings_toolbar"
+            nkspo:changeAnimationsEnabled="@{false}"
+            tools:listitem="@layout/item_dark_mode_settings" />
+
+        <View
+            android:id="@+id/dark_mode_settings_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/isle_default_height"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dark_mode_settings_bottom_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_leftright_buttons"
+            android:layout_marginRight="@dimen/padding_leftright_buttons"
+            android:layout_marginBottom="@dimen/padding_button_down"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.onApplyClicked()}"
+            app:layout_constraintBottom_toBottomOf="@+id/dark_mode_settings_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            nkspo:translatedText="@{`dark_mode_save_button`}"
+            tools:text="@string/dark_mode_save_button_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

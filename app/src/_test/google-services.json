@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "961081346440",
+    "project_id": "nkspo-test",
+    "storage_bucket": "nkspo-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961081346440:android:b399230087772f8e5c923d",
+        "android_client_info": {
+          "package_name": "com.billennium.nkspo.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961081346440-30uo6nf5e67u313bsvpq6mi4g6bklua8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9aEaeCDKh0tLiM_znLZyZ0AG98dZuLaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961081346440-30uo6nf5e67u313bsvpq6mi4g6bklua8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

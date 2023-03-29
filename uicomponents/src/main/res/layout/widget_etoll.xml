@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/icon_margin"
+        android:src="@drawable/battery_icon_light" />
+
+    <ImageView
+        android:id="@+id/gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/icon_margin"
+        android:src="@drawable/gps_icon_light" />
+
+    <ImageView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/icon_margin"
+        android:src="@drawable/data_icon_light" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/icon_margin"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/widget_launch_app_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="@dimen/logo_margin"
+        android:paddingBottom="@dimen/logo_margin"
+        android:paddingHorizontal="@dimen/logo_padding"
+        android:src="@drawable/etoll_widget_icon" />
+</LinearLayout>

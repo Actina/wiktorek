@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.ridedetails.RideDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/ride_details_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`ride_details_title`}"
+                tools:text="@string/ride_details_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+        <!-- share area -->
+        <pl.gov.mf.mobile.ui.components.views.BusinessNumberView
+            android:id="@+id/ride_details_business_number_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_low"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ride_details_toolbar" />
+
+        <!-- main content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ride_details_business_number_area">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/item_ride_details_monitoring_device"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    layout="@layout/item_ride_details_tolled_ride"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    layout="@layout/item_ride_details_sent_summary"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    layout="@layout/item_ride_details_vehicle"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    layout="@layout/item_ride_details_trailer"
+                    app:viewModel="@{viewModel}" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+            android:elevation="@dimen/elevation_high"
+            android:orientation="vertical"
+            android:padding="@dimen/xxl_spacing"
+            android:visibility="@{viewModel.data.showLastLocationOnMapVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+                buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+                buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+                buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+                buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onShowZslMapClick()}"
+                nkspo:translatedText="@{viewModel.data.monitoringByApp ? `ride_details_show_map` : `ride_details_check_zsl`}"
+                tools:text="@string/ride_details_check_zsl_pl" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

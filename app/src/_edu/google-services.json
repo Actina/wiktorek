@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "842642096150",
+    "project_id": "e-toll-pl",
+    "storage_bucket": "e-toll-pl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842642096150:android:c493d64837907e39efb537",
+        "android_client_info": {
+          "package_name": "pl.gov.mf.etoll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842642096150-mee11a3rkae9ehv8rrj1b17eojp1hctu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4bSS9aixg2xofkviXkoQR1HVUagUgZsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842642096150-mee11a3rkae9ehv8rrj1b17eojp1hctu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842642096150-981vvmnd81ngvf6uatao5fs945s93c2d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pl.gov.mf.pl"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842642096150:android:80a4425aaddfe7f8efb537",
+        "android_client_info": {
+          "package_name": "pl.gov.mf.etoll.edu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842642096150-mee11a3rkae9ehv8rrj1b17eojp1hctu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4bSS9aixg2xofkviXkoQR1HVUagUgZsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842642096150-mee11a3rkae9ehv8rrj1b17eojp1hctu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842642096150-981vvmnd81ngvf6uatao5fs945s93c2d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pl.gov.mf.pl"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

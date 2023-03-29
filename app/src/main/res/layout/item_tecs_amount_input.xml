@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.tecs.amountSelection.TecsAmountSelectionCellViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingTop="@dimen/m_spacing"
+        android:paddingBottom="@dimen/m_spacing">
+
+        <View
+            android:id="@+id/tecs_amount_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_cell_horizontal"
+            android:layout_marginRight="@dimen/margin_cell_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingTop="@dimen/m_spacing"
+            android:paddingBottom="@dimen/m_spacing"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tecs_amount_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_cell_horizontal"
+            android:layout_marginRight="@dimen/padding_cell_horizontal"
+            android:elevation="@dimen/elevation_high"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/tecs_amount_tile"
+            app:layout_constraintRight_toLeftOf="@id/tecs_amount_selector_currency"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/tecs_amount_input_field"
+                style="@style/DefaultInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m_spacing"
+                android:layout_marginBottom="@dimen/m_spacing"
+                android:digits="0123456789,"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                nkspo:textColorInMode="@{`inputText`}"
+                nkspo:translatedHint="@{item.inputHintValue}"
+                tools:hint="@string/top_up_account_hint_android_pl" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tecs_amount_selector_currency"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_cell_horizontal"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="@+id/tecs_amount_input_layout"
+            app:layout_constraintRight_toRightOf="@id/tecs_amount_tile"
+            app:layout_constraintTop_toTopOf="@+id/tecs_amount_input_layout"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`currency_pln`}"
+            tools:text="@string/currency_pln_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

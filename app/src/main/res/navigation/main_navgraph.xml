@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navgraph"
+    app:startDestination="@id/splashFragment">
+
+    <action
+        android:id="@+id/action_showRideSummary"
+        app:destination="@id/rideSummaryFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_criticalError"
+        app:destination="@+id/criticalErrorFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="pl.gov.mf.etoll.front.splash.SplashFragment"
+        android:label="fragment_splash" />
+
+    <action
+        android:id="@+id/action_driverWarning"
+        app:destination="@id/driverWarningFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/driverWarningFragment"
+        android:name="pl.gov.mf.etoll.front.driverwarning.DriverWarningFragment"
+        android:label="DriverWarningFragment">
+        <action
+            android:id="@+id/action_showDashboard"
+            app:destination="@id/dashboardFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/criticalErrorFragment"
+        android:name="pl.gov.mf.etoll.front.critical.CriticalErrorFragment"
+        android:label="CriticalErrorFragment">
+        <argument
+            android:name="errorType"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="pl.gov.mf.etoll.front.onboarding.OnboardingFragment"
+        android:label="OnboardingFragment" />
+
+    <action
+        android:id="@+id/action_registrationRegulations"
+        app:destination="@id/registrationRegulationsFragmentV2"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/registeredFragment"
+        android:name="pl.gov.mf.etoll.front.registered.RegisteredFragment"
+        android:label="RegisteredFragment" />
+
+    <action
+        android:id="@+id/action_showSecurityConfigPin"
+        app:destination="@id/securityConfigPinFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+
+        <argument
+            android:name="configurationType"
+            app:argType="integer" />
+    </action>
+
+    <action
+        android:id="@+id/action_showAbout"
+        app:destination="@+id/aboutFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showDemo"
+        app:destination="@+id/demoFragment">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showNotificationHistory"
+        app:destination="@id/notificationHistoryFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showHelp"
+        app:destination="@+id/helpFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showSettings"
+        app:destination="@+id/appSettingsFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showSecuritySettings"
+        app:destination="@+id/appSecuritySettingsFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_registered"
+        app:destination="@id/registeredFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showDashboard"
+        app:destination="@id/dashboardFragment"
+        app:exitAnim="@anim/slide_out_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <action
+        android:id="@+id/action_showLanguageSettingsV2"
+        app:destination="@id/appLanguageSettingsV2"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="pl.gov.mf.etoll.front.dashboard.DashboardFragment"
+        android:label="DashboardFragment">
+        <action
+            android:id="@+id/action_showSentRidesSelection"
+            app:destination="@id/sentRidesSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_showRideDetails"
+            app:destination="@id/rideDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_showVehicleSelection"
+            app:destination="@id/configVehicleSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+
+        </action>
+        <action
+            android:id="@+id/action_showRideTypeSelection"
+            app:destination="@id/configRideTypeSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_topUpAccount"
+            app:destination="@id/tecsAmountSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/rideSummaryFragment"
+        android:name="pl.gov.mf.etoll.front.ridesummary.RideSummaryFragment"
+        android:label="RideSummaryFragment">
+        <action
+            android:id="@+id/action_showSentRideDetailsSelection"
+            app:destination="@id/sentRideDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+            <argument
+                android:name="sent"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/configVehicleSelectionFragment"
+        android:name="pl.gov.mf.etoll.front.configvehicleselection.ConfigVehicleSelectionFragment"
+        android:label="ConfigVehicleSelectionFragment">
+
+        <action
+            android:id="@+id/action_showTrailerCategory"
+            app:destination="@id/configTrailerCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_showSentList"
+            app:destination="@id/sentRidesSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/configRideTypeSelectionFragment"
+        android:name="pl.gov.mf.etoll.front.configridetypeselection.ConfigRideTypeSelectionFragment"
+        android:label="ConfigRideTypeSelectionFragment">
+        <action
+            android:id="@+id/action_selectVehicle"
+            app:destination="@id/configVehicleSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_selectTrailer"
+            app:destination="@id/configTrailerCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_selectMonitoringDevice"
+            app:destination="@id/configMonitoringDeviceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <action
+        android:id="@+id/action_showConfigMonitoringDevice"
+        app:destination="@id/configMonitoringDeviceFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="pl.gov.mf.etoll.front.help.HelpFragment"
+        android:label="HelpFragment">
+        <action
+            android:id="@+id/action_showTutorial"
+            app:destination="@id/onboardingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+            <argument
+                android:name="sent"
+                app:argType="boolean" />
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/appSettingsFragment"
+        android:name="pl.gov.mf.etoll.front.settings.appsettings.AppSettingsFragment"
+        android:label="SettingsFragment">
+        <action
+            android:id="@+id/action_showLanguageSettingsV2"
+            app:destination="@id/appLanguageSettingsV2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_show_darkModeSettingsFragment"
+            app:destination="@id/darkModeSettingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/appSecuritySettingsFragment"
+        android:name="pl.gov.mf.etoll.front.security.settings.SecuritySettingsFragment"
+        android:label="SecuritySettingsFragment" />
+
+    <fragment
+        android:id="@+id/darkModeSettingsFragment"
+        android:name="pl.gov.mf.etoll.front.settings.darkmode.DarkModeSettingsFragment"
+        tools:layout="@layout/fragment_dark_mode_settings" />
+
+    <fragment
+        android:id="@+id/appLanguageSettingsV2"
+        android:name="pl.gov.mf.etoll.front.settings.languagesettingsv2.LanguageSettingsFragmentV2"
+        android:label="LanguageChangeFragmentV2" />
+    <fragment
+        android:id="@+id/rideDetailsFragment"
+        android:name="pl.gov.mf.etoll.front.ridedetails.RideDetailsFragment"
+        android:label="RideDetailsFragment">
+        <action
+            android:id="@+id/action_rideDataFragment"
+            app:destination="@id/rideDataFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_rideDetailsSentSelectionFragment"
+            app:destination="@id/rideDetailsSentSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_showRideDetailsMap"
+            app:destination="@id/rideDetailsMapFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="pl.gov.mf.etoll.front.about.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/demoFragment"
+        android:name="pl.gov.mf.etoll.demo.DemoFragment"
+        android:label="DemoFragment" />
+
+    <fragment
+        android:id="@+id/registrationRegulationsFragmentV2"
+        android:name="pl.gov.mf.etoll.front.regulationsv2.RegulationsFragmentV2"
+        android:label="RegistrationRegulationsFragment" />
+    <fragment
+        android:id="@+id/securityConfigPinFragment"
+        android:name="pl.gov.mf.etoll.front.security.config.pin.ConfigPinFragment"
+        android:label="SecurityConfigPinFragment">
+        <action
+            android:id="@+id/action_securityConfigPassword"
+            app:destination="@id/securityConfigPasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+
+            <argument
+                android:name="configurationType"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/securityConfigPasswordFragment"
+        android:name="pl.gov.mf.etoll.front.security.config.password.ConfigPasswordFragment"
+        android:label="SecurityConfigPasswordFragment" />
+
+    <fragment
+        android:id="@+id/configTrailerCategoryFragment"
+        android:name="pl.gov.mf.etoll.front.configtrailercategory.ConfigTrailerCategoryFragment"
+        android:label="ConfigTrailerCategoryFragment">
+        <action
+            android:id="@+id/action_showMonitoringDevice"
+            app:destination="@id/configMonitoringDeviceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <action
+        android:id="@+id/action_showTrailerCategory"
+        app:destination="@id/configTrailerCategoryFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+    <action
+        android:id="@+id/action_showTolledConfig"
+        app:destination="@id/configVehicleSelectionFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/configMonitoringDeviceFragment"
+        android:name="pl.gov.mf.etoll.front.configmonitoringdevice.ConfigMonitoringDeviceFragment"
+        android:label="ConfigMonitoringDeviceFragment">
+        <action
+            android:id="@+id/action_showSentRidesSelection"
+            app:destination="@id/sentRidesSelectionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/sentRidesSelectionFragment"
+        android:name="pl.gov.mf.etoll.front.configsentridesselection.ConfigSentRidesSelectionFragment"
+        android:label="sentRidesSelectionFragment">
+        <action
+            android:id="@+id/action_showSentRideDetailsSelection"
+            app:destination="@id/sentRideDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+            <argument
+                android:name="sent"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/sentRideDetailsFragment"
+        android:name="pl.gov.mf.etoll.front.configsentridesselection.details.SentRideDetailsFragment"
+        android:label="sentRideDetailsFragment" />
+    <fragment
+        android:id="@+id/rideDataFragment"
+        android:name="pl.gov.mf.etoll.front.ridedata.RideDataFragment"
+        android:label="RideDataFragment" />
+    <fragment
+        android:id="@+id/rideDetailsSentSelectionFragment"
+        android:name="pl.gov.mf.etoll.front.ridedetails.sentselection.RideDetailsSentSelectionFragment"
+        android:label="RideDetailsSentSelectionFragment">
+
+        <action
+            android:id="@+id/action_showSentRideDetailsSelection"
+            app:destination="@id/sentRideDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+            <argument
+                android:name="sent"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/tecsAmountSelectionFragment"
+        android:name="pl.gov.mf.etoll.front.tecs.amountSelection.TecsAmountSelectionFragment"
+        android:label="TecsAmountSelectionFragment">
+
+        <action
+            android:id="@+id/action_startTransaction"
+            app:destination="@id/tecsTransactionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="url"
+                app:argType="string" />
+            <argument
+                android:name="amount"
+                app:argType="string" />
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/tecsTransactionFragment"
+        android:name="pl.gov.mf.etoll.front.tecs.transaction.TecsTransactionFragment"
+        android:label="TecsTransactionFragment">
+        <action
+            android:id="@+id/action_finishedTransaction"
+            app:destination="@id/tecsTransactionResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="statusCorrect"
+                app:argType="boolean" />
+            <argument
+                android:name="amount"
+                app:argType="string" />
+            <argument
+                android:name="errorTitle"
+                app:argType="string" />
+            <argument
+                android:name="errorContent"
+                app:argType="string" />
+            <argument
+                android:name="signing"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/tecsTransactionResultFragment"
+        android:name="pl.gov.mf.etoll.front.tecs.result.TecsTransactionResultFragment"
+        android:label="TecsTransactionResultFragment" />
+
+    <fragment
+        android:id="@+id/securityConfirmWithPasswordFragment"
+        android:name="pl.gov.mf.etoll.front.security.confirmwithpassword.SecurityConfirmWithPasswordFragment"
+        android:label="SecurityConfirmWithPasswordFragment">
+        <argument
+            android:name="confirmationType"
+            app:argType="integer" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_showConfirmWithPassword"
+        app:destination="@id/securityConfirmWithPasswordFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+        <argument
+            android:name="confirmationType"
+            app:argType="integer" />
+    </action>
+
+    <fragment
+        android:id="@+id/securityUnlockWithPinCodeFragment"
+        android:name="pl.gov.mf.etoll.front.security.unlock.SecurityUnlockWithPinCodeFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/action_showUnlockWithPinCode"
+        app:destination="@id/securityUnlockWithPinCodeFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/securityResetPinCodeToUnlockFragment"
+        android:name="pl.gov.mf.etoll.front.security.resettounlock.SecurityResetPinCodeToUnlockFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/action_showResetPinCodeToUnlock"
+        app:destination="@id/securityResetPinCodeToUnlockFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/rideDetailsMapFragment"
+        android:name="pl.gov.mf.etoll.front.ridedetailsmap.RideDetailsMapFragment"
+        android:label="RideDetailsMapFragment" />
+    <fragment
+        android:id="@+id/notificationHistoryFragment"
+        android:name="pl.gov.mf.etoll.front.notificationhistory.NotificationHistoryFragment"
+        android:label="NotificationHistoryFragment">
+        <action
+            android:id="@+id/action_showDetails"
+            app:destination="@id/notificationDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationDetailsFragment"
+        android:name="pl.gov.mf.etoll.front.notificationdetails.NotificationDetailsFragment"
+        android:label="NotificationDetailsFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_right"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+
+        <argument
+            android:name="signing"
+            app:argType="string" />
+
+        <argument
+            android:name="detailsId"
+            app:argType="long" />
+    </fragment>
+    <action
+        android:id="@+id/action_showRideHistoryFragment"
+        app:destination="@id/rideHistoryFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/rideHistoryFragment"
+        android:name="pl.gov.mf.etoll.front.rideshistory.RideHistoryFragment"
+        android:label="RideHistoryFragment">
+        <action
+            android:id="@+id/action_rideHistoryFragment_to_rideHistoryDetailsFragment"
+            app:destination="@id/rideHistoryDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="signing"
+                app:argType="string" />
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/rideHistoryDetailsFragment"
+        android:name="pl.gov.mf.etoll.front.rideshistory.details.RideHistoryDetailsFragment"
+        android:label="RideHistoryDetailsFragment" />
+
+    <fragment
+        android:id="@+id/gpsIssuesFragment"
+        android:name="pl.gov.mf.etoll.front.errors.gpsissues.GpsIssuesFragment"
+        android:label="GpsIssuesFragment" />
+
+    <action
+        android:id="@+id/action_showGpsIssues"
+        app:destination="@id/gpsIssuesFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+
+        <argument
+            android:name="signing"
+            app:argType="string" />
+        <argument
+            android:name="issues"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/timeIssuesFragment"
+        android:name="pl.gov.mf.etoll.front.errors.timeissues.TimeIssuesFragment"
+        android:label="TimeIssuesFragment" />
+    <fragment
+        android:id="@+id/instanceIssuesFragment"
+        android:name="pl.gov.mf.etoll.front.errors.instanceissues.InstanceIssuesFragment"
+        android:label="InstanceIssuesFragment" />
+
+    <action
+        android:id="@+id/action_showTimeIssues"
+        app:destination="@id/timeIssuesFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+        <argument
+            android:name="duringRide"
+            app:argType="boolean" />
+    </action>
+
+    <action
+        android:id="@+id/action_showInstanceIssues"
+        app:destination="@id/instanceIssuesFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left">
+        <argument
+            android:name="signing"
+            app:argType="string" />
+        <argument
+            android:name="dismissable"
+            app:argType="boolean" />
+    </action>
+</navigation>

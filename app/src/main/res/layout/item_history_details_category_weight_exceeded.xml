@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.rideshistory.details.adapter.RideHistoryCellItem.CategoryWeightExceededItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/xl_spacing"
+        android:visibility="@{item.viewModel.categoryExceededVisible}"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/item_history_details_category_exceeded"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintRight_toLeftOf="@id/item_history_details_category_exceeded_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`ride_history_details_toll_category_exceeding`}"
+            tools:text="@string/ride_history_details_toll_category_exceeding_pl" />
+
+        <TextView
+            android:id="@+id/item_history_details_category_exceeded_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/item_history_details_category_exceeded"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@+id/item_history_details_category_exceeded"
+            app:layout_constraintTop_toTopOf="@+id/item_history_details_category_exceeded"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{item.viewModel.untranslatedCategoryExceededValue}"
+            tools:text="@string/ride_history_details_toll_category_exceeding_yes_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dashboard_mode_no_configuration"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:layout_height="match_parent"
+        tools:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/dashbaord_no_internet"
+            style="@style/TextAppearance.Spoe.TextContent.White"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/top_bar_height"
+            android:gravity="center"
+            android:maxLines="2"
+            android:visibility="@{viewModel.noInternetErrorShouldBeShown}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarNoInternetBackground`}"
+            nkspo:textColorInMode="@{`toolbarNoInternetText`}"
+            nkspo:translatedText="@{`toolbar_offline_mode`}"
+            tools:text="@string/toolbar_offline_mode_pl" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/bottom_barrier"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashbaord_no_internet">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+
+                <!--                <androidx.appcompat.widget.SwitchCompat-->
+                <!--                    android:visibility="gone"-->
+                <!--                    android:id="@+id/debug_gpsMode"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="@dimen/margin_cell_horizontal"-->
+                <!--                    android:layout_marginRight="@dimen/margin_cell_horizontal"-->
+                <!--                    android:text="Tryb GPS"-->
+                <!--                    android:textStyle="bold"-->
+                <!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--                    app:layout_constraintRight_toRightOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <ImageView
+                    android:id="@+id/dashboard_noconfig_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/padding_content_horizontal"
+                    android:layout_marginTop="@dimen/padding_content_vertical"
+                    android:layout_marginRight="@dimen/padding_content_horizontal"
+                    android:layout_marginBottom="@dimen/xl_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/dashboard_noconfig_header"
+                    app:layout_constraintHeight_default="wrap"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintWidth_default="wrap"
+                    nkspo:srcInMode="@{`ic_steering_wheel`}"
+                    tools:src="@drawable/ic_steering_wheel_light" />
+
+                <TextView
+                    android:id="@+id/dashboard_noconfig_header"
+                    style="@style/TextAppearance.Spoe.HeaderLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_content_horizontal"
+                    android:layout_marginRight="@dimen/padding_content_horizontal"
+                    android:layout_marginBottom="@dimen/xl_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/dashboard_noconfig_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dashboard_noconfig_icon"
+                    app:layout_constraintWidth_default="wrap"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`dashboard_empty_header`}"
+                    tools:text="@string/dashboard_empty_header_pl" />
+
+                <TextView
+                    android:id="@+id/dashboard_noconfig_content"
+                    style="@style/TextAppearance.Spoe.Standard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_content_horizontal"
+                    android:layout_marginRight="@dimen/padding_content_horizontal"
+                    android:layout_marginBottom="@dimen/padding_content_vertical"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dashboard_noconfig_header"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`dashboard_empty_content`}"
+                    tools:text="@string/dashboard_empty_content_pl" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <!-- Data not sent area -->
+        <pl.gov.mf.mobile.ui.components.views.DataSyncStatusView
+            android:id="@+id/dashboard_sync_toast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_content_horizontal"
+            android:layout_marginTop="@dimen/margin_content_vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/isle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottom_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="area_min_space_height,dashboard_configuration_bottom_button" />
+
+        <View
+            android:id="@+id/isle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/isle_default_height"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dashboard_configuration_bottom_button"
+            style="@style/Widget.Button.Green.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{!viewModel.startingRideConfiguration}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_barrier"
+            nkspo:backgroundTintListInMode="@{`button_green_selector`}"
+            nkspo:rippleListInMode="@{`button_green_selector`}"
+            nkspo:textColorInMode="@{`buttonGreenText`}"
+            nkspo:translatedText="@{`dashboard_empty_configure`}"
+            tools:text="@string/dashboard_empty_configure_pl" />
+
+        <Space
+            android:id="@+id/area_min_space_height"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/isle_default_height"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

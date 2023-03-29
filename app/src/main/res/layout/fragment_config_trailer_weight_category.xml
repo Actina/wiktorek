@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.configtrailercategory.ConfigTrailerCategoryFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_trailer_weight_category_title"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`config_trailer_weight_category_title`}"
+                tools:text="@string/config_trailer_weight_category_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <TextView
+            android:id="@+id/config_trailer_weight_category_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_trailer_weight_category_title"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`config_trailer_weight_category_header`}"
+            tools:text="@string/config_trailer_weight_category_header_pl" />
+
+        <View
+            android:id="@+id/config_trailer_category_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/space"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <View
+            android:id="@+id/config_trailer_weight_category_weight_exceeded_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> viewModel.onWeightExceededClick()}"
+            app:layout_constraintBottom_toBottomOf="@+id/config_trailer_weight_category_weight_exceeded"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/config_trailer_weight_category_weight_exceeded"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_trailer_weight_category_configure"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            android:layout_marginBottom="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.onContinueClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/config_trailer_category_tile"
+            app:layout_constraintVertical_bias="0.0"
+            nkspo:translatedText="@{`config_trailer_weight_category_configure`}"
+            tools:text="@string/config_trailer_weight_category_configure_pl" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/xl_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/config_trailer_weight_category_configure"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/config_trailer_weight_category_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginTop="@dimen/sm_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/config_trailer_weight_category_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`config_trailer_weight_category_content`}"
+            tools:text="@string/config_trailer_weight_category_content_pl" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/config_trailer_weight_category_weight_exceeded_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            nkspo:thumbInMode="@{`switch_thumb_mode_selector`}"
+            nkspo:trackInMode="@{`switch_track_mode_selector`}"
+            android:layout_marginRight="@dimen/xxl_spacing"
+            android:checked="@{viewModel.weightExceeded}"
+            android:clickable="false"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="@+id/config_trailer_weight_category_weight_exceeded"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/config_trailer_weight_category_weight_exceeded"
+            app:switchPadding="@dimen/m_spacing"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/config_trailer_weight_category_weight_exceeded"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:paddingTop="@dimen/m_spacing"
+            android:paddingBottom="@dimen/m_spacing"
+            app:layout_constraintEnd_toStartOf="@+id/config_trailer_weight_category_weight_exceeded_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/config_trailer_weight_category_content"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`config_trailer_weight_category_weight_exceeded`}"
+            tools:text="@string/config_trailer_weight_category_weight_exceeded_pl" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,102 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.targetSDK
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        flavorDimensions "edition"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //TODO: How to solve issue with wrong checksum when ALLOW_DBG = false?
+            buildConfigField 'Boolean', 'ALLOW_DBG', 'true'
+            buildConfigField 'String', 'KNOWN_CHECKSUM', '"wrongChecksum"'
+            // todo: put here key if dynamic root detection should be enabled
+            buildConfigField 'String', 'ANDROID_DEVICE_VERIFICATION_API_KEY', '""'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'Boolean', 'ALLOW_DBG', 'true'
+            // allow debugging, we need to avoid usage of BuildConfig.DEBUG
+            buildConfigField 'String', 'KNOWN_CHECKSUM', '"wrongChecksum"'
+            // todo: put here key if dynamic root detection should be enabled
+            buildConfigField 'String', 'ANDROID_DEVICE_VERIFICATION_API_KEY', '""'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // For Kotlin projects
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    productFlavors {
+        _prod {
+            dimension "edition"
+        }
+        _preprod {
+            dimension "edition"
+        }
+        _edu {
+            dimension "edition"
+        }
+        _test {
+            dimension "edition"
+        }
+        _dev {
+            dimension "edition"
+        }
+    }
+
+    sourceSets {
+        _prod {
+            java.srcDirs = ['src/_prod/java']
+            res.srcDirs = ['src/_prod/res']
+        }
+        _preprod {
+            java.srcDirs = ['src/_preprod/java']
+            res.srcDirs = ['src/_preprod/res']
+        }
+        _edu {
+            java.srcDirs = ['src/_edu/java']
+            res.srcDirs = ['src/_edu/res']
+        }
+        _test {
+            java.srcDirs = ['src/_test/java']
+            res.srcDirs = ['src/_test/res']
+        }
+        _dev {
+            java.srcDirs = ['src/_dev/java']
+            res.srcDirs = ['src/_dev/res']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    kapt Dependencies.dagger_compiler
+    compileOnly Dependencies.dagger_compiler_annotations
+
+    testImplementation Dependencies.tests_junit
+    androidTestImplementation Dependencies.tests_androidX_junit
+    androidTestImplementation Dependencies.tests_androidX_espresso
+    implementation Dependencies.security_crypto
+    implementation Dependencies.safetyNet
+    implementation Dependencies.rootBeer
+    api project("::commons")
+}

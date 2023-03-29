@@ -1,0 +1,183 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion Versions.targetSDK
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        flavorDimensions "edition"
+        versionCode 258
+    }
+
+    signingConfigs {
+        debugSigning {
+            keyAlias 'nkspodebug'
+            keyPassword '2@5d-=+!2fcelwo2330FA91'
+            storeFile file('./certs/debug.keystore')
+            storePassword '$313#!@#%fjmwo2Moliwfa@3'
+        }
+        _preprodSigning{
+            keyAlias 'etoll_preprod'
+            keyPassword 'etoll_preprod'
+            storeFile file('./certs/etoll_preprod.keystore')
+            storePassword 'etoll_preprod'
+        }
+        releaseSigning {
+            keyAlias 'spoereleasetests'
+            keyPassword 'spoereleasetest123!@#%$#'
+            storeFile file('./certs/spoereleasetests.keystore')
+            storePassword '$#@fasspoereleasetest'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false // due to custom handling of images, this could NOT be set
+            signingConfig signingConfigs.debugSigning
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //TODO: safety store key
+            buildConfigField 'String', 'APP_CENTER_KEY', '"9f879d53-5347-4f75-8e7f-2c1fa9cc2cf9"'
+            buildConfigField 'Boolean', 'DEMO_APP', 'true'
+            buildConfigField 'Boolean', 'SHOW_DEMO_ACTIVITY', 'false'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def date = new Date()
+                    def formattedDate = date.format('yyyyMMdd')
+                    def version = "_$versionCode"
+                    output.outputFileName = "../../etoll_" + formattedDate + version + variant.name + ".apk"
+                }
+            }
+        }
+        release {
+            minifyEnabled true
+            shrinkResources false // due to custom handling of images, this could NOT be set
+            signingConfig signingConfigs.debugSigning
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //TODO: safety store key
+            buildConfigField 'String', 'APP_CENTER_KEY', '"1b4de4cb-f54b-467f-a180-8e1b60f5c385"'
+            buildConfigField 'Boolean', 'DEMO_APP', 'true'
+            buildConfigField 'Boolean', 'SHOW_DEMO_ACTIVITY', 'false'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def date = new Date()
+                    def formattedDate = date.format('yyyyMMdd')
+                    def version = "_$versionCode"
+                    output.outputFileName = "../../etoll_" + formattedDate + version + variant.name + ".apk"
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // For Kotlin projects
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    productFlavors {
+        _prod {
+            dimension "edition"
+            applicationId "pl.gov.mf.etoll"
+            versionName "1.2.2"
+        }
+        _preprod {
+            dimension "edition"
+            applicationId "pl.gov.mf.etoll.preprod"
+            versionName "1.2.2"
+        }
+        _edu {
+            dimension "edition"
+            applicationId "pl.gov.mf.etoll.edu"
+            versionName "1.2.2"
+        }
+        _test {
+            dimension "edition"
+            versionNameSuffix "-test"
+            applicationId "com.billennium.nkspo.test"
+            versionName "etoll_20221216_258"
+        }
+        _dev {
+            dimension "edition"
+            versionNameSuffix "-dev"
+            applicationId "com.billennium.nkspo.dev"
+            versionName "etoll_20221216_258"
+        }
+    }
+    sourceSets {
+        _prod {
+            java.srcDirs = ['src/_prod/java']
+            res.srcDirs = ['src/_prod/res']
+        }
+        _preprod {
+            java.srcDirs = ['src/_preprod/java']
+            res.srcDirs = ['src/_preprod/res']
+        }
+        _edu {
+            java.srcDirs = ['src/_edu/java']
+            res.srcDirs = ['src/_edu/res']
+        }
+        _test {
+            java.srcDirs = ['src/_test/java']
+            res.srcDirs = ['src/_test/res']
+        }
+        _dev {
+            java.srcDirs = ['src/_dev/java']
+            res.srcDirs = ['src/_dev/res']
+        }
+    }
+    buildFeatures {
+        dataBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose_compiler_version
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation Dependencies.androidX_multidex
+    implementation Dependencies.play_services_maps
+    kapt Dependencies.dagger_compiler
+    compileOnly Dependencies.dagger_compiler_annotations
+
+    implementation platform(Dependencies.firebaseCore)
+
+    implementation Dependencies.firebaseCrashlytics
+    implementation Dependencies.firebaseAnalytics
+
+    implementation Dependencies.androidX_navigationComponent_fragment
+    implementation Dependencies.androidX_navigationComponent_uiKtx
+
+    testImplementation Dependencies.tests_junit
+    androidTestImplementation Dependencies.tests_androidX_junit
+    androidTestImplementation Dependencies.tests_androidX_espresso
+
+    implementation project("::uicomponents")
+    implementation project("::core")
+
+    androidTestImplementation Dependencies.tests_coreX
+}
+
+//TODO: should we filter any variants now?
+//android.variantFilter { variant ->
+//def build = variant.buildType.name.toLowerCase()
+// FYI: just to show filtering, atm we do not allow release builds
+//  if (build.contains("release")) {
+//    variant.setIgnore(true)
+//  }
+//}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:drawable="@drawable/bg_pin_box_locked_light" app:state_locked="true" />
+    <item android:drawable="@drawable/bg_pin_box_filled" android:state_selected="false" app:state_value_hidden="true" />
+    <item android:drawable="@drawable/bg_input_outlined_gray_light" android:state_selected="false" />
+    <item android:drawable="@drawable/bg_input_outlined_blue_light" android:state_selected="true" />
+</selector>

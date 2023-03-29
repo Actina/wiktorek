@@ -1,0 +1,4 @@
+<resources>
+    <string name="config_vehicle_selection_vehicle_info_format">%s, %s</string>
+    <string name="config_vehicle_selection_vehicle_billing_info_format">%s %s</string>
+</resources>

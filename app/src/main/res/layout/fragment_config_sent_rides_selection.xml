@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.configsentridesselection.ConfigSentRidesSelectionFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_sent_rides_selection_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{viewModel.backShouldBeVisible}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`config_sent_rides_selection_title`}"
+                tools:text="@string/config_sent_rides_selection_title_pl" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/config_sent_rides_selection_bottom_area"
+            app:layout_constraintTop_toBottomOf="@+id/config_sent_rides_selection_toolbar">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/sent_rides_monitoring_device_image"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="@dimen/xxl_spacing"
+                            android:background="@drawable/bg_config_rides_selection_device"
+                            android:elevation="@dimen/elevation_low"
+                            android:padding="8dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/sent_rides_monitoring_device_description"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/sent_rides_monitoring_device_type"
+                            nkspo:srcInMode="@{`ic_config_sent_rides_selection_phone`}"
+                            nkspo:srcInModeFromVm="@{viewModel.monitoringByApp ? `ic_config_sent_rides_selection_phone` : `ic_config_sent_rides_selection_zsl`}" />
+
+                        <TextView
+                            android:id="@+id/sent_rides_monitoring_device_type"
+                            style="@style/TextAppearance.Spoe.HeaderSecond"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/xl_spacing"
+                            android:layout_marginTop="@dimen/xl_spacing"
+                            android:layout_marginEnd="@dimen/xl_spacing"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/sent_rides_monitoring_device_image"
+                            app:layout_constraintTop_toTopOf="parent"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{viewModel.monitoringByApp ? `ride_status_monitoring_device_phone` : `ride_status_monitoring_device_zsl`}"
+                            tools:text="@string/ride_status_monitoring_device_phone_pl" />
+
+                        <TextView
+                            android:id="@+id/sent_rides_monitoring_device_header"
+                            style="@style/TextAppearance.Spoe.Header.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/xxl_spacing"
+                            android:layout_marginTop="@dimen/m_spacing"
+                            android:layout_marginEnd="@dimen/xxl_spacing"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/sent_rides_monitoring_device_image"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/sent_rides_monitoring_device_description"
+                            nkspo:textColorInMode="@{`spoeHeader`}"
+                            nkspo:translatedText="@{`config_sent_rides_selection_header`}"
+                            tools:text="@string/config_sent_rides_selection_header_pl" />
+
+                        <TextView
+                            android:id="@+id/sent_rides_monitoring_device_description"
+                            style="@style/TextAppearance.Spoe.TextContent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/xl_spacing"
+                            android:layout_marginEnd="@dimen/xl_spacing"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/sent_rides_monitoring_device_image"
+                            app:layout_constraintTop_toBottomOf="@+id/sent_rides_monitoring_device_type"
+                            nkspo:textColorInMode="@{`spoeTextContent`}"
+                            nkspo:translatedText="@{`ride_status_monitoring_device_description`}"
+                            tools:text="@string/ride_status_monitoring_device_description_pl" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sent_rides_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/s_spacing"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <!-- bottom confirm -->
+        <View
+            android:id="@+id/config_sent_rides_selection_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_area_height_small"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_sent_rides_selection_confirm_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/xxl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{viewModel.confirmButtonEnabled}"
+            android:onClick="@{() -> viewModel.onConfirmClick()}"
+            app:layout_constraintBottom_toBottomOf="@+id/config_sent_rides_selection_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/config_sent_rides_selection_bottom_area"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`config_sent_rides_selection_confirm`}"
+            tools:text="@string/config_sent_rides_selection_confirm_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

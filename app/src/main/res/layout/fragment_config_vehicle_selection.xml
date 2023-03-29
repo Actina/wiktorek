@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.configvehicleselection.ConfigVehicleSelectionFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_vehicle_selection_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`config_vehicle_selection_title`}"
+                tools:text="@string/config_vehicle_selection_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/config_vehicle_selection_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipChildren="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/bottom_barrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_toolbar"
+            nkspo:changeAnimationsEnabled="@{false}"
+            tools:listitem="@layout/item_config_vehicle_selection_vehicle" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottom_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="area_min_space_height,config_vehicle_selection_bottom_button" />
+
+        <View
+            android:id="@+id/config_vehicle_selection_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_barrier"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_vehicle_selection_bottom_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{viewModel.confirmButtonEnabled}"
+            android:onClick="@{() -> viewModel.onConfirmClick()}"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_barrier"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`config_vehicle_selection_confirm`}"
+            tools:text="@string/config_vehicle_selection_confirm_pl" />
+
+        <Space
+            android:id="@+id/area_min_space_height"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/isle_default_height"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

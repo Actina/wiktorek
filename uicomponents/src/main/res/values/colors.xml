@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark_demo">#3700B3</color>
+    <color name="blue">#0052A5</color>
+    <color name="lightBlue">#660052A5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkGray">#343A40</color>
+    <color name="bottomSheetPinColor">#C4C4C4</color>
+    <color name="gray">#737373</color>
+    <color name="lightGray">#aaaaaa</color>
+    <color name="lightGrayBackground">#F6F7FA</color>
+    <color name="statusBarGray">#64000000</color>
+    <color name="bloodRed">#DC0032</color>
+    <color name="bloodRedTransparent">#bbDC0032</color>
+    <color name="bloodRedDark">#84001E</color>
+    <color name="bloodRedLight">#FC0052</color>
+    <color name="sentRidesDetailGreen">#005D04</color>
+    <color name="sentRidesDetailRed">#84001E</color>
+    <color name="black">@color/blackBusiness</color>
+    <color name="blackBusiness">#343A40</color>
+    <color name="yellow">#EF7F00</color>
+    <color name="grayish">#BABABA</color>
+    <color name="orange">#EF7F00</color>
+    <color name="loadingBackground_light">#88000000</color>
+    <color name="loadingBackground_dark">#22ffffff</color>
+    <color name="loaderBackground_light">#88ffffff</color>
+    <color name="loaderBackground_dark">#88000000</color>
+    <color name="red">#FF0000</color>
+    <color name="darkOrange">#BE5A00</color>
+    <color name="darkRed">#7B0000</color>
+    <color name="popupMenuDivider">#000000</color>
+    <color name="ok">#008505</color>
+    <color name="not_ok">#ad0000</color>
+    <color name="alert">#F29833</color>
+    <color name="destructive">#E49696</color>
+    <color name="positive">#46C34A</color>
+    <color name="mainBlue">#95BBF9</color>
+
+    <color name="warningRed">#AD0000</color>
+
+    <color name="colorPrimary">@color/bloodRed</color>
+    <color name="colorPrimaryDark">@color/blackBusiness</color>
+    <color name="colorAccent">@color/mainBlue</color>
+
+    <color name="criticalErrorBackground">@color/bloodRed</color>
+    <color name="textPrimary">@color/blackBusiness</color>
+    <color name="textDisabled">@color/gray</color>
+    <color name="highlightedBlueText">#013F71</color>
+    <color name="textColorRed">@color/warningRed</color>
+
+    <color name="criticalErrorTextColor">@color/white</color>
+    <color name="accountBalanceText">@color/darkGray</color>
+
+    <color name="backgroundPrimary">@color/white</color>
+
+    <!--  Dashboard  -->
+    <color name="dashboardStatusGreen">#008505</color>
+    <color name="dashboardStatusYellow">#EF7F00</color>
+    <color name="dashboardStatusRed">#AD0000</color>
+    <color name="dashboardStatusGray">#BABABA</color>
+    <color name="dashboardBalancePostpaid">@color/blackBusiness</color>
+    <color name="dashboardBalanceZeroLow">@color/bloodRed</color>
+    <color name="dashboardBalanceOther">@color/blackBusiness</color>
+
+    <color name="activeSentItemActionBlue">@color/blue</color>
+    <color name="activeSentItemActionOrange">@color/darkOrange</color>
+    <color name="activeSentItemActionRed">@color/darkRed</color>
+
+    <color name="sentRideLoadingAddress">#008505</color>
+    <color name="sentRideDeliveryAddress">@color/bloodRedDark</color>
+
+    <!--  Notifications  -->
+    <color name="notification_color_default">#888888</color>
+    <color name="notification_color_critical">#DC0032</color>
+    <color name="notification_color_good">#008505</color>
+    <color name="notification_color_bad">#AD0000</color>
+    <color name="notification_color_crm">#0052A5</color>
+    <color name="bg_leftrounded_notif_crm_warning">@color/yellow</color>
+
+    <!--  Loading  -->
+    <color name="loadingScreenBackground">@color/white</color>
+    <color name="loadingScreenText">@color/blackBusiness</color>
+
+    <!--  Toolbar  -->
+    <color name="toolbarNoInternetBackground">@color/blue</color>
+    <color name="toolbarNoInternetText">@color/white</color>
+
+    <color name="headerTextPrimary">@color/white</color>
+    <color name="toolbarTextPrimary">@color/white</color>
+    <color name="toolbarIcon">@color/white</color>
+    <color name="toolbarBackgroundPrimary">@color/bloodRed</color>
+    <color name="toolbarBackgroundDarkPrimary">@color/toolbarDark</color>
+
+    <color name="tecsSessionExpireInText_light">@color/white</color>
+    <color name="tecsSessionExpireInBackground_light">#88AD0000</color>
+
+    <color name="help_tab_header_selected">@color/bloodRed</color>
+
+    <!--  Buttons  -->
+    <color name="buttonBlue">#0052A5</color>
+    <color name="buttonBlueText">@color/white</color>
+
+    <color name="buttonRed">#AD0000</color>
+    <color name="buttonRedClicked">#7B0000</color>
+    <color name="buttonRedOutlinedText">@color/bloodRed</color>
+    <color name="buttonRedText">@color/white</color>
+
+    <!--  Icons  -->
+    <color name="iconYellow">@color/yellow</color>
+
+    <color name="iconRed">@color/bloodRed</color>
+    <color name="iconRedTint">#CC3A3A</color>
+
+    <color name="iconWhiteTint">@color/white</color>
+
+    <color name="blueIcon">@color/blue</color>
+    <color name="blueText">@color/blue</color>
+
+    <color name="darkGrayIcon">#343A40</color>
+    <color name="grayIcon">@color/gray</color>
+    <color name="grayText">@color/gray</color>
+
+    <color name="blackIcon">#000000</color>
+    <color name="greenIcon">#008505</color>
+    <color name="redIcon">@color/warningRed</color>
+    <color name="whiteIcon">@color/white</color>
+
+    <color name="vehicleIconText">@color/black</color>
+
+    <color name="dotsIconMore">#343A40</color>
+
+    <color name="navigationIconRouteTint">@color/blue</color>
+
+    <color name="iconBottomDrawer">#343A40</color>
+    <color name="bottomDrawerBackground">#fff</color>
+
+    <color name="iconTecsAmount">#343A40</color>
+    <color name="tecsResultHeader">@color/black</color>
+
+    <!--  Tiles  -->
+    <color name="tileBackgroundPrimary">@color/white</color>
+    <color name="tileNotificationBackground">#ccFFFFFF</color>
+    <color name="tileNotificationStroke">#88acacac</color>
+
+    <color name="tileRegistrationBackground">@color/white</color>
+
+    <color name="rideTypeSelectionTileBackground">@color/white</color>
+
+    <!--  Dialogs  -->
+    <color name="calendarHeaderRedBackground">@color/bloodRed</color>
+    <color name="calendarHeaderText">@color/white</color>
+    <color name="calendarBackground">@color/white</color>
+
+    <color name="dialogHeaderOrangeText">@color/darkOrange</color>
+    <color name="dialogBackgroundPrimary">@color/white</color>
+    <color name="dialogHeaderTextPrimary">@color/blackBusiness</color>
+
+    <color name="spoeHeader">@color/darkGray</color>
+    <color name="spoeOnboarding">@color/gray</color>
+    <color name="spoeOnboardingTolledBusinessNumber">@color/blackBusiness</color>
+
+    <color name="spoeTextContent">@color/blackBusiness</color>
+    <color name="spoeTextContent_light">@color/blackBusiness</color>
+    <!--    <color name="spoeTextContent_dark">#B8B8B8</color>-->
+
+    <color name="spoeTextContentLight">@color/gray</color>
+
+    <color name="warningRedFrame">@color/bloodRed</color>
+    <color name="warningYellowFrame">@color/yellow</color>
+    <color name="warningFrameBackground">@color/white</color>
+
+    <!--  Onboarding  -->
+    <color name="wormDotIndicator">@color/blue</color>
+    <color name="wormDotIndicatorBlueOpacity">#660052A5</color>
+
+    <!--  Misc  -->
+    <color name="instanceIssuesDivider">@color/grayish</color>
+
+    <color name="pinText">@color/darkGray</color>
+
+    <color name="sentRideDetailsListHeader">@color/blackBusiness</color>
+
+    <color name="middleTimerDivider">@color/lightGrayBackground</color>
+
+    <color name="whiteText">#fff</color>
+
+    <color name="inputText">@color/black</color>
+    <color name="inputOutlinedStroke">@color/gray</color>
+
+    <!-- LIGHT MODE -->
+    <color name="colorPrimary_light">@color/bloodRed</color>
+    <color name="colorPrimaryDark_light">@color/blackBusiness</color>
+    <color name="colorAccent_light">@color/mainBlue</color>
+
+    <color name="transparent_light">#00000000</color>
+
+    <color name="backgroundPrimary_light">@color/white</color>
+
+    <color name="criticalErrorBackground_light">@color/bloodRed</color>
+    <color name="textPrimary_light">@color/blackBusiness</color>
+    <color name="textDisabled_light">@color/gray</color>
+    <color name="highlightedBlueText_light">#013F71</color>
+    <color name="textColorRed_light">@color/warningRed</color>
+
+    <color name="criticalErrorTextColor_light">@color/white</color>
+    <color name="accountBalanceText_light">@color/darkGray</color>
+
+    <color name="colorControlActivated_light">@color/blue</color>
+    <color name="calendarWeekDays_light">#8B000000</color>
+
+    <!--  Dashboard  -->
+    <color name="dashboardStatusGreen_light">#008505</color>
+    <color name="dashboardStatusYellow_light">#EF7F00</color>
+    <color name="dashboardStatusRed_light">#AD0000</color>
+    <color name="dashboardStatusGray_light">#BABABA</color>
+    <color name="dashboardBalancePostpaid_light">@color/blackBusiness</color>
+    <color name="dashboardBalanceZeroLow_light">@color/bloodRed</color>
+    <color name="dashboardBalanceOther_light">@color/blackBusiness</color>
+
+    <color name="activeSentItemActionBlue_light">@color/blue</color>
+    <color name="activeSentItemActionOrange_light">@color/darkOrange</color>
+    <color name="activeSentItemActionRed_light">@color/darkRed</color>
+
+    <color name="sentRideLoadingAddress_light">#008505</color>
+    <color name="sentRideDeliveryAddress_light">@color/bloodRedDark</color>
+
+    <!--  Notifications  -->
+    <color name="notification_color_default_light">#888888</color>
+    <color name="notification_color_critical_light">#DC0032</color>
+    <color name="notification_color_good_light">#008505</color>
+    <color name="notification_color_bad_light">#AD0000</color>
+    <color name="notification_color_crm_light">#0052A5</color>
+    <color name="bg_leftrounded_notif_crm_warning_light">@color/yellow</color>
+
+    <!--  Loading  -->
+    <color name="loadingScreenBackground_light">@color/white</color>
+    <color name="loadingScreenText_light">@color/blackBusiness</color>
+    <color name="loadingSyncToastText_light">@color/white</color>
+
+    <!--  Toolbar  -->
+    <color name="toolbarNoInternetBackground_light">@color/blue</color>
+    <color name="toolbarNoInternetText_light">@color/white</color>
+
+    <color name="headerTextPrimary_light">@color/white</color>
+    <color name="toolbarTextPrimary_light">@color/white</color>
+    <color name="toolbarIcon_light">@color/white</color>
+    <color name="toolbarBackgroundPrimary_light">@color/bloodRed</color>
+    <color name="toolbarBackgroundDarkPrimary_light">@color/toolbarDark</color>
+
+    <color name="help_tab_header_selected_light">@color/bloodRed</color>
+    <color name="help_tab_header_normal_light">@color/textPrimary</color>
+    <color name="help_tab_selected_indicator_light">@color/bloodRed</color>
+
+    <!--  Buttons  -->
+    <color name="buttonDisabled_light">@color/gray</color>
+
+    <color name="buttonBlue_light">#0052A5</color>
+    <color name="buttonBlueClicked_light">#003E71</color>
+    <color name="buttonBlueText_light">@color/white</color>
+    <color name="buttonBlueText_light_light">@color/white</color>
+
+    <color name="buttonGreen_light">#008505</color>
+    <color name="buttonGreenClicked_light">#005D04</color>
+    <color name="buttonGreenText_light">@color/white</color>
+
+    <color name="buttonRed_light">#AD0000</color>
+    <color name="buttonRedClicked_light">#7B0000</color>
+    <color name="buttonRedOutlinedText_light">@color/bloodRed</color>
+    <color name="buttonRedText_light">@color/white</color>
+
+    <!-- Checkbox -->
+    <color name="checkbox_tint_checked_enabled_light">@color/blue</color>
+    <color name="checkbox_tint_unchecked_enabled_light">@color/blue</color>
+    <color name="checkbox_tint_disabled_light">@color/gray</color>
+
+    <!--  Icons  -->
+    <color name="iconYellow_light">@color/yellow</color>
+
+    <color name="iconRed_light">@color/bloodRed</color>
+
+    <color name="iconRedTint_light">#CC3A3A</color>
+
+    <color name="iconWhiteTint_light">@color/white</color>
+
+    <color name="blueIcon_light">@color/blue</color>
+    <color name="blueText_light">@color/blue</color>
+
+    <color name="darkGrayIcon_light">#343A40</color>
+    <color name="grayIcon_light">@color/gray</color>
+    <color name="grayText_light">@color/gray</color>
+
+    <color name="blackIcon_light">#000000</color>
+    <color name="greenIcon_light">#008505</color>
+    <color name="redIcon_light">@color/warningRed</color>
+    <color name="whiteIcon_light">@color/white</color>
+
+    <color name="vehicleIconText_light">@color/black</color>
+
+    <color name="dotsIconMore_light">#343A40</color>
+
+    <color name="navigationIconRouteTint_light">@color/blue</color>
+
+    <color name="iconBottomDrawer_light">#343A40</color>
+    <color name="bottomDrawerBackground_light">#fff</color>
+
+    <color name="iconTecsAmount_light">#343A40</color>
+    <color name="tecsResultHeader_light">@color/black</color>
+
+    <!--  Tiles  -->
+    <color name="tileBackgroundPrimary_light">@color/white</color>
+    <color name="tileNotificationBackground_light">#ccFFFFFF</color>
+    <color name="tileNotificationStroke_light">#88acacac</color>
+
+    <color name="tileRegistrationBackground_light">@color/white</color>
+
+    <color name="rideTypeSelectionTileBackground_light">@color/white</color>
+
+    <!--  Dialogs  -->
+    <color name="calendarHeaderRedBackground_light">@color/bloodRed</color>
+    <color name="calendarHeaderText_light">@color/white</color>
+    <color name="calendarBackground_light">@color/white</color>
+    <color name="calendarText_light">@color/spoeTextContent</color>
+    <color name="calendarText_dark">#CCCCCC</color>
+
+    <color name="dialogHeaderOrangeText_light">@color/darkOrange</color>
+    <color name="dialogBackgroundPrimary_light">@color/white</color>
+    <color name="dialogHeaderTextPrimary_light">@color/blackBusiness</color>
+
+    <color name="spoeHeader_light">@color/darkGray</color>
+    <color name="spoeOnboarding_light">@color/gray</color>
+    <color name="spoeOnboardingTolledBusinessNumber_light">@color/blackBusiness</color>
+
+    <color name="spoeTextContentLight_light">@color/gray</color>
+
+    <color name="warningRedText_light">@color/bloodRed</color>
+    <color name="warningYellowText_light">@color/yellow</color>
+
+    <color name="warningRedFrame_light">@color/bloodRed</color>
+    <color name="warningYellowFrame_light">@color/yellow</color>
+    <color name="warningFrameBackground_light">@color/white</color>
+
+    <!--  Onboarding  -->
+    <color name="wormDotIndicator_light">@color/blue</color>
+    <color name="wormDotIndicatorBlueOpacity_light">#660052A5</color>
+
+    <!--  Introcarousel  -->
+    <color name="introcarousel_default_dot_light">@color/lightBlue</color>
+    <color name="introcarousel_selected_dot_light">@color/blue</color>
+
+    <!--  Misc  -->
+    <color name="instanceIssuesDivider_light">@color/grayish</color>
+    <color name="pinText_light">@color/darkGray</color>
+    <color name="sentRideDetailsListHeader_light">@color/blackBusiness</color>
+    <color name="middleTimerDivider_light">@color/lightGrayBackground</color>
+    <color name="whiteText_light">#fff</color>
+    <color name="inputText_light">@color/black</color>
+    <color name="inputHint_light">#737373</color>
+    <color name="inputOutlinedStroke_light">@color/gray</color>
+    <color name="rippleRedMask_light">@color/bloodRedDark</color>
+    <color name="rippleRedBackground_light">@color/bloodRed</color>
+    <color name="sentRideItemConfigContentEnabled_light">#343A40</color>
+    <color name="sentRideItemConfigContentDisabled_light">#737373</color>
+
+    <!-- DARK MODE -->
+    <color name="destructive_dark">#E49696</color>
+    <color name="positive_dark">#46C34A</color>
+    <color name="mainBlue_dark">#95BBF9</color>
+    <color name="alert_dark">#F4A952</color>
+
+    <color name="colorPrimary_dark">@color/mainBlue</color>
+    <color name="colorPrimaryDark_dark">#000066</color>
+    <color name="colorAccent_dark">@color/mainBlue</color>
+
+    <color name="transparent_dark">#00000000</color>
+
+    <color name="backgroundPrimary_dark">#121212</color>
+    <color name="criticalErrorBackground_dark">#1F1F1F</color>
+    <color name="textColorRed_dark">@color/destructive</color>
+    <color name="textPrimary_dark">#B8B8B8</color>
+    <color name="textDisabled_dark">#737373</color>
+    <color name="highlightedBlueText_dark">#95BBF9</color>
+    <color name="criticalErrorTextColor_dark">#cccccc</color>
+
+    <color name="accountBalanceText_dark">#737373</color>
+
+    <color name="colorControlActivated_dark">#95BBF9</color>
+    <color name="calendarWeekDays_dark">#B8B8B8</color>
+
+    <!--  Dashboard  -->
+    <color name="dashboardStatusGreen_dark">@color/positive</color>
+    <color name="dashboardStatusYellow_dark">@color/alert</color>
+    <color name="dashboardStatusRed_dark">@color/destructive</color>
+    <color name="dashboardStatusGray_dark">#CCCCCC</color>
+    <color name="dashboardBalancePostpaid_dark">#cccccc</color>
+    <color name="dashboardBalanceZeroLow_dark">@color/destructive</color>
+    <color name="dashboardBalanceOther_dark">#B8B8B8</color>
+
+    <color name="activeSentItemActionBlue_dark">@color/mainBlue</color>
+    <color name="activeSentItemActionOrange_dark">@color/alert</color>
+    <color name="activeSentItemActionRed_dark">@color/destructive</color>
+
+    <color name="sentRideLoadingAddress_dark">@color/positive</color>
+    <color name="sentRideDeliveryAddress_dark">@color/destructive</color>
+
+    <!--  Notifications  -->
+    <color name="notification_color_default_dark">#888888</color>
+    <color name="notification_color_critical_dark">@color/destructive</color>
+    <color name="notification_color_good_dark">@color/positive</color>
+    <color name="notification_color_bad_dark">@color/destructive</color>
+    <color name="notification_color_crm_dark">@color/mainBlue</color>
+    <color name="bg_leftrounded_notif_crm_warning_dark">@color/alert</color>
+
+    <!--  Loading  -->
+    <color name="loadingScreenBackground_dark">@android:color/transparent</color>
+    <color name="loadingScreenText_dark">#cccccc</color>
+    <color name="loadingSyncToastText_dark">#cccccc</color>
+
+    <!--  Toolbar  -->
+    <color name="toolbarNoInternetBackground_dark">@color/mainBlue</color>
+    <color name="toolbarNoInternetText_dark">#121212</color>
+    <color name="headerTextPrimary_dark">#CCCCCC</color>
+    <color name="toolbarTextPrimary_dark">#B8B8B8</color>
+    <color name="toolbarIcon_dark">#CCCCCC</color>
+    <color name="toolbarDark_dark">@android:color/black</color>
+    <color name="toolbarBackgroundPrimary_dark">#1F1F1F</color>
+    <color name="toolbarBackgroundDarkPrimary_dark">#1F1F1F</color>
+
+    <color name="tecsSessionExpireInText_dark">#CCCCCC</color>
+    <color name="tecsSessionExpireInBackground_dark">#1F1F1F</color>
+
+    <color name="help_tab_header_selected_dark">@color/destructive</color>
+    <color name="help_tab_header_normal_dark">#cccccc</color>
+    <color name="help_tab_selected_indicator_dark">@color/destructive</color>
+
+    <!--  Buttons  -->
+    <color name="buttonDisabled_dark">#737373</color>
+
+    <color name="buttonBlue_dark">#95BBF9</color>
+    <color name="buttonBlueClicked_dark">#003E71</color>
+    <color name="buttonBlueText_dark">#343A40</color>
+
+    <color name="buttonGreen_dark">@color/positive</color>
+    <color name="buttonGreenClicked_dark">@color/positive</color>
+    <color name="buttonGreenText_dark">#343A40</color>
+
+    <color name="buttonRed_dark">@color/destructive</color>
+    <color name="buttonRedClicked_dark">@color/destructive</color>
+    <color name="buttonRedOutlinedText_dark">@color/destructive</color>
+    <color name="buttonRedText_dark">#343A40</color>
+
+    <!-- Checkbox -->
+    <color name="checkbox_tint_checked_enabled_dark">#99bbd5</color>
+    <color name="checkbox_tint_unchecked_enabled_dark">#99bbd5</color>
+    <color name="checkbox_tint_disabled_dark">@color/buttonDisabled_dark</color>
+
+    <!--  Icons  -->
+    <color name="iconYellow_dark">@color/alert</color>
+
+    <color name="iconRed_dark">@color/destructive</color>
+    <color name="iconRedTint_dark">@color/destructive</color>
+
+    <color name="blueIcon_dark">@color/mainBlue</color>
+    <color name="blueText_dark">@color/mainBlue</color>
+
+    <color name="darkGrayIcon_dark">#737373</color>
+    <color name="grayIcon_dark">#737373</color>
+    <color name="grayText_dark">#737373</color>
+
+    <color name="blackIcon_dark">#CCCCCC</color>
+    <color name="greenIcon_dark">@color/positive</color>
+    <color name="redIcon_dark">@color/destructive</color>
+    <color name="whiteIcon_dark">#cccccc</color>
+
+    <color name="vehicleIconText_dark">#B8B8B8</color>
+
+    <color name="dotsIconMore_dark">#CCCCCC</color>
+
+    <color name="navigationIconRouteTint_dark">@color/mainBlue</color>
+
+    <color name="iconBottomDrawer_dark">#CCCCCC</color>
+    <color name="bottomDrawerBackground_dark">#1F1F1F</color>
+
+    <color name="iconTecsAmount_dark">#DADADA</color>
+    <color name="tecsResultHeader_dark">#cccccc</color>
+
+    <!--  Tiles  -->
+    <color name="tileBackgroundPrimary_dark">#1F1F1F</color>
+    <color name="tileNotificationBackground_dark">#1F1F1F</color>
+    <color name="tileNotificationStroke_dark">#1F1F1F</color>
+    <color name="tileRegistrationBackground_dark">#1F1F1F</color>
+
+    <color name="rideTypeSelectionTileBackground_dark">#1F1F1F</color>
+
+    <!--  Dialogs  -->
+    <color name="calendarHeaderRedBackground_dark">@color/destructive</color>
+    <color name="calendarHeaderText_dark">#343A40</color>
+    <color name="calendarBackground_dark">#1F1F1F</color>
+
+    <color name="dialogBackgroundPrimary_dark">#1F1F1F</color>
+    <color name="dialogHeaderTextPrimary_dark">#CCCCCC</color>
+    <color name="dialogHeaderOrangeText_dark">@color/alert</color>
+
+    <color name="spoeHeader_dark">#CCCCCC</color>
+    <color name="spoeOnboarding_dark">#BABABA</color>
+    <color name="spoeOnboardingTolledBusinessNumber_dark">#CCCCCC</color>
+    <color name="spoeTextContent_dark">#B8B8B8</color>
+    <color name="spoeTextContentLight_dark">#B8B8B8</color>
+
+    <color name="warningRedText_dark">@color/destructive</color>
+    <color name="warningYellowText_dark">@color/alert</color>
+
+    <color name="warningRedFrame_dark">@color/destructive</color>
+    <color name="warningYellowFrame_dark">@color/alert</color>
+    <color name="warningFrameBackground_dark">@color/backgroundPrimary_dark</color>
+
+    <!--  Onboarding  -->
+    <color name="wormDotIndicator_dark">#95BBF9</color>
+    <color name="wormDotIndicatorBlueOpacity_dark">#6695BBF9</color>
+
+    <!--  Introcarousel  -->
+    <color name="introcarousel_default_dot_dark">@color/blue</color>
+    <color name="introcarousel_selected_dot_dark">@color/mainBlue</color>
+
+    <!--  Misc  -->
+    <color name="instanceIssuesDivider_dark">#CCCCCC</color>
+    <color name="sentRideDetailsListHeader_dark">#cccccc</color>
+    <color name="inputText_dark">#cccccc</color>
+    <color name="inputHint_dark">#cccccc</color>
+    <color name="inputOutlinedStroke_dark">#cccccc</color>
+    <color name="iconWhiteTint_dark">#CCCCCC</color>
+    <color name="whiteText_dark">#cccccc</color>
+    <color name="pinText_dark">#CCCCCC</color>
+    <color name="middleTimerDivider_dark">#F6F7FA</color>
+    <color name="rippleRedMask_dark">@color/destructive</color>
+    <color name="rippleRedBackground_dark">@color/destructive</color>
+    <color name="sentRideItemConfigContentEnabled_dark">#cccccc</color>
+    <color name="sentRideItemConfigContentDisabled_dark">#737373</color>
+
+    <color name="ride_history_frame_green_light">#008505</color>
+    <color name="ride_history_frame_green_dark">#46C34A</color>
+    <color name="ride_history_frame_red_light">#AD0000</color>
+    <color name="ride_history_frame_red_dark">#E49696</color>
+</resources>

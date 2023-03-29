@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/bloodRed</color>
+    <color name="colorPrimaryDark">@color/bloodRedDark</color>
+    <color name="colorPrimary_demo">#6200EE</color>
+    <color name="toolbar">@color/toolbarBackgroundPrimary</color>
+    <color name="toolbarNoInternetBackground">@color/blue</color>
+    <color name="toolbarDark">@color/bloodRedDark</color>
+    <color name="colorAccent">#03DAC5</color>
+</resources>

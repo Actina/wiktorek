@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.configsentridesselection.adapter.SentRideItem.SentRideContent" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/s_spacing"
+        android:paddingBottom="@dimen/s_spacing">
+
+        <View
+            android:id="@+id/item_config_sent_rides_item_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/m_spacing"
+            android:clickable="@{item.viewModel.itemEnabled}"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> item.viewModel.onItemClick()}"
+            app:layout_constraintBottom_toBottomOf="@+id/item_config_sent_rides_item_dates"
+            app:layout_constraintEnd_toEndOf="@+id/item_config_sent_rides_item_info_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_config_sent_rides_item_sent_number"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/item_config_sent_rides_item_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/m_spacing"
+            android:checked="@{item.viewModel.itemChecked}"
+            android:clickable="false"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="false"
+            android:visibility="@{item.viewModel.itemEnabled ? View.VISIBLE : View.INVISIBLE}"
+            app:buttonTint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/item_config_sent_rides_item_dates"
+            app:layout_constraintStart_toStartOf="@+id/item_config_sent_rides_item_tile"
+            app:layout_constraintTop_toTopOf="@+id/item_config_sent_rides_item_tile"
+            nkspo:tintInMode="@{`checkbox_tint_mode_selector`}" />
+
+        <ImageView
+            android:id="@+id/item_config_sent_rides_item_info_image"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/m_spacing"
+            android:clickable="true"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> item.viewModel.onItemDetailsClick()}"
+            android:paddingStart="@dimen/xl_spacing"
+            android:paddingEnd="@dimen/m_spacing"
+            app:layout_constraintBottom_toBottomOf="@+id/item_config_sent_rides_item_tile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_config_sent_rides_item_tile"
+            nkspo:srcInMode="@{`ic_vehicle_info_enabled`}" />
+
+        <TextView
+            android:id="@+id/item_config_sent_rides_item_sent_number"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{item.viewModel.itemEnabled}"
+            android:paddingTop="@dimen/m_spacing"
+            android:text="@{item.data.item.sentNumber}"
+            app:layout_constraintBottom_toTopOf="@+id/item_config_sent_rides_item_dates"
+            app:layout_constraintEnd_toStartOf="@+id/item_config_sent_rides_item_info_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/item_config_sent_rides_item_check_box"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:textColorListInMode="@{`text_color_enabled_state`}"
+            tools:text="SENT2020120100002" />
+
+        <TextView
+            android:id="@+id/item_config_sent_rides_item_dates"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{item.viewModel.itemEnabled}"
+            android:paddingBottom="@dimen/m_spacing"
+            android:text="@{item.viewModel.sentDates()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/item_config_sent_rides_item_info_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/item_config_sent_rides_item_check_box"
+            app:layout_constraintTop_toBottomOf="@+id/item_config_sent_rides_item_sent_number"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:textColorListInMode="@{`text_color_enabled_state`}"
+            tools:text="20.12.2020 - 22.12.2020" />
+
+        <ImageView
+            android:id="@+id/item_config_sent_rides_item_disabled_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:visibility="@{item.viewModel.itemEnabled ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/item_config_sent_rides_item_tile"
+            app:layout_constraintStart_toStartOf="@+id/item_config_sent_rides_item_tile"
+            app:layout_constraintTop_toTopOf="@+id/item_config_sent_rides_item_sent_number"
+            app:srcCompat="@drawable/ic_config_sent_rides_checkbox_disabled_light" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

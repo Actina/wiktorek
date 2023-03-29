@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.help.HelpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <ScrollView
+            android:id="@+id/help_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/bottom_barrier"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="@dimen/xxl_spacing"
+                android:paddingBottom="@dimen/xxl_spacing"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <TextView
+                    android:id="@+id/help_header"
+                    style="@style/TextAppearance.Spoe.HeaderFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/xxl_spacing"
+                    android:paddingRight="@dimen/xxl_spacing"
+                    app:layout_constraintTop_toTopOf="parent"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`help_header`}"
+                    tools:text="@string/help_header_pl" />
+
+                <TextView
+                    android:id="@+id/help_content"
+                    style="@style/TextAppearance.Spoe.TextContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sm_spacing"
+                    android:paddingLeft="@dimen/xxl_spacing"
+                    android:paddingRight="@dimen/xxl_spacing"
+                    app:layout_constraintTop_toBottomOf="@+id/help_header"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`help_sent_content`}"
+                    tools:text="@string/help_sent_content_pl" />
+
+                <TextView
+                    android:id="@+id/help_phone"
+                    style="@style/TextAppearance.Spoe.TextContent.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m_spacing"
+                    android:drawablePadding="@dimen/xxl_spacing"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:paddingLeft="@dimen/xxl_spacing"
+                    android:paddingTop="@dimen/m_spacing"
+                    android:paddingRight="@dimen/xxl_spacing"
+                    android:paddingBottom="@dimen/m_spacing"
+                    app:drawableStartCompat="@drawable/ic_phone_light"
+                    app:layout_constraintTop_toBottomOf="@+id/help_content"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`help_sent_phone`}"
+                    tools:text="@string/help_sent_phone_pl" />
+
+                <TextView
+                    android:id="@+id/help_mail"
+                    style="@style/TextAppearance.Spoe.TextContent.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/xxl_spacing"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:paddingLeft="@dimen/xxl_spacing"
+                    android:paddingTop="@dimen/m_spacing"
+                    android:paddingRight="@dimen/xxl_spacing"
+                    android:paddingBottom="@dimen/m_spacing"
+                    app:drawableStartCompat="@drawable/ic_mail_light"
+                    app:layout_constraintTop_toBottomOf="@+id/help_phone"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`help_sent_mail`}"
+                    tools:text="@string/help_sent_mail_pl" />
+
+                <TextView
+                    android:id="@+id/help_website"
+                    style="@style/TextAppearance.Spoe.TextContent.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/xxl_spacing"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:paddingLeft="@dimen/xxl_spacing"
+                    android:paddingTop="@dimen/m_spacing"
+                    android:paddingRight="@dimen/xxl_spacing"
+                    android:paddingBottom="@dimen/m_spacing"
+                    app:drawableStartCompat="@drawable/ic_website_light"
+                    app:layout_constraintTop_toBottomOf="@+id/help_mail"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`help_sent_website`}"
+                    tools:text="@string/help_sent_website_pl" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottom_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="help_tutorial_header,area_min_space_height" />
+
+        <View
+            android:id="@+id/help_tutorial_area"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_barrier"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <TextView
+            android:id="@+id/help_tutorial_header"
+            style="@style/TextAppearance.Spoe.HeaderFirst"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toTopOf="@id/help_tutorial_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_barrier"
+            app:switchPadding="@dimen/m_spacing"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`help_tutorial_header`}"
+            tools:text="@string/help_tutorial_header_pl" />
+
+        <TextView
+            android:id="@+id/help_tutorial_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            android:layout_marginBottom="@dimen/sm_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:paddingLeft="@dimen/xxl_spacing"
+            android:paddingRight="@dimen/xxl_spacing"
+            app:layout_constraintBottom_toTopOf="@id/help_tutorial_see_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_tutorial_header"
+            app:layout_constraintVertical_bias="0.0"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`help_tutorial_content`}"
+            tools:text="@string/help_tutorial_content_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/help_tutorial_see_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            android:layout_marginBottom="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/help_tutorial_content"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`help_tutorial_see_button`}"
+            tools:text="@string/help_tutorial_see_button_pl" />
+
+        <Space
+            android:id="@+id/area_min_space_height"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/isle_help_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PinBox">
+        <attr name="state_value_hidden" format="boolean" />
+        <attr name="state_locked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedMfLogoView">
+        <attr name="logo_background" format="integer" />
+    </declare-styleable>
+</resources>

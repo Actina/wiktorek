@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.etoll.front.configvehicleselection.ConfigVehicleSelectionBottomSheetFragment.BottomSheetDialogViewModelSchema" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/padding_button_down"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <View
+            android:id="@+id/config_vehicle_selection_bottom_sheet_pin"
+            android:layout_width="31dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="@dimen/m_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}"
+            nkspo:backgroundDrawableInMode="@{`bottom_sheet_pin`}" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxl_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_pin"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`config_vehicle_selection_details_vehicle_header`}"
+            tools:text="@string/config_vehicle_selection_details_vehicle_header_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_make"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_vehicle_brand`}"
+            tools:text="@string/config_vehicle_selection_details_vehicle_brand_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_make_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModelSchema.selectedVehicle.brand}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_vehicle_make"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_vehicle_make"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_make"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="Scania" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_model"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_make"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_vehicle_model`}"
+            tools:text="@string/config_vehicle_selection_details_vehicle_model_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_model_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModelSchema.selectedVehicle.model}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_vehicle_model"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_vehicle_model"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_model"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="R 500 V8 EEV" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_license_plate_number"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_model"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_vehicle_license_plate`}"
+            tools:text="@string/config_vehicle_selection_details_vehicle_license_plate_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_license_plate_number_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModelSchema.selectedVehicle.licensePlate}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_license_plate_number"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_license_plate_number"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_license_plate_number"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="WN 6481H" />
+
+        <!--TODO: after mvp, docelowo mamy tu tłumaczyć numery kategorii wagowej np. 13, 14 na odpowiednie symbole np. N1, N3 itd, -->
+        <!--string config_vehicle_selection_details_vehicle_weight_class nie jest teraz zamieszczony w excelu z translacjami-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_category"-->
+        <!--            style="@style/TextAppearance.Spoe.TextContent.Bold.BottomSheet"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_license_plate_number"-->
+        <!--            nkspo:translatedText="@{`config_vehicle_selection_details_vehicle_weight_class`}"-->
+        <!--            tools:text="@string/config_vehicle_selection_details_vehicle_weight_class" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_category_value"-->
+        <!--            style="@style/TextAppearance.Spoe.TextContent"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_vehicle_category"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_vehicle_category"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_category"-->
+        <!--            tools:text="N3" />-->
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_emission_class"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_license_plate_number_value"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_vehicle_emission_class`}"
+            tools:text="@string/config_vehicle_selection_details_vehicle_emission_class_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_emission_class_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModelSchema.selectedVehicle.emissionClass}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_vehicle_emission_class"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_vehicle_emission_class"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_emission_class"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="EURO 5" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_sub_account_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_vehicle_emission_class"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`config_vehicle_selection_details_sub_account_header`}"
+            tools:text="@string/config_vehicle_selection_details_sub_account_header_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_account_name"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_sub_account_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_sub_account_name`}"
+            tools:text="@string/config_vehicle_selection_details_sub_account_name_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_account_name_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModelSchema.selectedVehicle.accountInfo.alias}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_account_name"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_account_name"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_account_name"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="Billing Account" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_account_id"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_account_name"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_sub_account_id`}"
+            tools:text="@string/config_vehicle_selection_details_sub_account_id_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_account_id_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModelSchema.selectedVehicle.accountInfo.id)}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_account_id"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_account_id"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_account_id"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="001" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_account_type"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_account_id"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`config_vehicle_selection_details_sub_account_type`}"
+            tools:text="@string/config_vehicle_selection_details_sub_account_type_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_account_type_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_account_type"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_account_type"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_bottom_sheet_account_type"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{viewModelSchema.untranslatedAccountType}"
+            tools:text="przedpłacone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_vehicle_selection_bottom_sheet_cancel_button"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxl_spacing"
+            android:layout_marginEnd="@dimen/m_spacing"
+            android:onClick="@{()->viewModelSchema.onCancelSelected()}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/config_vehicle_selection_bottom_sheet_select_button"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/config_vehicle_selection_bottom_sheet_account_type"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_red_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_red_selector`}"
+            nkspo:translatedText="@{`config_vehicle_selection_details_cancel`}"
+            tools:text="@string/config_vehicle_selection_details_cancel_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_vehicle_selection_bottom_sheet_select_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModelSchema.onChooseSelected()}"
+            app:layout_constraintBottom_toTopOf="@id/config_vehicle_selection_bottom_sheet_cancel_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/config_vehicle_selection_bottom_sheet_cancel_button"
+            app:layout_constraintTop_toBottomOf="@+id/config_vehicle_selection_bottom_sheet_cancel_button"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`config_vehicle_selection_details_select`}"
+            tools:text="@string/config_vehicle_selection_details_select_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

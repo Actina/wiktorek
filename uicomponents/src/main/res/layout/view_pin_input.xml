@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <pl.gov.mf.mobile.ui.components.views.pin.PinBox
+        android:id="@+id/pin_box_1"
+        style="@style/PinBox"
+        android:layout_marginRight="@dimen/xxl_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/pin_box_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/pin_box_max_width"
+        app:layout_constraintWidth_min="@dimen/pin_box_min_width" />
+
+    <pl.gov.mf.mobile.ui.components.views.pin.PinBox
+        android:id="@+id/pin_box_2"
+        style="@style/PinBox"
+        android:layout_marginRight="@dimen/xxl_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/pin_box_3"
+        app:layout_constraintStart_toEndOf="@+id/pin_box_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/pin_box_max_width"
+        app:layout_constraintWidth_min="@dimen/pin_box_min_width" />
+
+    <pl.gov.mf.mobile.ui.components.views.pin.PinBox
+        android:id="@+id/pin_box_3"
+        style="@style/PinBox"
+        android:layout_marginRight="@dimen/xxl_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/pin_box_4"
+        app:layout_constraintStart_toEndOf="@+id/pin_box_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/pin_box_max_width"
+        app:layout_constraintWidth_min="@dimen/pin_box_min_width" />
+
+    <pl.gov.mf.mobile.ui.components.views.pin.PinBox
+        android:id="@+id/pin_box_4"
+        style="@style/PinBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pin_box_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/pin_box_max_width"
+        app:layout_constraintWidth_min="@dimen/pin_box_min_width" />
+
+    <EditText
+        android:id="@+id/pin_input"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent"
+        android:cursorVisible="false"
+        android:inputType="number"
+        android:maxLength="4"
+        android:textColor="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</merge>

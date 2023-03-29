@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="pl.gov.mf.etoll.R" />
+
+        <import type="pl.gov.mf.etoll.front.registrationmodeselection.RegistrationSelectedRideMode" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.registrationmodeselection.RegistrationModeSelectionFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/registration_mode_selection_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`registration_mode_selection_title`}"
+                tools:text="@string/registration_mode_selection_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:id="@+id/registration_mode_selection_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/registration_mode_selection_tile"
+            app:layout_constraintTop_toBottomOf="@id/registration_mode_selection_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <TextView
+                    android:id="@+id/registration_mode_selection_header"
+                    style="@style/TextAppearance.Spoe.HeaderFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_content_horizontal"
+                    android:layout_marginRight="@dimen/padding_content_horizontal"
+                    android:paddingTop="@dimen/padding_topdown_cell"
+                    android:paddingBottom="@dimen/padding_topdown_cell"
+                    nkspo:backgroundColorInMode="@{`backgroundPrimary`}"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`registration_mode_selection_header`}"
+                    tools:text="@string/registration_mode_selection_header_pl" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/xs_spacing"
+                    android:paddingBottom="@dimen/xs_spacing">
+
+                    <CheckedTextView
+                        android:id="@+id/registration_mode_selection_nkspo_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="@dimen/margin_cell_horizontal"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        android:layout_marginRight="@dimen/margin_cell_horizontal"
+                        android:layout_marginBottom="@dimen/xs_spacing"
+                        android:checked="@{viewModel.viewData == RegistrationSelectedRideMode.HEAVY}"
+                        android:clickable="true"
+                        android:elevation="@dimen/elevation_high"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:minHeight="@dimen/registration_mode_selection_tile_height"
+                        android:onClick="@{()->viewModel.onHeavyClicked()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:backgroundDrawableInMode="@{`registration_mode_selection_selector`}" />
+
+                    <TextView
+                        android:id="@+id/registration_mode_selection_nkspo_vehicles"
+                        style="@style/TextAppearance.Spoe.Header.VehicleIcon.Text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:layout_marginBottom="@dimen/sm_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/sm_spacing"
+                        android:paddingTop="@dimen/m_spacing"
+                        android:paddingRight="@dimen/sm_spacing"
+                        android:paddingBottom="@dimen/m_spacing"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="@id/registration_mode_selection_nkspo_tile"
+                        app:layout_constraintRight_toLeftOf="@+id/registration_mode_selection_nkspo_tile_text"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:drawableTopCompatInMode="@{`ic_ride_nkspo`}"
+                        nkspo:textColorInMode="@{`vehicleIconText`}"
+                        nkspo:translatedText="@{`registration_mode_selection_heavy_header`}"
+                        tools:drawableTopCompat="@drawable/ic_ride_nkspo_light"
+                        tools:text="@string/registration_mode_selection_heavy_header_de" />
+
+                    <TextView
+                        android:id="@+id/registration_mode_selection_nkspo_tile_text"
+                        style="@style/TextAppearance.Spoe.TextContent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:layout_marginBottom="@dimen/sm_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:paddingTop="@dimen/m_spacing"
+                        android:paddingRight="@dimen/sm_spacing"
+                        android:paddingBottom="@dimen/m_spacing"
+                        app:layout_constraintBottom_toBottomOf="@+id/registration_mode_selection_nkspo_vehicles"
+                        app:layout_constraintLeft_toRightOf="@id/registration_mode_selection_nkspo_vehicles"
+                        app:layout_constraintRight_toRightOf="@+id/registration_mode_selection_nkspo_tile"
+                        app:layout_constraintTop_toTopOf="@+id/registration_mode_selection_nkspo_vehicles"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{`registration_mode_selection_heavy_content`}"
+                        tools:text="@string/registration_mode_selection_heavy_content_de" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/xs_spacing"
+                    android:paddingBottom="@dimen/xs_spacing">
+
+                    <CheckedTextView
+                        android:id="@+id/registration_mode_selection_sent_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="@dimen/margin_cell_horizontal"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        android:layout_marginRight="@dimen/margin_cell_horizontal"
+                        android:layout_marginBottom="@dimen/xs_spacing"
+                        android:checked="@{viewModel.viewData == RegistrationSelectedRideMode.SENT}"
+                        android:clickable="true"
+                        android:elevation="@dimen/elevation_high"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()->viewModel.onSentClicked()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:backgroundDrawableInMode="@{`registration_mode_selection_selector`}" />
+
+                    <TextView
+                        android:id="@+id/registration_mode_selection_sent_ride"
+                        style="@style/TextAppearance.Spoe.Header.VehicleIcon.Text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:layout_marginBottom="@dimen/sm_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/sm_spacing"
+                        android:paddingTop="@dimen/m_spacing"
+                        android:paddingRight="@dimen/sm_spacing"
+                        android:paddingBottom="@dimen/m_spacing"
+                        app:layout_constraintBottom_toBottomOf="@id/registration_mode_selection_sent_tile"
+                        app:layout_constraintLeft_toLeftOf="@id/registration_mode_selection_sent_tile"
+                        app:layout_constraintRight_toLeftOf="@+id/registration_mode_selection_sent_content"
+                        app:layout_constraintTop_toTopOf="@id/registration_mode_selection_sent_tile"
+                        nkspo:drawableTopCompatInMode="@{`ic_ride_sent`}"
+                        nkspo:textColorInMode="@{`vehicleIconText`}"
+                        nkspo:translatedText="@{`registration_mode_selection_sent_header`}"
+                        tools:drawableTopCompat="@drawable/ic_ride_sent_light"
+                        tools:text="@string/registration_mode_selection_sent_header_pl" />
+
+                    <TextView
+                        android:id="@+id/registration_mode_selection_sent_content"
+                        style="@style/TextAppearance.Spoe.TextContent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:layout_marginBottom="@dimen/sm_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:paddingTop="@dimen/m_spacing"
+                        android:paddingRight="@dimen/sm_spacing"
+                        android:paddingBottom="@dimen/m_spacing"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/registration_mode_selection_sent_ride"
+                        app:layout_constraintRight_toRightOf="@+id/registration_mode_selection_sent_tile"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{`registration_mode_selection_sent_content`}"
+                        tools:text="@string/registration_mode_selection_sent_content_pl" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/xs_spacing"
+                    android:paddingBottom="@dimen/xs_spacing">
+
+                    <CheckedTextView
+                        android:id="@+id/registration_mode_selection_light_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="@dimen/margin_cell_horizontal"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        android:layout_marginRight="@dimen/margin_cell_horizontal"
+                        android:layout_marginBottom="@dimen/xs_spacing"
+                        android:checked="@{viewModel.viewData == RegistrationSelectedRideMode.LIGHT }"
+                        android:clickable="true"
+                        android:elevation="@dimen/elevation_high"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()->viewModel.onLightClicked()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:backgroundDrawableInMode="@{`registration_mode_selection_selector`}" />
+
+                    <TextView
+                        android:id="@+id/registration_mode_selection_light_ride"
+                        style="@style/TextAppearance.Spoe.Header.VehicleIcon.Text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:layout_marginBottom="@dimen/sm_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/sm_spacing"
+                        android:paddingTop="@dimen/m_spacing"
+                        android:paddingRight="@dimen/sm_spacing"
+                        android:paddingBottom="@dimen/m_spacing"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="@id/registration_mode_selection_light_tile"
+                        app:layout_constraintRight_toLeftOf="@+id/registration_mode_selection_light_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:drawableTopCompatInMode="@{`ic_ride_light`}"
+                        nkspo:textColorInMode="@{`vehicleIconText`}"
+                        nkspo:translatedText="@{`registration_mode_selection_light_header`}"
+                        tools:drawableTopCompat="@drawable/ic_ride_light_light"
+                        tools:text="@string/registration_mode_selection_light_header_pl" />
+
+                    <TextView
+                        android:id="@+id/registration_mode_selection_light_content"
+                        style="@style/TextAppearance.Spoe.TextContent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:layout_marginBottom="@dimen/sm_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:paddingTop="@dimen/m_spacing"
+                        android:paddingRight="@dimen/sm_spacing"
+                        android:paddingBottom="@dimen/m_spacing"
+                        app:layout_constraintBottom_toBottomOf="@+id/registration_mode_selection_light_ride"
+                        app:layout_constraintLeft_toRightOf="@id/registration_mode_selection_light_ride"
+                        app:layout_constraintRight_toRightOf="@+id/registration_mode_selection_light_tile"
+                        app:layout_constraintTop_toTopOf="@+id/registration_mode_selection_light_ride"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{`registration_mode_selection_light_content`}"
+                        tools:text="@string/registration_mode_selection_light_content_pl" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <View
+            android:id="@+id/registration_mode_selection_tile"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/isle_default_height"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registration_mode_selection_bottom_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_leftright_buttons"
+            android:layout_marginRight="@dimen/padding_leftright_buttons"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{viewModel.nextButtonEnabled}"
+            android:onClick="@{() -> viewModel.onRideModeSelected()}"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/registration_mode_selection_tile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/registration_mode_selection_tile"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`registration_mode_selection_next`}"
+            tools:backgroundTint="@color/buttonBlue_light"
+            tools:text="@string/registration_mode_selection_next_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

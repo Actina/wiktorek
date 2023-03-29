@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/active_sent_item_action_details"
+        android:enabled="true"
+        android:title="ride_details_sent_selection_details"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/active_sent_item_action_cancel"
+        android:enabled="true"
+        android:title="ride_details_sent_selection_cancel"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/active_sent_item_action_finish"
+        android:enabled="true"
+        android:title="ride_details_sent_selection_end_ride"
+        tools:ignore="HardcodedText" />
+</menu>

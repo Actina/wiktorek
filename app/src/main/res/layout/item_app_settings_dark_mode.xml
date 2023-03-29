@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.settings.appsettings.adapteritem.DarkModeItem.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingStart="@dimen/xxl_spacing"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/xxl_spacing"
+        android:paddingBottom="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/app_settings_dark_mode_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{item.header}"
+            tools:text="Tryb kolorystyczny / Tryb ciemny" />
+
+        <TextView
+            android:id="@+id/app_settings_dark_mode_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/app_settings_dark_mode_change_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_settings_dark_mode_header"
+            app:switchPadding="@dimen/m_spacing"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`app_settings_dark_mode_selected`}"
+            tools:text="@string/app_settings_dark_mode_selected_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_bottom_sheet_vehicle_make_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            app:layout_constraintBottom_toTopOf="@id/app_settings_dark_mode_content"
+            app:layout_constraintStart_toEndOf="@id/app_settings_dark_mode_content"
+            app:layout_constraintTop_toBottomOf="@id/app_settings_dark_mode_content"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{item.selectedMode}"
+            tools:text="tryb ciemny" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/app_settings_dark_mode_change_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{()->item.onDarkModeSwitchClicked()}"
+            app:layout_constraintBottom_toTopOf="@id/app_settings_dark_mode_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_settings_dark_mode_content"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`app_settings_dark_mode_change_button`}"
+            tools:text="@string/app_settings_dark_mode_change_button_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

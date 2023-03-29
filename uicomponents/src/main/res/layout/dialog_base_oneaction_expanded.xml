@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonStandard="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.mobile.ui.components.dialogs.basic.BasicOneActionDialogFragment.DialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/padding_content_horizontal"
+        android:paddingRight="@dimen/padding_content_horizontal"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/no_network_dialog_header"
+            style="@style/TextAppearance.Spoe.HeaderLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:translatedText="@{viewModelSchema.headerText}"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}"
+            nkspo:layout_constraintBottom_toTopOf="@id/no_network_dialog_content"
+            nkspo:layout_constraintTop_toTopOf="parent"
+            nkspo:layout_constraintVertical_chainStyle="packed"
+            nkspo:textColorInMode="@{`textPrimary`}"
+            tools:text="Sample header" />
+
+        <TextView
+            android:id="@+id/no_network_dialog_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:layout_constraintBottom_toTopOf="@id/no_network_dialog_try_again_button"
+            nkspo:layout_constraintTop_toBottomOf="@id/no_network_dialog_header"
+            nkspo:textColorInModeFromVm="@{viewModelSchema.headerTextColor}"
+            nkspo:translatedText="@{viewModelSchema.contentText}"
+            tools:text="Sample content" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/no_network_dialog_try_again_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModelSchema.onButtonPressed()}"
+            android:singleLine="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            buttonStandard:backgroundTintListInMode="@{`button_blue_selector`}"
+            buttonStandard:rippleListInMode="@{`button_blue_selector`}"
+            buttonStandard:textColorInMode="@{`buttonBlueText`}"
+            nkspo:layout_constraintBottom_toBottomOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@id/no_network_dialog_content"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{viewModelSchema.buttonText}"
+            tools:text="@string/dialog_retry_android_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

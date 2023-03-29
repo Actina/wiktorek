@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.shared.CardDataSyncStatusViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/padding_cell_vertical"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/padding_cell_vertical"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/ride_summary_sub_account_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`ride_summary_sync_status_header`}"
+            tools:text="@string/ride_summary_sync_status_header_pl" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_content_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card_sync_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:visibilityOrInvisible="@{!item.isLoading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                nkspo:srcInMode="@{`ic_tick_ok`}"
+                tools:src="@drawable/ic_tick_ok_light" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:visibility="@{item.isLoading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawResInMode="@{`loader_anim`}"
+                tools:visibility="gone" />
+
+            <TextView
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:paddingLeft="@dimen/padding_cell_horizontal"
+                android:visibilityOrInvisible="@{item.isLoading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/card_sync_icon"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedText="@{`ride_summary_sync_status_loading`}"
+                tools:text="@string/ride_summary_sync_status_loading_pl"
+                tools:visibility="visible" />
+
+            <TextView
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:paddingLeft="@dimen/padding_cell_horizontal"
+                android:visibilityOrInvisible="@{!item.isLoading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/card_sync_icon"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedText="@{`ride_summary_sync_status_ready`}"
+                tools:text="@string/ride_summary_sync_status_ready_pl"
+                tools:visibility="invisible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

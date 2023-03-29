@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.shared.CardSentSingleDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/s_spacing"
+        android:paddingBottom="@dimen/s_spacing"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <View
+            android:id="@+id/item_config_sent_rides_item_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/item_config_sent_rides_item_dates"
+            app:layout_constraintEnd_toEndOf="@+id/item_config_sent_rides_item_info_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_config_sent_rides_item_sent_number"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <ImageView
+            android:id="@+id/item_config_sent_rides_item_info_image"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            android:paddingStart="@dimen/padding_content_horizontal"
+            android:paddingEnd="@dimen/padding_content_horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/item_config_sent_rides_item_tile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_config_sent_rides_item_tile"
+            app:srcCompat="@drawable/ic_arrow_right_light" />
+
+        <TextView
+            android:id="@+id/item_config_sent_rides_item_sent_number"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:paddingTop="@dimen/padding_cell_vertical"
+            android:text="@{item.sentNumber}"
+            nkspo:textColorListInMode="@{`text_color_enabled_state`}"
+            app:layout_constraintBottom_toTopOf="@+id/item_config_sent_rides_item_dates"
+            app:layout_constraintEnd_toStartOf="@+id/item_config_sent_rides_item_info_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/item_config_sent_rides_item_tile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="SENT2020120100002" />
+
+        <TextView
+            android:id="@+id/item_config_sent_rides_item_dates"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:paddingBottom="@dimen/padding_cell_vertical"
+            android:text="@{item.sentDates}"
+            nkspo:textColorListInMode="@{`text_color_enabled_state`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/item_config_sent_rides_item_info_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/item_config_sent_rides_item_tile"
+            app:layout_constraintTop_toBottomOf="@+id/item_config_sent_rides_item_sent_number"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="20.12.2020 - 22.12.2020" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

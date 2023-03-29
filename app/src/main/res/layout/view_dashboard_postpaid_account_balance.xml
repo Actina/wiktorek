@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/fragment_dashboard">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:layout_width="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dashboard_account_balance_header_content"
+            style="@style/TextAppearance.Spoe.Content"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/m_spacing"
+            android:drawablePadding="@dimen/s_spacing"
+            android:gravity="center|right"
+            android:maxLines="2"
+            android:text="@string/dashboard_ride_control_account_balance_pl"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/dashboard_account_balance_value"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/dashboard_account_balance_value"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:drawableEndCompatInMode="@{`ic_account_more`}"
+            nkspo:drawableStartCompatInMode="@{`ic_account_gray`}"
+            nkspo:textColorInMode="@{`grayText`}"
+            nkspo:translatedText="@{`dashboard_ride_control_account_balance`}"
+            tools:ignore="RtlHardcoded"
+            tools:text="@string/dashboard_ride_control_account_balance_lt" />
+
+        <TextView
+            android:id="@+id/dashboard_account_balance_value"
+            style="@style/TextAppearance.Spoe.Dashboard.AccountBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:maxLines="2"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dashboard_account_balance_header_content"
+            nkspo:conditionallyTranslatedText="@{viewModel.dashboardConfiguration.accountBalanceValue}"
+            nkspo:textColorInModeFromVm="@{viewModel.dashboardConfiguration.accountBalanceColorName}"
+            tools:text="@string/dashboard_ride_control_account_type_postpaid_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

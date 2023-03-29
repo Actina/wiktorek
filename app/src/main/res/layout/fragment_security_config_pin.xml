@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.security.config.pin.ConfigPinViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_security_pin_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{viewModel.backOptionAvailability}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`security_config_pin_code_step_title`}"
+                tools:text="@string/security_config_pin_code_step_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:id="@+id/config_security_pin_scroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_barrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/config_security_pin_toolbar"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_content_horizontal"
+                android:layout_marginTop="@dimen/padding_content_vertical"
+                android:layout_marginRight="@dimen/padding_content_horizontal"
+                android:paddingBottom="@dimen/xxl_spacing">
+
+                <TextView
+                    android:id="@+id/config_security_pin_header"
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/config_security_pin_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`security_config_pin_code_header`}"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/security_config_pin_code_header_pl" />
+
+                <TextView
+                    android:id="@+id/config_security_pin_content"
+                    style="@style/TextAppearance.Spoe.TextContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sm_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/config_security_pin_insert_pin_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/config_security_pin_header"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`security_config_pin_code_content`}"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/security_config_pin_code_content_pl" />
+
+                <TextView
+                    android:id="@+id/config_security_pin_insert_pin_label"
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/config_security_pin_input"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/config_security_pin_content"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`security_config_pin_code_input`}"
+                    tools:text="@string/security_config_pin_code_input_pl" />
+
+                <pl.gov.mf.mobile.ui.components.views.pin.PinInput
+                    android:id="@+id/config_security_pin_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/config_security_pin_confirm_pin_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/config_security_pin_insert_pin_label"
+                    app:layout_constraintWidth_max="@dimen/pin_input_max_width"
+                    nkspo:pin="@={viewModel.securityConfigData.pin}"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/config_security_pin_confirm_pin_label"
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/config_security_pin_confirmation_pin_input"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/config_security_pin_input"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`security_config_pin_code_confirm_input`}"
+                    tools:text="@string/security_config_pin_code_confirm_input_pl" />
+
+                <pl.gov.mf.mobile.ui.components.views.pin.PinInput
+                    android:id="@+id/config_security_pin_confirmation_pin_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m_spacing"
+                    android:layout_marginBottom="@dimen/padding_content_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/config_security_pin_confirm_pin_label"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_max="@dimen/pin_input_max_width"
+                    nkspo:pin="@={viewModel.securityConfigData.confirmationPin}"
+                    tools:ignore="RtlSymmetry" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottom_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="config_security_pin_bottom_area,area_min_space_height" />
+
+        <View
+            android:id="@+id/config_security_pin_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_barrier"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_security_pin_cancel_button"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/m_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.onSkipClicked()}"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/config_security_pin_continue_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_barrier"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_red_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_red_selector`}"
+            nkspo:translatedText="@{viewModel.configPinTranslations.cancelButton}"
+            tools:text="@string/security_config_pin_code_skip_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_security_pin_continue_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.savePin()}"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/config_security_pin_cancel_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/config_security_pin_cancel_button"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`security_config_pin_code_continue`}"
+            tools:text="@string/security_config_pin_code_continue_pl" />
+
+        <Space
+            android:id="@+id/area_min_space_height"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/isle_default_height"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

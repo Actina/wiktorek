@@ -1,0 +1,93 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.targetSDK
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        flavorDimensions "edition"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // environments change 2021.03.21
+//        TEST: test-mobile-api.etoll.gov.pl
+//        EDU: pre-mobile-api.etoll.gov.pl
+//        PROD: mobile-api.etoll.gov.pl
+    productFlavors {
+        _dev {
+            dimension "edition"
+            buildConfigField 'String', 'SERVER_URL',
+                    '"https://api.etolldev.com//api/"'
+        }
+        _edu {
+            dimension "edition"
+            buildConfigField 'String', 'SERVER_URL',
+                    '"https://pre-mobile-api.etoll.gov.pl//api/"'
+        }
+        _prod {
+            dimension "edition"
+            buildConfigField 'String', 'SERVER_URL',
+                    '"https://mobile-api.etoll.gov.pl//api/"'
+        }
+        _preprod {
+            dimension "edition"
+            buildConfigField 'String', 'SERVER_URL',
+                    '"https://pre-mobile-api.etoll.gov.pl//api/"'
+        }
+        _test {
+            dimension "edition"
+            buildConfigField 'String', 'SERVER_URL',
+                    '"https://test-mobile-api.etoll.gov.pl//api/"'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // For Kotlin projects
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    kapt Dependencies.dagger_compiler
+    compileOnly Dependencies.dagger_compiler_annotations
+
+    implementation Dependencies.lz4
+
+    api Dependencies.networking_retrofit2
+    api Dependencies.networking_retrofit2_interceptor
+    api Dependencies.networking_retrofit2_rxadapter
+    api Dependencies.networking_okhttp3
+
+    implementation Dependencies.networking_jjwt
+    runtimeOnly Dependencies.networking_jjwt_impl
+    runtimeOnly(Dependencies.networking_jjwt_orgjson) {
+        exclude group: 'org.json', module: 'json' //provided by Android natively
+    }
+
+    testImplementation Dependencies.tests_junit
+    androidTestImplementation Dependencies.tests_androidX_junit
+    androidTestImplementation Dependencies.tests_androidX_espresso
+    api project("::commons")
+    api project("::storage")
+}

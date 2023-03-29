@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.rideshistory.details.adapter.RideHistoryCellItem.VehicleItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingHorizontal="@dimen/padding_content_horizontal"
+        android:paddingVertical="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            nkspo:layout_constraintBottom_toTopOf="@id/item_ride_history_details_vehicle_brand_label"
+            nkspo:layout_constraintLeft_toLeftOf="parent"
+            nkspo:layout_constraintRight_toRightOf="parent"
+            nkspo:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`ride_summary_vehicle_header`}"
+            tools:text="@string/ride_summary_vehicle_header_pl" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_brand_label"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            nkspo:layout_constraintStart_toStartOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@+id/item_ride_history_details_vehicle_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_vehicle_brand`}"
+            tools:text="@string/ride_history_details_vehicle_brand_pl" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_model_label"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            nkspo:layout_constraintStart_toStartOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@+id/item_ride_history_details_vehicle_brand_label"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_vehicle_model`}"
+            tools:text="@string/ride_history_details_vehicle_model_pl" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_plate_label"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            nkspo:layout_constraintStart_toStartOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@+id/item_ride_history_details_vehicle_model_label"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_vehicle_license_plate`}"
+            tools:text="@string/ride_history_details_vehicle_license_plate_pl" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/weight_class_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            nkspo:barrierDirection="top"
+            nkspo:constraint_referenced_ids="item_ride_history_details_vehicle_weight_class" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_weight_class"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/s_spacing"
+            android:gravity="top"
+            nkspo:layout_constraintBottom_toBottomOf="@+id/ride_summary_vehicle_weight_class_value"
+            nkspo:layout_constraintStart_toStartOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@+id/item_ride_history_details_vehicle_plate_label"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_vehicle_weight_class`}"
+            tools:text="@string/ride_history_details_vehicle_weight_class_pl" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_emission_class"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            nkspo:layout_constraintStart_toStartOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@+id/ride_summary_vehicle_weight_class_value"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_vehicle_emission_class`}"
+            tools:text="@string/ride_history_details_vehicle_emission_class_pl" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_account_balance"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            nkspo:layout_constraintBottom_toBottomOf="parent"
+            nkspo:layout_constraintStart_toStartOf="parent"
+            nkspo:layout_constraintTop_toBottomOf="@+id/item_ride_history_details_emission_class"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_account_balance`}"
+            tools:text="@string/ride_history_details_account_balance_pl" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_brand"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:text="@{item.viewModel.brand}"
+            nkspo:layout_constraintBottom_toBottomOf="@+id/item_ride_history_details_vehicle_brand_label"
+            nkspo:layout_constraintEnd_toEndOf="parent"
+            nkspo:layout_constraintStart_toEndOf="@+id/item_ride_history_details_vehicle_brand_label"
+            nkspo:layout_constraintTop_toTopOf="@+id/item_ride_history_details_vehicle_brand_label"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="Scania" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_model"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:text="@{item.viewModel.model}"
+            nkspo:layout_constraintBottom_toBottomOf="@+id/item_ride_history_details_vehicle_model_label"
+            nkspo:layout_constraintEnd_toEndOf="parent"
+            nkspo:layout_constraintStart_toEndOf="@+id/item_ride_history_details_vehicle_model_label"
+            nkspo:layout_constraintTop_toTopOf="@+id/item_ride_history_details_vehicle_model_label"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="R500 V8 EEV" />
+
+        <TextView
+            android:id="@+id/item_ride_history_details_vehicle_plate_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            nkspo:layout_constraintBottom_toBottomOf="@+id/item_ride_history_details_vehicle_plate_label"
+            nkspo:layout_constraintEnd_toEndOf="parent"
+            nkspo:layout_constraintStart_toEndOf="@+id/item_ride_history_details_vehicle_plate_label"
+            nkspo:layout_constraintTop_toTopOf="@+id/item_ride_history_details_vehicle_plate_label"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{item.viewModel.licensePlate}"
+            tools:text="WN 6481H" />
+
+        <TextView
+            android:id="@+id/ride_summary_vehicle_weight_class_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            nkspo:layout_constraintBottom_toBottomOf="@id/item_ride_history_details_vehicle_weight_class"
+            nkspo:layout_constraintEnd_toEndOf="parent"
+            nkspo:layout_constraintStart_toEndOf="@+id/item_ride_history_details_vehicle_weight_class"
+            nkspo:layout_constraintTop_toBottomOf="@id/weight_class_barrier"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{item.viewModel.untranslatedVehicleCategory}"
+            tools:text="@string/vehicle_category_light_pl" />
+
+        <TextView
+            android:id="@+id/ride_summary_vehicle_emission_class_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:text="@{item.viewModel.emissionClass}"
+            nkspo:layout_constraintBottom_toBottomOf="@+id/item_ride_history_details_emission_class"
+            nkspo:layout_constraintEnd_toEndOf="parent"
+            nkspo:layout_constraintStart_toEndOf="@+id/item_ride_history_details_emission_class"
+            nkspo:layout_constraintTop_toTopOf="@+id/item_ride_history_details_emission_class"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="EURO 5" />
+
+        <TextView
+            android:id="@+id/ride_history_details_account_balance_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            nkspo:conditionallyTranslatedText="@{item.viewModel.accountBalance}"
+            nkspo:layout_constraintBottom_toBottomOf="@+id/item_ride_history_details_account_balance"
+            nkspo:layout_constraintEnd_toEndOf="parent"
+            nkspo:layout_constraintStart_toEndOf="@+id/item_ride_history_details_account_balance"
+            nkspo:layout_constraintTop_toTopOf="@+id/item_ride_history_details_account_balance"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="100.0 zł" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

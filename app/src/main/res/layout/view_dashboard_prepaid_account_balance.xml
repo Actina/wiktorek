@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/fragment_dashboard">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+        tools:layout_width="match_parent">
+
+        <View
+            android:id="@+id/dashboard_account_balance_add_area"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{()->viewModel.onAccountTopUpClick()}"
+            app:layout_constraintBottom_toBottomOf="@+id/dashboard_account_balance_header_content"
+            app:layout_constraintLeft_toLeftOf="@+id/dashboard_account_balance_header_icon_wallet"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <ImageView
+            android:id="@+id/dashboard_account_balance_header_icon_wallet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/s_spacing"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/dashboard_account_balance_header_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/dashboard_account_balance_header_content"
+            app:layout_constraintTop_toTopOf="@+id/dashboard_account_balance_header_content"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:srcInMode="@{`ic_account_blue`}"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dashboard_account_balance_header_content"
+            style="@style/TextAppearance.Spoe.Content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginRight="@dimen/s_spacing"
+            android:gravity="center"
+            android:maxLines="2"
+            android:src="@drawable/ic_account_more_light"
+            android:text="@string/dashboard_ride_control_account_balance_pl"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/dashboard_account_balance_value"
+            app:layout_constraintLeft_toRightOf="@id/dashboard_account_balance_header_icon_wallet"
+            app:layout_constraintRight_toLeftOf="@+id/dashboard_account_balance_header_icon_more"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`buttonBlue`}"
+            nkspo:translatedText="@{`dashboard_ride_control_account_balance`}"
+            tools:ignore="RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/dashboard_account_balance_header_icon_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/dashboard_account_balance_header_content"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/dashboard_account_balance_header_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dashboard_account_balance_header_content"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:srcInMode="@{`ic_account_more`}" />
+
+        <TextView
+            android:id="@+id/dashboard_account_balance_value"
+            style="@style/TextAppearance.Spoe.Dashboard.AccountBalance"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:maxLines="2"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/dashboard_account_balance_header_icon_wallet"
+            app:layout_constraintRight_toRightOf="@id/dashboard_account_balance_header_icon_more"
+            nkspo:conditionallyTranslatedText="@{viewModel.dashboardConfiguration.accountBalanceValue}"
+            nkspo:textColorInModeFromVm="@{viewModel.dashboardConfiguration.accountBalanceColorName}"
+            tools:text="63.00 PLN" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

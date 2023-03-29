@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.tecs.result.TecsTransactionResultViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tecs_transaction_result_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`payment_completed_title`}"
+                tools:text="@string/top_up_account_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:id="@+id/tecs_transaction_result_failure"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{!viewModel.transactionStatus}"
+            app:layout_constraintBottom_toTopOf="@+id/tecs_transaction_result_bottom_area"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tecs_transaction_result_toolbar"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="@dimen/xxxl_spacing"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    nkspo:srcInMode="@{`ic_error`}" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.HeaderLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xl_spacing"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:text="@{viewModel.transactionErrorTitle}"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    tools:text="@string/payment_completed_failure_header_pl" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.Standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xl_spacing"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:text="@{viewModel.transactionErrorContent}"
+                    nkspo:textColorInMode="@{`textPrimary`}" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/tecs_transaction_result_correct"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.transactionStatus}"
+            app:layout_constraintBottom_toTopOf="@+id/tecs_transaction_result_bottom_area"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tecs_transaction_result_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="@dimen/xxxl_spacing"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    nkspo:srcInMode="@{`ic_ok`}" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.HeaderLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xl_spacing"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    nkspo:textColorInMode="@{`tecsResultHeader`}"
+                    nkspo:translatedText="@{`payment_completed_success_header`}"
+                    tools:text="@string/payment_completed_success_header_pl" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.Standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingTop="@dimen/s_spacing"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`payment_completed_top_up_amount`}"
+                    tools:text="@string/payment_completed_top_up_amount_pl" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.TextContent.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingTop="@dimen/s_spacing"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/s_spacing"
+                    android:text="@{viewModel.selectedAmount}"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    tools:text="0.00 zł" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.Standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xl_spacing"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`payment_completed_success_content`}"
+                    tools:text="@string/payment_completed_success_content_pl" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/payment_error_try_again_button"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_content_horizontal"
+            android:layout_marginEnd="@dimen/padding_content_horizontal"
+            android:layout_marginBottom="@dimen/padding_button_down"
+            android:onClick="@{()->viewModel.onTryAgainClick()}"
+            android:visibility="@{!viewModel.transactionStatus}"
+            app:layout_constraintBottom_toTopOf="@id/tecs_transaction_result_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{`payment_completed_failure_try_again`}"
+            tools:text="@string/payment_completed_failure_try_again_pl" />
+
+        <View
+            android:id="@+id/tecs_transaction_result_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_area_height_small"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.onToolbarCrossClick()}"
+            app:layout_constraintBottom_toBottomOf="@+id/tecs_transaction_result_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tecs_transaction_result_bottom_area"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`payment_completed_finish`}"
+            tools:text="@string/payment_completed_finish_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

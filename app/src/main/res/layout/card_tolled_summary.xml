@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.shared.CardSummaryTolledViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/padding_cell_vertical"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/padding_cell_vertical"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/ride_summary_vehicle_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`ride_summary_vehicle_header`}"
+            tools:text="@string/ride_summary_vehicle_header_pl" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_content_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_brand"
+                style="@style/TextAppearance.Spoe.TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedTextColonsEnded="@{`ride_summary_vehicle_brand`}"
+                tools:text="@string/ride_summary_vehicle_brand_pl" />
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_brand_value"
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="@dimen/margin_content_horizontal"
+                android:text="@{item.vehicleBrand}"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                tools:text="Scania" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_between_content_groups_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_model"
+                style="@style/TextAppearance.Spoe.TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedTextColonsEnded="@{`ride_summary_vehicle_model`}"
+                tools:text="@string/ride_summary_vehicle_model_pl" />
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_model_value"
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="@dimen/margin_content_horizontal"
+                android:text="@{item.vehicleModel}"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                tools:text="R500 V8 EEV" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_between_content_groups_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_license_plate"
+                style="@style/TextAppearance.Spoe.TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedTextColonsEnded="@{`ride_summary_vehicle_license_plate`}"
+                tools:text="@string/ride_summary_vehicle_license_plate_pl" />
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_license_plate_value"
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="@dimen/margin_content_horizontal"
+                android:text="@{item.vehicleLicensePlate}"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                tools:text="WN 6481H" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_between_content_groups_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_weight_class"
+                style="@style/TextAppearance.Spoe.TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedTextColonsEnded="@{`ride_summary_vehicle_weight_class`}"
+                tools:text="@string/ride_summary_vehicle_weight_class_pl" />
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_weight_class_value"
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="@dimen/margin_content_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ride_summary_vehicle_weight_class"
+                app:layout_constraintTop_toBottomOf="@+id/ride_summary_vehicle_license_plate_value"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedText="@{item.vehicleCategory}"
+                tools:text="N3" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_between_content_groups_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_emission_class"
+                style="@style/TextAppearance.Spoe.TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedTextColonsEnded="@{`ride_summary_vehicle_emission_class`}"
+                tools:text="@string/ride_summary_vehicle_emission_class_pl" />
+
+            <TextView
+                android:id="@+id/ride_summary_vehicle_emission_class_value"
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="@dimen/margin_content_horizontal"
+                android:text="@{item.vehicleEmissionClass}"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                tools:text="EURO 5" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

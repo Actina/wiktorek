@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/notification_details_menu_delete"
+        android:icon="@drawable/ic_delete_light"
+        android:title="notifications_history_menu_delete_item"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
+</menu>

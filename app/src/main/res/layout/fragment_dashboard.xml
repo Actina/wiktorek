@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/dashboard_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{viewModel.headerMode}"
+                tools:text="@string/dashboard_configured_title_tolled_en" />
+
+            <include
+                android:id="@+id/dashboard_demo"
+                layout="@layout/view_demo_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <pl.gov.mf.mobile.ui.components.views.BusinessNumberView
+            android:id="@+id/dashboard_business_number_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/top_bar_height"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_toolbar" />
+
+        <include
+            android:id="@+id/empty_dashboard_content"
+            layout="@layout/dashboard_empty_state_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.dashboardConfiguration.noConfigurationModeVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dashboard_business_number_area"
+            app:viewModel="@{viewModel}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboard_mode_configured"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.dashboardConfiguration.configuredModeVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dashboard_business_number_area"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+            <TextView
+                android:id="@+id/dashbaord_no_internet"
+                style="@style/TextAppearance.Spoe.TextContent.White.Bold"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/top_bar_height"
+                android:gravity="center"
+                android:maxLines="2"
+                android:visibility="@{viewModel.noInternetErrorShouldBeShown}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                nkspo:backgroundColorInMode="@{`toolbarNoInternetBackground`}"
+                nkspo:textColorInMode="@{`toolbarNoInternetText`}"
+                nkspo:translatedText="@{`toolbar_offline_mode`}"
+                tools:text="@string/toolbar_offline_mode_pl" />
+
+            <ScrollView
+                android:id="@+id/dashboard_scroll_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toTopOf="@id/ride_details_barrier"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dashbaord_no_internet"
+                app:layout_constraintVertical_bias="0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingTop="@dimen/padding_content_vertical_dashboard"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/padding_content_vertical_dashboard">
+
+                    <ImageView
+                        android:id="@+id/dashboard_icon_monitoring_device"
+                        android:layout_width="@dimen/monitoring_device_icon_height"
+                        android:layout_height="@dimen/monitoring_device_icon_height"
+                        android:background="@drawable/ic_dashboard_icon_bg"
+                        android:padding="@dimen/sm_spacing"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/dashboard_icon_monitoring_device_title"
+                        nkspo:srcInMode="@{`ic_dashboard_icon_app`}" />
+
+                    <TextView
+                        android:id="@+id/dashboard_icon_monitoring_device_title"
+                        style="@style/TextAppearance.Spoe.TextContent.Bold.Enlarged"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/s_spacing"
+                        app:layout_constraintBottom_toTopOf="@+id/dashboard_icon_monitoring_device_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/dashboard_icon_monitoring_device"
+                        app:layout_constraintTop_toTopOf="parent"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{viewModel.dashboardConfiguration.monitoringDeviceName}"
+                        tools:text="Aplikacja" />
+
+                    <TextView
+                        android:id="@+id/dashboard_icon_monitoring_device_description"
+                        style="@style/TextAppearance.Spoe.TextContent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/s_spacing"
+                        android:maxLines="2"
+                        app:layout_constraintBottom_toTopOf="@+id/dashboard_icon_vehicle_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/dashboard_icon_monitoring_device"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/dashboard_icon_monitoring_device"
+                        app:layout_constraintTop_toBottomOf="@+id/dashboard_icon_monitoring_device_title"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{`ride_status_monitoring_device_description`}"
+                        tools:text="@string/ride_status_monitoring_device_description_pl" />
+
+                    <TextView
+                        android:id="@+id/dashboard_icon_vehicle_title"
+                        style="@style/TextAppearance.Spoe.TextContent.Bold.Enlarged"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/s_spacing"
+                        android:layout_marginTop="@dimen/sm_spacing"
+                        android:maxLines="2"
+                        android:text="@{viewModel.dashboardConfiguration.vehiclePlateNumber}"
+                        android:visibility="@{viewModel.dashboardConfiguration.vehiclePlateNumberAreaVisibility}"
+                        app:layout_constraintBottom_toTopOf="@+id/dashboard_icon_vehicle_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/dashboard_icon_vehicle"
+                        app:layout_constraintStart_toEndOf="@+id/dashboard_icon_vehicle"
+                        app:layout_constraintTop_toBottomOf="@+id/dashboard_icon_monitoring_device_description"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        tools:text="SK-061HA" />
+
+                    <ImageView
+                        android:id="@+id/dashboard_icon_vehicle"
+                        android:layout_width="@dimen/monitoring_device_icon_height"
+                        android:layout_height="@dimen/monitoring_device_icon_height"
+                        android:background="@drawable/ic_dashboard_icon_bg"
+                        android:padding="@dimen/sm_spacing"
+                        android:visibility="@{viewModel.dashboardConfiguration.vehiclePlateNumberAreaVisibility}"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/dashboard_icon_vehicle_title"
+                        nkspo:srcInMode="@{`ic_dashboard_icon_vehicle`}" />
+
+                    <TextView
+                        android:id="@+id/dashboard_icon_vehicle_description"
+                        style="@style/TextAppearance.Spoe.TextContent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/s_spacing"
+                        android:maxLines="2"
+                        android:visibility="@{viewModel.dashboardConfiguration.vehiclePlateNumberAreaVisibility}"
+                        app:layout_constraintBottom_toBottomOf="@+id/dashboard_icon_vehicle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/dashboard_icon_vehicle"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/dashboard_icon_vehicle"
+                        app:layout_constraintTop_toBottomOf="@+id/dashboard_icon_vehicle_title"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{`ride_status_vehicle_description`}"
+                        tools:text="@string/ride_status_vehicle_description_pl" />
+
+                    <pl.gov.mf.mobile.ui.components.views.DashboardStatusIconBattery
+                        android:id="@+id/dashboard_icon_battery"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/s_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:src="@drawable/ic_warning_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/dashboard_icon_gps"
+                        app:layout_constraintTop_toBottomOf="@+id/dashboard_icon_vehicle_description" />
+
+                    <pl.gov.mf.mobile.ui.components.views.DashboardStatusIconGps
+                        android:id="@+id/dashboard_icon_gps"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/s_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:src="@drawable/ic_warning_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/dashboard_icon_battery"
+                        app:layout_constraintRight_toLeftOf="@+id/dashboard_icon_internet"
+                        app:layout_constraintTop_toBottomOf="@+id/dashboard_icon_vehicle_description" />
+
+                    <pl.gov.mf.mobile.ui.components.views.DashboardStatusIconInternet
+                        android:id="@+id/dashboard_icon_internet"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/s_spacing"
+                        android:elevation="@dimen/elevation_high"
+                        android:src="@drawable/ic_warning_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/dashboard_icon_gps"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dashboard_icon_vehicle_description" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/ride_details_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="dashboard_ride_details_area" />
+
+            <View
+                android:id="@+id/dashboard_ride_details_area"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:elevation="@dimen/elevation_high"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="@id/dashboard_ride_details_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/dashboard_ride_details_title"
+                nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+            <TextView
+                android:id="@+id/dashboard_ride_details_title"
+                style="@style/TextAppearance.Spoe.Content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_content_horizontal"
+                android:layout_marginBottom="@dimen/s_spacing"
+                android:elevation="@dimen/elevation_high"
+                android:maxLines="2"
+                android:paddingTop="@dimen/m_spacing"
+                android:paddingBottom="@dimen/m_spacing"
+                app:layout_constraintBottom_toTopOf="@id/dashboard_timer_area"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/dashboard_ride_details_arrow"
+                app:layout_constraintTop_toBottomOf="@id/dashboard_scroll_view"
+                nkspo:textColorInMode="@{`textPrimary`}"
+                nkspo:translatedText="@{`dashboard_configured_ride_details`}"
+                tools:text="@string/dashboard_configured_ride_details_pl" />
+
+            <ImageView
+                android:id="@+id/dashboard_ride_details_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/padding_content_horizontal"
+                android:elevation="@dimen/elevation_high"
+                app:layout_constraintBottom_toBottomOf="@id/dashboard_ride_details_title"
+                app:layout_constraintLeft_toRightOf="@id/dashboard_ride_details_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/dashboard_ride_details_title"
+                nkspo:srcInMode="@{`ic_account_more`}" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboard_timer_area"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:elevation="@dimen/elevation_high"
+                android:paddingLeft="@dimen/padding_content_horizontal"
+                android:paddingTop="@dimen/xl_spacing"
+                android:paddingRight="@dimen/padding_content_horizontal"
+                android:paddingBottom="@dimen/xl_spacing"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+                <Space
+                    android:id="@+id/area_min_space_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/isle_dashboard_height"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dashboard_timer_stopButton"
+                    style="@style/RedButton.Dashboard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:enabled="@{viewModel.rideButtonShouldBeEnabled}"
+                    android:singleLine="true"
+                    android:visibility="@{viewModel.dashboardConfiguration.rideEndButtonVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    nkspo:backgroundTintListInMode="@{`button_red_selector`}"
+                    nkspo:textColorInMode="@{`buttonRedText`}"
+                    nkspo:translatedText="@{`dashboard_ride_control_end_ride`}"
+                    tools:text="@string/dashboard_ride_control_end_ride_pl" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dashboard_timer_cancelButton"
+                    style="@style/Widget.Button.White.Outlined.Red.NoInsets.InMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="@{viewModel.rideButtonShouldBeEnabled}"
+                    android:singleLine="true"
+                    android:visibility="@{viewModel.dashboardConfiguration.rideStartButtonVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dashboard_timer_startButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+                    buttonWhiteOutlined:strokeColorListInMode="@{`button_red_selector`}"
+                    buttonWhiteOutlined:textColorListInMode="@{`button_red_selector`}"
+                    nkspo:translatedText="@{`dashboard_ride_control_cancel`}"
+                    tools:text="@string/dashboard_ride_control_cancel_pl" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dashboard_timer_startButton"
+                    style="@style/Widget.Button.Green.InMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/s_spacing"
+                    android:enabled="@{viewModel.rideButtonShouldBeEnabled}"
+                    android:singleLine="true"
+                    android:visibility="@{viewModel.dashboardConfiguration.rideStartButtonVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dashboard_timer_cancelButton"
+                    nkspo:backgroundTintListInMode="@{`button_green_selector`}"
+                    nkspo:rippleListInMode="@{`button_green_selector`}"
+                    nkspo:textColorInMode="@{`buttonGreenText`}"
+                    nkspo:translatedText="@{`dashboard_ride_control_start_ride`}"
+                    tools:text="@string/dashboard_ride_control_start_ride_pl" />
+
+                <TextView
+                    android:id="@+id/dashboard_timer_header_sent"
+                    style="@style/TextAppearance.Spoe.Content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    app:autoSizeMaxTextSize="16dp"
+                    app:autoSizeMinTextSize="5dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/dashboard_timer_value_sent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/bottom_cell_vertical_barrier_account"
+                    app:layout_constraintTop_toTopOf="parent"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`dashboard_ride_control_duration`}"
+                    tools:text="@string/dashboard_ride_control_duration_pl" />
+
+                <TextView
+                    android:id="@+id/dashboard_timer_value_sent"
+                    style="@style/TextAppearance.Spoe.Dashboard.Timer"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@{viewModel.timerValue}"
+                    app:autoSizeMaxTextSize="36dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/dashboard_timer_stopButton"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="@id/dashboard_timer_header_sent"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    tools:text="00:00:00" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/timer_items_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="dashboard_timer_value_sent,dashboard_timer_header_sent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <!-- We can't depenend only on Guideline in this layout, because Guideline cannot have dependent Views and-->
+                <!-- cannot move when some of these views are gone-->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_cell_vertical_guideline_second"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <!-- This barrier should be in the same position as guideline and should be able to move to right when account_balance_items_group is gone-->
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/bottom_cell_vertical_barrier_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="left"
+                    app:constraint_referenced_ids="key_dashboard_account_space_prepaid,key_dashboard_account_space_postpaid" />
+
+                <View
+                    android:id="@+id/key_dashboard_account_space_prepaid"
+                    android:layout_width="@dimen/key_dashboard_account_space_width"
+                    android:layout_height="0dp"
+                    android:paddingLeft="@dimen/m_spacing"
+                    android:paddingRight="@dimen/m_spacing"
+                    app:layout_constraintBottom_toTopOf="@id/dashboard_bottom_barrier"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/bottom_cell_vertical_guideline_second"
+                    app:layout_constraintRight_toLeftOf="@id/prepaid_account_balance_container"
+                    app:layout_constraintTop_toTopOf="parent"
+                    nkspo:backgroundDrawableInMode="@{`middle_divider`}" />
+
+                <include
+                    android:id="@+id/prepaid_account_balance_container"
+                    layout="@layout/view_dashboard_prepaid_account_balance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/dashboard_timer_value_sent"
+                    app:layout_constraintHorizontal_weight="4"
+                    app:layout_constraintLeft_toRightOf="@id/key_dashboard_account_space_prepaid"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:viewModel="@{viewModel}" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.dashboardConfiguration.prepaidContainerVisible}"
+                    app:constraint_referenced_ids="key_dashboard_account_space_prepaid,prepaid_account_balance_container"
+                    tools:visibility="visible" />
+
+                <View
+                    android:id="@+id/key_dashboard_account_space_postpaid"
+                    android:layout_width="@dimen/key_dashboard_account_space_width"
+                    android:layout_height="0dp"
+                    android:background="@drawable/middle_divider_light"
+                    android:visibility="@{viewModel.dashboardConfiguration.postPaidContainerVisible}"
+                    app:layout_constraintBottom_toTopOf="@id/dashboard_bottom_barrier"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/bottom_cell_vertical_guideline_second"
+                    app:layout_constraintRight_toLeftOf="@id/postpaid_account_balance_container"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/postpaid_account_balance_container"
+                    layout="@layout/view_dashboard_postpaid_account_balance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="@{viewModel.dashboardConfiguration.postPaidContainerVisible}"
+                    app:layout_constraintBottom_toBottomOf="@id/dashboard_timer_value_sent"
+                    app:layout_constraintHorizontal_weight="4"
+                    app:layout_constraintLeft_toRightOf="@id/key_dashboard_account_space_postpaid"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:viewModel="@{viewModel}" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.dashboardConfiguration.postPaidContainerVisible}"
+                    app:constraint_referenced_ids="key_dashboard_account_space_postpaid,postpaid_account_balance_container"
+                    tools:visibility="gone" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/dashboard_bottom_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="dashboard_timer_value_sent,postpaid_account_balance_container,prepaid_account_balance_container" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

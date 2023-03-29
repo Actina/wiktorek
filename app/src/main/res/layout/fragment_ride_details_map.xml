@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.ridedetailsmap.RideDetailsMapFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/ride_details_map_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/ride_details_map_business_number_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{viewModel.untranslatedScreenTitle}"
+                tools:text="@string/ride_details_map_zsl_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <pl.gov.mf.mobile.ui.components.views.BusinessNumberView
+            android:id="@+id/ride_details_map_business_number_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/ride_details_map"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ride_details_map_toolbar" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/ride_details_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/xl_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/top_barrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ride_details_map_business_number_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ride_details_map_refresh"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginTop="@dimen/xxl_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            android:onClick="@{()->viewModel.refresh()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{`ride_details_map_refresh`}"
+            tools:text="@string/ride_details_map_refresh_pl" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_monitoring_device_obe"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:maxLines="2"
+            android:visibility="@{viewModel.remotePositionsViewData.zslVisible}"
+            app:layout_constraintBottom_toTopOf="@+id/ride_details_map_ride_info_monitoring_device_phone"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/ride_details_map_ride_info_monitoring_device_obe_value"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`ride_details_map_ride_info_monitoring_device_obe`}"
+            tools:text="@string/ride_details_map_ride_info_monitoring_device_obe_pl" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_monitoring_device_obe_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:maxLines="1"
+            android:text="@{viewModel.remotePositionsViewData.zslLatLngTimestampAsDate}"
+            android:visibility="@{viewModel.remotePositionsViewData.zslVisible}"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/ride_details_map_ride_info_monitoring_device_obe"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ride_details_map_ride_info_monitoring_device_obe"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="12:31; 19.05.2021" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_monitoring_device_phone"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:visibility="@{viewModel.localPositionsViewData.localAppLatLngVisible}"
+            app:layout_constraintBottom_toTopOf="@id/ride_details_map_ride_info_log"
+            app:layout_constraintStart_toStartOf="parent"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`ride_details_map_ride_info_monitoring_device_phone`}"
+            tools:text="@string/ride_details_map_ride_info_monitoring_device_phone_pl" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_monitoring_device_phone_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:text="@{viewModel.localPositionsViewData.appLatLngTimestampAsDate}"
+            android:visibility="@{viewModel.localPositionsViewData.localAppLatLngVisible}"
+            app:layout_constraintBottom_toBottomOf="@+id/ride_details_map_ride_info_monitoring_device_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ride_details_map_ride_info_monitoring_device_phone"
+            app:layout_constraintTop_toTopOf="@+id/ride_details_map_ride_info_monitoring_device_phone"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="12:31; 19.05.2021" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="ride_details_map_ride_info_log,ride_details_map_ride_info_log_value,ride_details_map_ride_info_last_sent_data" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_log"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:visibility="@{viewModel.remotePositionsViewData.appLogVisible}"
+            app:layout_constraintBottom_toTopOf="@id/bottom_barrier"
+            app:layout_constraintStart_toStartOf="parent"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`ride_details_map_ride_info_log`}"
+            tools:text="@string/ride_details_map_ride_info_log_ru" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_log_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.remotePositionsViewData.appLatLngTimestampAsDate}"
+            android:visibility="@{viewModel.remotePositionsViewData.appLogVisible}"
+            app:layout_constraintBottom_toBottomOf="@+id/ride_details_map_ride_info_log"
+            app:layout_constraintStart_toEndOf="@+id/ride_details_map_ride_info_log"
+            app:layout_constraintTop_toTopOf="@+id/ride_details_map_ride_info_log"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="12:31; 19.05.2021" />
+
+        <TextView
+            android:id="@+id/ride_details_map_ride_info_last_sent_data"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:layout_marginRight="@dimen/s_spacing"
+            android:maxLines="2"
+            android:visibility="@{viewModel.remotePositionsViewData.appLogVisible}"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/ride_details_map_ride_info_log_value"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ride_details_map_ride_info_log_value"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_details_map_ride_info_monitoring_device_phone_description`}"
+            tools:text="@string/ride_details_map_ride_info_monitoring_device_phone_description_pl" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/top_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="ride_details_map_header,location_not_reported_content" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottom_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="ride_details_map_ride_info_log,ride_details_map_ride_info_log_value,ride_details_map_ride_info_last_sent_data" />
+
+        <Space
+            android:id="@+id/ride_details_map_ride_info_start_date_top_space"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/xxl_spacing"
+            app:layout_constraintBottom_toTopOf="@id/ride_details_map_refresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_barrier" />
+
+        <TextView
+            android:id="@+id/ride_details_map_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginBottom="@dimen/s_spacing"
+            android:visibility="@{viewModel.remotePositionsViewData.infoHeaderVisible}"
+            app:layout_constraintBottom_toTopOf="@+id/ride_details_map_ride_info_monitoring_device_obe"
+            app:layout_constraintStart_toStartOf="parent"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_details_map_ride_info_header`}"
+            tools:text="@string/ride_details_map_ride_info_header_pl" />
+
+        <TextView
+            android:id="@+id/location_not_reported_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_content_horizontal"
+            android:layout_marginEnd="@dimen/padding_content_horizontal"
+            android:paddingBottom="@dimen/s_spacing"
+            android:text="@string/ride_details_map_missing_location_data_pl"
+            android:visibility="@{viewModel.remotePositionsViewData.locationNotReportedVisible}"
+            app:layout_constraintBottom_toTopOf="@id/ride_details_map_ride_info_monitoring_device_obe"
+            nkspo:textColorInMode="@{`spoeTextContent`}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

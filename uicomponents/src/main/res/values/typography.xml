@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="TextAppearance.Spoe.Base" parent="">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.HeaderLarge" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">28dp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">32sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.HeaderFirst" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/spoeHeader</item>
+        <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.HeaderSecond" parent="TextAppearance.Spoe.Base">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">28sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Header16" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">22sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Splash.Loader" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:translationY">-1.03dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24dp</item>
+        <item name="android:textColor">@color/blackBusiness</item>
+    </style>
+
+    <style name="TextAppearance.Warning.Header" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">32dp</item>
+        <item name="android:textColor">@color/textColorRed</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Issues.Header" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24dp</item>
+        <item name="android:textColor">@color/buttonRed</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.HeaderSecond.White" parent="TextAppearance.Spoe.HeaderSecond">
+        <item name="android:textColor">@color/headerTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Standard" parent="TextAppearance.Spoe.Base">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent" parent="TextAppearance.Spoe.Standard">
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/spoeTextContent</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:translationY">-1.11dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent600" parent="TextAppearance.Spoe.Standard">
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:translationY">-1.11dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent09" parent="TextAppearance.Spoe.Standard">
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:translationY">-1.11dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.Red" parent="TextAppearance.Spoe.TextContent">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.Red.Dark" parent="TextAppearance.Spoe.TextContent">
+        <item name="android:textColor">@color/buttonRed</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.White" parent="TextAppearance.Spoe.TextContent">
+        <item name="android:textColor">@color/whiteText</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.White.Bold" parent="TextAppearance.Spoe.TextContent.White">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.Bold" parent="TextAppearance.Spoe.TextContent">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.Bold.Enlarged" parent="TextAppearance.Spoe.TextContent.Bold">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.Bold.Blue" parent="TextAppearance.Spoe.TextContent">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textColor">@color/blueText</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.ButtonText" parent="TextAppearance.Spoe.Standard">
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.ButtonText.White" parent="TextAppearance.Spoe.ButtonText">
+        <item name="android:textColor">@color/whiteText</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.ButtonText.Blue" parent="TextAppearance.Spoe.ButtonText">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.BusinessNumber" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">28dp</item>
+        <item name="android:textColor">@color/spoeOnboardingTolledBusinessNumber</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">36sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent.BusinessNumber.Small" parent="TextAppearance.Spoe.TextContent.Bold">
+        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">28sp</item>
+        <item name="android:translationY">-1.74sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Dashboard.Timer" parent="">
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">36dp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="lineHeight">32dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Bold.16" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/blackBusiness</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="lineHeight">28dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Dashboard.AccountBalance" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">24dp</item>
+        <item name="android:textColor">@color/accountBalanceText</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="lineHeight">28dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Dashboard.Icons" parent="TextAppearance.Spoe.TextContent.Bold">
+        <item name="android:fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textColor">@color/blackBusiness</item>
+        <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Header.Bold" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
+        <item name="android:textColor">@color/spoeHeader</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Header.Section.Bold" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/spoeHeader</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">22sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Header.VehicleIcon.Text" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/vehicleIconText</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">22sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.Content" parent="TextAppearance.Spoe.TextContent">
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.HeaderOnboarding" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">24dp</item>
+        <item name="android:textColor">@color/spoeHeader</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.ContentOnboarding" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/spoeOnboarding</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:translationY">-1.11dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Montserat.Header" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24dp</item>
+    </style>
+
+
+    <style name="TextAppearance.Spoe.TextContent16" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/spoeTextContent</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:translationY">-1.11dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.TextContent16.light" parent="TextAppearance.Spoe.Base">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:translationY">-1.11dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+
+    <style name="TextAppearance.Spoe.BusinessNumber.Toolbar" parent="TextAppearance.Spoe.Standard">
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize" tools:ignore="SpUsage">15dp</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:translationY">-1.11dp</item>
+        <item name="android:textColor">@color/toolbarTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Spoe.BusinessNumber.Toolbar.Bold" parent="TextAppearance.Spoe.BusinessNumber.Toolbar">
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+    </style>
+</resources>

@@ -1,0 +1,9 @@
+include ':commons'
+include ':uicomponents'
+include ':base'
+include ':core'
+include ':networking'
+include ':storage'
+include ':security'
+include ':app'
+rootProject.name = "Nkspo"

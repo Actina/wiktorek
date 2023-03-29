@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.tecs.amountSelection.TecsAmountSelectionCellViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingStart="@dimen/xxl_spacing"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/xxl_spacing"
+        android:paddingBottom="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/top_up_account_details_title"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`top_up_account_cash_details_your_account`}"
+            tools:text="@string/top_up_account_cash_details_your_account_pl" />
+
+        <TextView
+            android:id="@+id/top_up_account_details_account_value"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.accountValue}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_up_account_details_title"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            tools:text="321.00 zł" />
+
+        <TextView
+            android:id="@+id/top_up_account_details_subtitle"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_up_account_details_account_value"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`top_up_account_cash_details_last_update`}"
+            tools:text="@string/top_up_account_cash_details_last_update_pl" />
+
+        <TextView
+            android:id="@+id/top_up_account_details_hour"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            android:drawablePadding="@dimen/s_spacing"
+            android:text="@{item.lastPaymentHour}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_up_account_details_subtitle"
+            nkspo:drawableStartCompatInMode="@{`ic_clock`}"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="21:31" />
+
+        <TextView
+            android:id="@+id/top_up_account_details_date"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            android:drawablePadding="@dimen/s_spacing"
+            android:text="@{item.lastPaymentDate}"
+            app:layout_constraintLeft_toRightOf="@+id/top_up_account_details_hour"
+            app:layout_constraintTop_toBottomOf="@+id/top_up_account_details_subtitle"
+            nkspo:drawableStartCompatInMode="@{`ic_calendar_dark_gray`}"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="04.11.2020" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><!--7.0" tablets and up-->
+<resources>
+    <!-- Just sample adjust for tablet 7.0" - devices smaller than 7.0" uses wrap content (0dp)-->
+    <dimen name="key_dashboard_account_space_width">130dp</dimen>
+</resources>

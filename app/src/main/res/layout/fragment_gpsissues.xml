@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.errors.gpsissues.GpsIssuesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/gps_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`gps_issues_title`}"
+                tools:text="Dane lokalizacyjne" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/bottom_area_height_small"
+            app:layout_constraintBottom_toBottomOf="@+id/gpsissues_bottom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gps_toolbar"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <TextView
+                    android:id="@+id/gps_header"
+                    style="@style/TextAppearance.Spoe.HeaderFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingTop="@dimen/padding_content_vertical"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`gps_issues_header`}"
+                    tools:text="Problem z danymi lokalizacyjnymi" />
+
+                <TextView
+                    android:id="@+id/gps_content"
+                    style="@style/TextAppearance.Spoe.TextContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingTop="@dimen/s_spacing"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/m_spacing"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`gps_issues_content`}"
+                    tools:text="Wykryliśmy niską jakość danych lokalizacyjnych dostarczanych przez Twój telefon. Akcje możliwe celem poprawy ich jakości:" />
+                <!-- spacer -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/s_spacing" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/m_spacing"
+                    android:visibility="@{viewModel.issuesLowBattery}"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        nkspo:srcInMode="@{`ic_issues_battery_yellow`}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.Header16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_low_battery_header`}"
+                            tools:text="Niski poziom baterii" />
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.TextContent600"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_low_battery_content`}"
+                            tools:text="Sugerujemy podłączenie telefonu do ładowarki" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/m_spacing"
+                    android:visibility="@{viewModel.anyCriticalBatteryIssues}"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        nkspo:srcInMode="@{`ic_issues_battery_red`}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.Header16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_critical_low_battery_header`}"
+                            tools:text="Krytycznie niski poziom baterii" />
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.TextContent600"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            android:visibility="@{viewModel.issuesCriticalLowBattery}"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_critical_low_battery_content`}"
+                            tools:text="Podłącz ładowarkę" />
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.TextContent600"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            android:visibility="@{viewModel.issuesCriticalLowBatteryButLoading}"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_critical_low_battery_loading_content`}"
+                            tools:text="Podłącz ładowarkę" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/m_spacing"
+                    android:visibility="@{viewModel.issuesOverheat}"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        nkspo:srcInMode="@{`ic_issue_cooldown`}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.Header16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_overheat_header`}"
+                            tools:text="Schłódź telefon" />
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.TextContent600"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_overheat_content`}"
+                            tools:text="Twój telefon się przegrzewa. Zadbaj o jego schłodzenie." />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/m_spacing"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        nkspo:srcInMode="@{`ic_issues_sattelites`}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.Header16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_location_header`}"
+                            tools:text="Widoczność satelit" />
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.TextContent600"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_location_content`}"
+                            tools:text="Umieść telefon w miejscu bardziej eksponowanym, unikaj zamykanych schowków" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/elevation_high"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/padding_content_horizontal"
+                    android:paddingRight="@dimen/padding_content_horizontal"
+                    android:paddingBottom="@dimen/m_spacing"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/xs_spacing"
+                        nkspo:srcInMode="@{`ic_issues_otherapps_blue`}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.Header16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_apps_header`}"
+                            tools:text="Wydajność urządzenia" />
+
+                        <TextView
+                            style="@style/TextAppearance.Spoe.TextContent600"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/s_spacing"
+                            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}"
+                            nkspo:textColorInMode="@{`textPrimary`}"
+                            nkspo:translatedText="@{`gps_issues_apps_content`}"
+                            tools:text="Wyłącz inne aplikacje które mogą mieć wpływ na pracę urządzenia." />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <!-- spacer -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/s_spacing" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+
+        <View
+            android:id="@+id/gpsissues_bottom"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_area_height_small"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_vehicle_selection_bottom_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.onConfirmClick()}"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gpsissues_bottom"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`gps_issues_confirm`}"
+            tools:text="@string/config_vehicle_selection_confirm_pl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

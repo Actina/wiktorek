@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.rideshistory.adapter.RideHistoryHeaderUiItem" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/m_spacing"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/m_spacing"
+        android:paddingBottom="@dimen/s_spacing">
+
+        <TextView
+            android:id="@+id/itemRidesHistoryHeader"
+            style="@style/TextAppearance.Spoe.Header.Section.Bold"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.rideHistoryHeaderItemViewModel.date}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="22/07/2020" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

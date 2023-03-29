@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.configvehicleselection.adapteritem.ConfigVehicleSelectionHeader.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/padding_content_vertical"
+        android:paddingRight="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/xl_spacing">
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_top_item_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`config_vehicle_selection_header`}"
+            tools:text="@string/config_vehicle_selection_header_pl" />
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_top_item_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/config_vehicle_selection_top_item_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`config_vehicle_selection_content`}"
+            tools:text="@string/config_vehicle_selection_content_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

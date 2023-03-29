@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.etoll.ui.components.dialogs.CriticalMessageDialogFragment.CriticalMessageDialogViewModelSchema" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        nkspo:backgroundDrawableInMode="@{viewModelSchema.frameDrawable}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/xl_spacing">
+
+        <ImageView
+            android:id="@+id/critical_message_icon"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            nkspo:srcInMode="@{viewModelSchema.icon}"
+            app:layout_constraintBottom_toTopOf="@id/critical_message_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_default="wrap" />
+
+        <TextView
+            android:id="@+id/critical_message_header"
+            style="@style/TextAppearance.Spoe.HeaderFirst"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/s_spacing"
+            android:layout_marginTop="@dimen/m_spacing"
+            android:layout_marginEnd="@dimen/s_spacing"
+            android:gravity="center_horizontal"
+            nkspo:textColorInModeFromVm="@{viewModelSchema.textColor}"
+            nkspo:translatedText="@{viewModelSchema.headerText}"
+            app:layout_constraintBottom_toTopOf="@id/critical_message_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/critical_message_icon"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Header" />
+
+        <TextView
+            android:id="@+id/critical_message_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/s_spacing"
+            android:layout_marginTop="@dimen/s_spacing"
+            android:layout_marginEnd="@dimen/s_spacing"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toTopOf="@id/critical_message_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/critical_message_header"
+            nkspo:translatedText="@{viewModelSchema.contentText}"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="Content" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/critical_message_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/s_spacing"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:layout_marginEnd="@dimen/s_spacing"
+            android:onClick="@{()->viewModelSchema.onContinue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/critical_message_content"
+            app:layout_constraintWidth_min="308dp"
+            nkspo:translatedText="@{`dialog_ok`}"
+            tools:text="@string/dialog_ok_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

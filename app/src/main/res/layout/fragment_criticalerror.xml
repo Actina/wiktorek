@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/criticalErrorFragment_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/padding_content_horizontal"
+    android:paddingTop="@dimen/padding_content_vertical"
+    android:paddingRight="@dimen/padding_content_horizontal"
+    android:paddingBottom="@dimen/padding_content_vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_cell_vertical_guideline_second"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/criticalErrorFragment_title"
+        style="@style/TextAppearance.Spoe.HeaderLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        app:autoSizeMinTextSize="22dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_cell_vertical_guideline_second"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottom_cell_vertical_guideline_second"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/critical_error_no_gps_permission_title_pl" />
+
+    <TextView
+        android:id="@+id/criticalErrorFragment_header"
+        style="@style/TextAppearance.Montserat.Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xxxl_spacing"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        app:autoSizeMinTextSize="18dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/criticalErrorFragment_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/criticalErrorFragment_title"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Urządzenie zostało zbanowane" />
+
+    <TextView
+        android:id="@+id/criticalErrorFragment_text"
+        style="@style/TextAppearance.Spoe.TextContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xxl_spacing"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/criticalErrorFragment_header"
+        tools:text="Twoje urządzenie nie spełnia wymagań sprzętowych i nie może być wykorzystywane\n do poprawnego korzystania z aplikacji. Zainstaluj aplikację na innym urządzeniu." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

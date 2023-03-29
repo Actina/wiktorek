@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainmenu_activities"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_activities_light"
+        android:title="main_navigation_item_notifications"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/mainmenu_ride"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_rides_light"
+        android:title="main_navigation_item_ride"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/mainmenu_more"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_more_light"
+        android:title="main_navigation_item_more"
+        tools:ignore="HardcodedText" />
+</menu>

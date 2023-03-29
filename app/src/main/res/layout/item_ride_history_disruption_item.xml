@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <import type="androidx.databinding.adapters.Converters" />
+
+        <import type="android.view.View" />
+
+        <import type="pl.gov.mf.etoll.core.ridehistory.model.HistoryItemFrameType" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.rideshistory.adapter.RideHistoryDisruptionUiItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/sm_spacing"
+        android:paddingEnd="@dimen/sm_spacing"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/itemRidesHistoryGpsTime"
+            style="@style/TextAppearance.Spoe.Header.Section.Bold"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{item.rideHistoryDisruptionItemViewModel.formattedTime}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            tools:text="08:12" />
+
+        <View
+            android:id="@+id/itemRidesHistoryGpsTile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/xs_spacing"
+            android:layout_marginStart="@dimen/m_spacing"
+            android:elevation="@dimen/elevation_low"
+            app:layout_constraintBottom_toBottomOf="@+id/itemRidesHistoryGpsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemRidesHistoryGpsTime"
+            app:layout_constraintTop_toTopOf="@+id/itemRidesHistoryGpsTitle"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <View
+            android:id="@+id/itemRidesHistoryGpsTimeLineTop"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/s_spacing"
+            android:background="@color/grayish"
+            android:visibility="@{item.rideHistoryDisruptionItemViewModel.hasPrevious}"
+            app:layout_constraintBottom_toTopOf="@+id/itemRidesHistoryGpsTime"
+            app:layout_constraintEnd_toEndOf="@+id/itemRidesHistoryGpsTime"
+            app:layout_constraintStart_toStartOf="@+id/itemRidesHistoryGpsTime"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/itemRidesHistoryGpsTimeLineBottom"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/s_spacing"
+            android:visibility="@{item.rideHistoryDisruptionItemViewModel.hasNext}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/itemRidesHistoryGpsTime"
+            app:layout_constraintStart_toStartOf="@+id/itemRidesHistoryGpsTime"
+            app:layout_constraintTop_toBottomOf="@+id/itemRidesHistoryGpsTime" />
+
+        <TextView
+            android:id="@+id/itemRidesHistoryGpsTitle"
+            style="@style/TextAppearance.Spoe.Header.Section.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m_spacing"
+            android:elevation="@dimen/elevation_low"
+            android:paddingVertical="@dimen/sm_spacing"
+            app:layout_constraintEnd_toEndOf="@+id/itemRidesHistoryGpsTile"
+            app:layout_constraintStart_toEndOf="@+id/itemRidesHistoryGpsImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{item.rideHistoryDisruptionItemViewModel.titleToTranslate}"
+            tools:text="Tryb raportowania" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/itemRidesHistoryGpsImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_low"
+            android:src="@{item.rideHistoryDisruptionItemViewModel.imageRes}"
+            app:layout_constraintBottom_toBottomOf="@+id/itemRidesHistoryGpsTile"
+            app:layout_constraintStart_toStartOf="@+id/itemRidesHistoryGpsTile"
+            app:layout_constraintTop_toTopOf="@+id/itemRidesHistoryGpsTile" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

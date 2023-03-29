@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="xh_spacing">64dp</dimen>
+    <dimen name="h_spacing">48dp</dimen>
+    <dimen name="xxxl_spacing">40dp</dimen>
+    <dimen name="xxl_spacing">32dp</dimen>
+    <dimen name="xl_spacing">24dp</dimen>
+    <dimen name="m_spacing">16dp</dimen>
+    <dimen name="sm_spacing">12dp</dimen>
+    <dimen name="s_spacing">8dp</dimen>
+    <dimen name="xs_spacing">4dp</dimen>
+    <dimen name="xxs_spacing">2dp</dimen>
+    <dimen name="no_spacing">0dp</dimen>
+
+    <dimen name="elevation_low">4dp</dimen>
+    <dimen name="elevation_high">12dp</dimen>
+
+    <dimen name="defult_corner_radius">4dp</dimen>
+    <dimen name="bottom_sheet_corner_radius">20dp</dimen>
+
+    <dimen name="registration_mode_selection_tile_height">126dp</dimen>
+    <dimen name="bottom_area_height_small">96dp</dimen>
+    <dimen name="loading_logo_size">48dp</dimen>
+
+    <dimen name="pin_box_max_width">64dp</dimen>
+    <dimen name="pin_box_min_width">32dp</dimen>
+    <dimen name="pin_input_max_width">384dp</dimen>
+
+    <dimen name="history_item_corner_radius">4dp</dimen>
+
+    <dimen name="padding_leftright_content">12dp</dimen>
+    <dimen name="padding_topdown_content">32dp</dimen>
+    <dimen name="padding_leftright_buttons">32dp</dimen>
+    <dimen name="padding_leftright_cell">32dp</dimen>
+    <dimen name="padding_topdown_cell">24dp</dimen>
+    <dimen name="padding_leftright_cell_header">16dp</dimen>
+    <dimen name="padding_topdown_cell_tight">8dp</dimen>
+
+    <dimen name="isle_tolled_height">212dp</dimen>
+    <dimen name="isle_sent_height">155dp</dimen>
+    <dimen name="isle_dashboard_height">180dp</dimen>
+    <dimen name="isle_help_height">232dp</dimen>
+    <dimen name="isle_default_height">96dp</dimen>
+    <dimen name="padding_content_horizontal">32dp</dimen>
+    <dimen name="padding_content_vertical">32dp</dimen>
+    <dimen name="padding_content_vertical_dashboard">12dp</dimen>
+    <dimen name="padding_button_down">24dp</dimen>
+    <dimen name="margin_content_vertical">16dp</dimen>
+    <dimen name="margin_between_content_groups_vertical">8dp</dimen>
+    <dimen name="margin_cell_horizontal">16dp</dimen>
+    <dimen name="padding_cell_horizontal">16dp</dimen>
+    <!--16dp (padding_cell_horizontal) - 6dp (radio_button_padding)-->
+    <dimen name="padding_cell_horizontal_radio_button">10dp</dimen>
+    <dimen name="padding_cell_vertical">16dp</dimen>
+    <dimen name="dialog_button_height">60dp</dimen>
+    <dimen name="dialog_image_min_width">308dp</dimen>
+    <dimen name="key_dashboard_account_space_width">0dp</dimen>
+    <dimen name="top_bar_height">48dp</dimen>
+    <dimen name="monitoring_device_icon_height">44dp</dimen>
+    <dimen name="margin_content_horizontal">8dp</dimen>
+    <dimen name="config_ride_type_min_cell_height">192dp</dimen>
+    <dimen name="bubbleHeight">200dp</dimen>
+    <dimen name="icon_margin">16dp</dimen>
+    <dimen name="logo_margin">10dp</dimen>
+    <dimen name="logo_padding">8dp</dimen>
+
+    <!-- Marker height (32dp) + 8dp of padding above marker -->
+    <dimen name="map_padding">40dp</dimen>
+</resources>

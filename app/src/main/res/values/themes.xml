@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.Spoe" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+
+    <!--  https://material.io/develop/android/theming/color-->
+    <!--  https://material.io/design/color/the-color-system.html#color-theme-creation-->
+    <style name="Theme.Spoe" parent="Base.Theme.Spoe">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/blue</item>
+    </style>
+
+</resources>

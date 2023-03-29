@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/notifications_history_menu_select"
+        android:enabled="true"
+        android:iconTint="@color/toolbarIcon"
+        android:title="notifications_history_menu_select_notifications"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/notifications_history_menu_delete_all"
+        android:enabled="true"
+        android:iconTint="@color/toolbarIcon"
+        android:title="notifications_history_menu_delete_all"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/notifications_history_menu_delete_selected"
+        android:icon="@drawable/ic_delete_light"
+        android:iconTint="@color/toolbarIcon"
+        android:title="notifications_history_menu_delete_selected"
+        android:visible="false"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
+</menu>

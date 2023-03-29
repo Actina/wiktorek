@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.tecs.amountSelection.TecsAmountSelectionCellViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:paddingLeft="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingRight="@dimen/padding_content_horizontal"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/top_up_account_details_title"
+            style="@style/TextAppearance.Spoe.Header.Section.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`top_up_account_amount_selection_section_header`}"
+            tools:text="@string/top_up_account_amount_selection_section_header_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

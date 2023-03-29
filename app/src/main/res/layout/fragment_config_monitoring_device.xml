@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="pl.gov.mf.etoll.front.configmonitoringdevice.SelectedMonitoringDevice" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.configmonitoringdevice.ConfigMonitoringDeviceFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_monitoring_device_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`config_monitoring_device_title`}"
+                tools:text="@string/config_monitoring_device_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <TextView
+            android:id="@+id/config_monitoring_device_header"
+            style="@style/TextAppearance.Spoe.HeaderFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:paddingTop="@dimen/m_spacing"
+            android:paddingBottom="@dimen/m_spacing"
+            app:layout_constraintTop_toBottomOf="@+id/config_monitoring_device_toolbar"
+            app:layout_constraintVertical_chainStyle="packed"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`config_monitoring_device_header`}"
+            tools:text="@string/config_monitoring_device_header_pl" />
+
+        <TextView
+            android:id="@+id/config_monitoring_device_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintTop_toBottomOf="@+id/config_monitoring_device_header"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`config_monitoring_device_content`}"
+            tools:text="@string/config_monitoring_device_content_pl" />
+
+
+        <!-- Phone -->
+
+        <View
+            android:id="@+id/config_monitoring_device_phone_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_cell_horizontal"
+            android:layout_marginRight="@dimen/margin_cell_horizontal"
+            android:clickable="true"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{()->viewModel.onPhoneClicked()}"
+            app:layout_constraintBottom_toBottomOf="@id/config_monitoring_device_phone_content"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/config_monitoring_device_phone_content"
+            app:layout_constraintVertical_bias="0.0"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/config_monitoring_device_phone_radio_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/padding_cell_horizontal"
+            android:checked="@{viewModel.viewData == SelectedMonitoringDevice.PHONE}"
+            android:clickable="false"
+            android:elevation="@dimen/elevation_high"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/config_monitoring_device_phone_tile"
+            app:layout_constraintStart_toStartOf="@id/config_monitoring_device_phone_tile"
+            app:layout_constraintTop_toTopOf="@id/config_monitoring_device_phone_tile"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:tintInMode="@{`radiobutton_tint_mode_selector`}" />
+
+        <TextView
+            android:id="@+id/config_monitoring_device_phone_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:layout_marginRight="@dimen/margin_cell_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:maxLines="2"
+            android:paddingTop="@dimen/xl_spacing"
+            android:paddingRight="@dimen/padding_cell_horizontal"
+            android:paddingBottom="@dimen/xl_spacing"
+            app:layout_constraintBottom_toBottomOf="@+id/config_monitoring_device_phone_radio_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/config_monitoring_device_phone_radio_button"
+            app:layout_constraintTop_toBottomOf="@+id/config_monitoring_device_content"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`config_monitoring_device_phone`}"
+            tools:text="@string/config_monitoring_device_phone_pl" />
+
+        <!-- ZSL or OBU -->
+
+        <View
+            android:id="@+id/config_monitoring_device_obe_tile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_cell_horizontal"
+            android:layout_marginRight="@dimen/margin_cell_horizontal"
+            android:clickable="true"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{()->viewModel.onObeClicked()}"
+            app:layout_constraintBottom_toBottomOf="@id/config_monitoring_device_obe_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/config_monitoring_device_obe_content"
+            app:layout_constraintVertical_bias="0.0"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/config_monitoring_device_obe_radio_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/padding_cell_horizontal"
+            android:checked="@{viewModel.viewData == SelectedMonitoringDevice.OBE}"
+            android:clickable="false"
+            android:elevation="@dimen/elevation_high"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/config_monitoring_device_obe_tile"
+            app:layout_constraintStart_toStartOf="@id/config_monitoring_device_obe_tile"
+            app:layout_constraintTop_toTopOf="@+id/config_monitoring_device_obe_tile"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:tintInMode="@{`radiobutton_tint_mode_selector`}" />
+
+        <TextView
+            android:id="@+id/config_monitoring_device_obe_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            android:layout_marginRight="@dimen/margin_cell_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:maxLines="2"
+            android:paddingTop="@dimen/xl_spacing"
+            android:paddingRight="@dimen/padding_cell_horizontal"
+            android:paddingBottom="@dimen/xl_spacing"
+            app:layout_constraintBottom_toBottomOf="@+id/config_monitoring_device_obe_radio_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/config_monitoring_device_obe_radio_button"
+            app:layout_constraintTop_toBottomOf="@+id/config_monitoring_device_phone_content"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`config_monitoring_device_obe`}"
+            tools:text="@string/config_monitoring_device_obe_pl" />
+
+        <!-- bottom confirm -->
+
+        <View
+            android:id="@+id/config_monitoring_device_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_area_height_small"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_monitoring_device_confirm_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{viewModel.confirmButtonEnabled}"
+            android:onClick="@{() -> viewModel.onConfirm()}"
+            app:layout_constraintBottom_toBottomOf="@+id/config_monitoring_device_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/config_monitoring_device_bottom_area"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`config_monitoring_device_confirm`}"
+            tools:text="@string/config_monitoring_device_confirm_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

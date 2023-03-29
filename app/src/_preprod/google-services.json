@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981360328879",
+    "project_id": "e-toll-pl-preprod",
+    "storage_bucket": "e-toll-pl-preprod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981360328879:android:283ec4e18c8fcf9756545a",
+        "android_client_info": {
+          "package_name": "pl.gov.mf.etoll.preprod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981360328879-21qaeqbl1qogj202ai53intrjb7jb7e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmvqxzC2j5LpUkHh9tgU3zUb1t-qZX1B8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981360328879-21qaeqbl1qogj202ai53intrjb7jb7e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

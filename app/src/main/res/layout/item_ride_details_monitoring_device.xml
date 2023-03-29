@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.ridedetails.RideDetailsViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_between_content_groups_vertical"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> viewModel.onChangeDeviceClick()}"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/padding_cell_vertical"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/padding_cell_vertical"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ride_details_monitoring_device"
+                style="@style/TextAppearance.Spoe.TextContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedText="@{`ride_details_monitoring_device`}"
+                tools:text="@string/ride_details_monitoring_device_pl" />
+
+            <TextView
+                android:id="@+id/ride_details_monitoring_device_type"
+                style="@style/TextAppearance.Spoe.TextContent.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedText="@{viewModel.data.monitoringByApp ? `ride_details_monitoring_device_phone` : `ride_details_monitoring_device_zsl`}"
+                tools:text="@string/ride_details_monitoring_device_phone_pl" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ride_details_monitoring_device_change"
+            style="@style/TextAppearance.Spoe.TextContent.Bold.Blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="@dimen/s_spacing"
+            android:gravity="center_vertical|center_horizontal"
+            android:visibility="@{viewModel.data.changeMonitoringDeviceShouldBePossible}"
+            nkspo:drawableEndCompatInMode="@{`ic_arrow_blue`}"
+            nkspo:textColorInMode="@{`blueText`}"
+            nkspo:translatedText="@{`ride_details_monitoring_device_change`}"
+            tools:text="@string/ride_details_monitoring_device_change_pl" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

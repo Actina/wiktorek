@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_icon_root"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    tools:layout_width="match_parent"
+    tools:layout_height="match_parent"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    android:backgroundTint="@color/tileBackgroundPrimary"
+    android:backgroundTintMode="multiply"
+    android:padding="8dp"
+    app:layout_constraintHeight_max="150dp"
+    app:layout_constraintDimensionRatio="W,1:1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/dashboard_icon_drawable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="@dimen/sm_spacing"
+        android:src="@drawable/ic_gps_data_light"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintBottom_toTopOf="@id/dashboard_icon_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/dashboard_icon_text"
+        style="@style/TextAppearance.Spoe.Content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dashboard_indicators_gps_pl"
+        app:layout_constraintBottom_toTopOf="@id/dashboard_icon_statusbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_icon_drawable" />
+
+    <ImageView
+        android:id="@+id/dashboard_icon_statusbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_dashboard_status_gray_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

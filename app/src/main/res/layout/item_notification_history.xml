@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.notificationhistory.list.NotificationHistoryItem.DataItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:onClick="@{() -> item.viewModel.onItemClick()}"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/row_item_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={item.viewModel.selected}"
+            android:visibility="@{item.viewModel.selectMode ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginEnd="@dimen/padding_leftright_cell_header"
+            nkspo:tintInMode="@{`checkbox_tint_mode_selector`}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_topdown_cell_tight"
+            android:layout_marginEnd="@dimen/padding_leftright_cell_header"
+            android:layout_marginBottom="@dimen/padding_topdown_cell_tight"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/row_item_selection"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="@dimen/padding_leftright_cell_header"
+            nkspo:backgroundDrawableInMode="@{`bg_rounded_white_8`}">
+
+            <View
+                android:id="@+id/row_coloring"
+                android:layout_width="8dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}"
+                nkspo:backgroundDrawableInMode="@{`bg_leftrounded_notif_default`}"
+                nkspo:backgroundDrawableInModeFromVm="@{item.viewModel.tileColor}" />
+
+            <TextView
+                android:id="@+id/row_header"
+                style="@style/TextAppearance.Spoe.Header.Section.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_leftright_cell"
+                android:layout_marginEnd="@dimen/padding_leftright_cell"
+                android:maxLines="2"
+                android:paddingTop="@dimen/padding_topdown_cell_tight"
+                android:paddingBottom="@dimen/padding_topdown_cell_tight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                nkspo:textColorInMode="@{`spoeHeader`}"
+                nkspo:translatedText="@{item.viewModel.data.title}"
+                tools:text="10.02.2021" />
+
+            <TextView
+                android:id="@+id/row_content"
+                style="@style/TextAppearance.Spoe.TextContent16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_leftright_cell"
+                android:layout_marginEnd="@dimen/padding_leftright_cell"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/row_header"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedTextWithValue="@{item.viewModel.contentValue}"
+                tools:text="10.02.2021" />
+
+            <TextView
+                android:id="@+id/row_date"
+                style="@style/TextAppearance.Spoe.TextContent16.light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_leftright_cell"
+                android:layout_marginEnd="@dimen/padding_leftright_cell"
+                android:paddingBottom="@dimen/padding_topdown_cell_tight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/row_content"
+                nkspo:textColorInMode="@{`spoeTextContent`}"
+                nkspo:translatedText="@{item.viewModel.calculatedTimeDiffToNow()}"
+                tools:text="10.02.2021" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

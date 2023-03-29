@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.onboarding.OnboardingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolBar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                android:id="@+id/startup_onboarding_skipButton"
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|right"
+                android:paddingLeft="@dimen/xh_spacing"
+                android:paddingTop="@dimen/m_spacing"
+                android:paddingRight="@dimen/xxl_spacing"
+                android:paddingBottom="@dimen/m_spacing"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`startup_onboarding_skip`}"
+                tools:ignore="RtlHardcoded"
+                tools:text="@string/startup_onboarding_skip_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/startup_onboarding_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/padding_topdown_content"
+            app:layout_constraintBottom_toTopOf="@+id/startup_onboarding_dots"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolBar"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}" />
+
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/startup_onboarding_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_topdown_content"
+            app:dotsColor="@color/wormDotIndicator"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="16dp"
+            app:dotsSpacing="4dp"
+            app:dotsStrokeColor="@color/wormDotIndicatorBlueOpacity"
+            app:dotsStrokeWidth="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/startup_onboarding_nextButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:progressMode="true" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/startup_onboarding_nextButton"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_leftright_buttons"
+            android:layout_marginRight="@dimen/padding_leftright_buttons"
+            android:layout_marginBottom="@dimen/padding_button_down"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{`startup_onboarding_next`}"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/startup_onboarding_continueButton"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_leftright_buttons"
+            android:layout_marginRight="@dimen/padding_leftright_buttons"
+            android:layout_marginBottom="@dimen/padding_button_down"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`startup_onboarding_continue`}"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

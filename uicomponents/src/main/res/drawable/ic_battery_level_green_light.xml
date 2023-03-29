@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="30dp"
+    android:viewportWidth="16"
+    android:viewportHeight="30">
+    <path
+        android:pathData="M13.3064,2.9637H10.7433V0H4.6043V2.9637H2.0412C0.9209,2.9637 0,3.8528 0,4.9345V27.6511C0,28.7476 0.9209,29.6367 2.0412,29.6367H13.291C14.4267,29.6367 15.3476,28.7476 15.3476,27.6659V4.9345C15.3476,3.8528 14.4267,2.9637 13.3064,2.9637ZM6.139,26.6731V18.523H3.0695L9.2086,7.4092V15.5593H12.2781L6.139,26.6731Z"
+        android:fillColor="@color/buttonGreen_light"/>
+</vector>

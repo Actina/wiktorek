@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.mobile.ui.components.dialogs.basic.BasicTwoActionsDialogFragment.DialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_content_horizontal"
+        android:layout_marginRight="@dimen/padding_content_horizontal"
+        nkspo:backgroundColorInMode="@{`dialogBackgroundPrimary`}">
+
+        <ImageView
+            android:id="@+id/oneactiondialog_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_content_vertical"
+            app:layout_constraintBottom_toTopOf="@id/oneactiondialog_header"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_min="@dimen/dialog_image_min_width"
+            nkspo:srcInModeFromVm="@{viewModelSchema.iconResource}"
+            tools:src="@drawable/ic_warning_light" />
+
+        <TextView
+            android:id="@+id/oneactiondialog_header"
+            style="@style/TextAppearance.Spoe.HeaderFirst"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_spacing"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toTopOf="@id/oneactioncontent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/oneactiondialog_image"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:translatedText="@{viewModelSchema.headerText}"
+            nkspo:textColorInMode="@{viewModelSchema.headerTextColor}"
+            tools:text="Sample header" />
+
+        <TextView
+            android:id="@+id/oneactioncontent"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            android:layout_marginBottom="@dimen/padding_content_vertical"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/oneactiondialog_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{viewModelSchema.contentText}"
+            tools:text="Sample content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

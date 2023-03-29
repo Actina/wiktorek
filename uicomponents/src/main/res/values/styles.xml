@@ -1,0 +1,217 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary_demo</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_demo</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DefaultButton">
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.019</item>
+        <item name="android:lineHeight" tools:targetApi="p">24dp</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="DefaultInput">
+        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
+        <item name="android:lineHeight" tools:targetApi="p">28dp</item>
+        <item name="android:background">@drawable/bg_input_outlined_gray_light</item>
+        <item name="android:paddingStart">@dimen/m_spacing</item>
+        <item name="android:paddingEnd">@dimen/m_spacing</item>
+        <item name="android:paddingTop">@dimen/s_spacing</item>
+        <item name="android:paddingBottom">@dimen/s_spacing</item>
+        <item name="android:textColor">@color/inputText</item>
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="DefaultButton.Icon">
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+
+    <style name="DefaultButton.Outlined">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="RedButton" parent="DefaultButton">
+        <item name="android:backgroundTint">@drawable/button_red_selector_light</item>
+        <item name="rippleColor">@drawable/button_red_selector_light</item>
+    </style>
+
+    <style name="RedButton.Text">
+        <item name="android:textColor">@color/buttonRedText</item>
+    </style>
+
+    <style name="RedButton.Text.Icon">
+        <item name="icon">@drawable/ic_delete_light</item>
+        <item name="iconStartPadding">18dp</item>
+        <item name="iconEndPadding">12dp</item>
+    </style>
+
+    <style name="RedButtonIcon" parent="DefaultButton.Icon">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="rippleColor">@color/buttonRed</item>
+        <item name="icon">@drawable/ic_cross_light</item>
+    </style>
+
+    <style name="RedButton.Dashboard" parent="DefaultButton">
+        <item name="android:backgroundTint">@drawable/button_red_selector_light</item>
+        <item name="rippleColor">@color/buttonRed</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:paddingTop">@dimen/sm_spacing</item>
+        <item name="android:paddingBottom">@dimen/sm_spacing</item>
+        <item name="fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textColor">@color/buttonRedText</item>
+    </style>
+
+    <style name="RedButton.Wireframe.Dashboard" parent="DefaultButton">
+        <item name="android:backgroundTint">@drawable/button_red_selector_light</item>
+        <item name="rippleColor">@color/buttonRed</item>
+        <item name="android:textSize">16dp</item>
+        <item name="fontFamily">@font/open_sans_weight_600</item>
+        <item name="android:textColor">@color/bloodRed</item>
+    </style>
+
+    <style name="Widget.Spoe.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/toolbarBackgroundPrimary</item>
+        <item name="android:elevation">@dimen/elevation_high</item>
+        <item name="itemIconTint">@color/toolbarIcon</item>
+        <item name="android:tint">@color/toolbarIcon</item>
+    </style>
+
+    <!--    New styles-->
+
+    <style name="ButtonSchema" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/defult_corner_radius</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAppearance">@style/TextAppearance.Spoe.ButtonText</item>
+    </style>
+
+    <style name="ButtonSchema.NoInsets" parent="ButtonSchema">
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+    </style>
+
+    <style name="TextButtonSchema" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="textAllCaps">false</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+    </style>
+
+    <style name="Widget.Button.Red.InMode" parent="ButtonSchema" />
+
+    <style name="Widget.Button.Red.NoInsets.InMode" parent="ButtonSchema.NoInsets" />
+
+    <style name="Widget.Button.Blue.InMode" parent="ButtonSchema" />
+
+    <style name="Widget.Button.Blue.NoInsets.InMode" parent="ButtonSchema.NoInsets" />
+
+    <style name="Widget.Button.Blue.NoInsets.WithIcon.InMode" parent="ButtonSchema.NoInsets">
+        <item name="iconGravity">textStart</item>
+        <item name="iconEndPadding">@dimen/m_spacing</item>
+        <item name="iconStartPadding">16dp</item>
+        <item name="icon">@drawable/ic_share_shetch</item>
+    </style>
+
+    <style name="Widget.Button.White.Outlined.NoInsets.InMode" parent="ButtonSchema.NoInsets">
+        <item name="strokeWidth">@dimen/xxs_spacing</item>
+    </style>
+
+    <style name="Widget.Button.White.Outlined.NoInsets.WithIcon.InMode" parent="Widget.Button.White.Outlined.NoInsets.InMode">
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/m_spacing</item>
+        <item name="icon">@drawable/ic_share_shetch</item>
+    </style>
+
+    <style name="Widget.TextButton.Blue.InMode" parent="TextButtonSchema">
+        <item name="android:textAppearance">@style/TextAppearance.Spoe.ButtonText</item>
+    </style>
+
+    <style name="Widget.Button.Green.InMode" parent="ButtonSchema.NoInsets">
+        <item name="android:textAppearance">@style/TextAppearance.Spoe.ButtonText</item>
+    </style>
+
+    <style name="Widget.Button.White.Outlined.Red.NoInsets.InMode" parent="Widget.Button.White.Outlined.NoInsets.InMode">
+        <item name="android:textAppearance">@style/TextAppearance.Spoe.ButtonText</item>
+        <item name="fontFamily">@font/open_sans_weight_600</item>
+    </style>
+
+    <style name="Widget.Button.White.Outlined.Old.InMode" parent="DefaultButton.Icon">
+        <item name="android:textSize">16dp</item>
+        <item name="android:paddingTop">@dimen/sm_spacing</item>
+        <item name="android:paddingBottom">@dimen/sm_spacing</item>
+        <item name="fontFamily">@font/open_sans_weight_600</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="Widget.Spoe.BottomSheetDialog.Theme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Spoe.BottomSheetDialog.RoundedModal</item>
+    </style>
+
+    <style name="Widget.Spoe.BottomSheetDialog.RoundedModal" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_background_light</item>
+    </style>
+
+    <style name="PinBox">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@drawable/bg_pin_box_light</item>
+        <item name="android:textSize" tools:ignore="SpUsage">28dp</item>
+        <item name="android:textColor">@color/pinText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text28dpRed">
+        <item name="android:textSize" tools:ignore="SpUsage">28dp</item>
+        <item name="android:textColor">@color/buttonRed</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="Text16dpBlack">
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="Calendar.Light.InMode" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColorPrimary">@color/calendarText_light</item>
+        <item name="colorControlActivated">@color/colorControlActivated_light</item>
+    </style>
+
+    <style name="CalendarWeekDays.Light.InMode" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/calendarWeekDays_light</item>
+    </style>
+
+    <style name="Calendar.Dark.InMode" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColorPrimary">@color/calendarText_dark</item>
+        <item name="colorControlActivated">@color/colorControlActivated_dark</item>
+    </style>
+
+    <style name="CalendarWeekDays.Dark.InMode" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/calendarWeekDays_dark</item>
+    </style>
+
+    <style name="PopupMenu.Dark.InMode" parent="Widget.AppCompat.PopupMenu">
+        <item name="popupMenuBackground">@color/dialogBackgroundPrimary_dark</item>
+    </style>
+
+    <style name="PopupMenu.Light.InMode" parent="Widget.AppCompat.PopupMenu">
+        <item name="popupMenuBackground">@color/dialogBackgroundPrimary_light</item>
+    </style>
+
+</resources>

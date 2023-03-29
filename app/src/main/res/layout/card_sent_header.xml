@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.shared.CardSentHeaderViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/padding_cell_vertical"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/padding_cell_vertical"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/item_config_sent_rides_item_sent_number"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            nkspo:textColorListInMode="@{`text_color_enabled_state`}"
+            nkspo:translatedText="@{`ride_summary_completed_sent_header`}"
+            tools:text="@string/ride_summary_completed_sent_header_pl" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

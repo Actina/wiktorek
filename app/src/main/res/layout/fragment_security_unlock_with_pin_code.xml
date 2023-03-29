@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.security.unlock.SecurityUnlockWithPinCodeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/security_unlock_with_pin_code_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`security_unlock_with_pin_code_title`}"
+                tools:text="@string/security_unlock_with_pin_code_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/security_unlock_with_pin_code_toolbar"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/m_spacing">
+
+                <TextView
+                    android:id="@+id/security_unlock_with_pin_code_header"
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:layout_marginRight="@dimen/xxl_spacing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`security_unlock_with_pin_code_header`}"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/security_unlock_with_pin_code_header_pl" />
+
+                <pl.gov.mf.mobile.ui.components.views.pin.PinInput
+                    android:id="@+id/security_unlock_with_pin_code_pin_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:paddingEnd="@dimen/xxl_spacing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/security_unlock_with_pin_code_header"
+                    app:layout_constraintWidth_max="@dimen/pin_input_max_width"
+                    nkspo:isLocked="@{viewModel.configuration.inputLocked}"
+                    nkspo:pin="@={viewModel.unlockWithPinCode.pin}" />
+
+                <TextView
+                    android:id="@+id/security_unlock_with_pin_code_error_message"
+                    style="@style/TextAppearance.Spoe.TextContent.Red.Dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s_spacing"
+                    android:enabled="@{viewModel.configuration.errorVisible}"
+                    android:text="@{viewModel.configuration.errorText}"
+                    app:layout_constraintEnd_toEndOf="@+id/security_unlock_with_pin_code_pin_input"
+                    app:layout_constraintStart_toStartOf="@+id/security_unlock_with_pin_code_pin_input"
+                    app:layout_constraintTop_toBottomOf="@+id/security_unlock_with_pin_code_pin_input" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/security_unlock_with_pin_code_biometric_sign_in_button"
+                    style="@style/Widget.TextButton.Blue.InMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xl_spacing"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:visibility="@{viewModel.biometricEnabled}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/security_unlock_with_pin_code_error_message"
+                    app:layout_constraintWidth_max="240dp"
+                    nkspo:textColorListInMode="@{`button_blue_selector`}"
+                    nkspo:translatedText="@{`security_unlock_with_pin_code_biometric_sign_in`}"
+                    tools:text="@string/security_unlock_with_pin_code_biometric_sign_in_pl" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/security_unlock_with_pin_code_forgotten_pin_button"
+                    style="@style/Widget.TextButton.Blue.InMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xl_spacing"
+                    android:layout_marginTop="@dimen/xs_spacing"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/security_unlock_with_pin_code_biometric_sign_in_button"
+                    app:layout_constraintWidth_max="240dp"
+                    nkspo:textColorListInMode="@{`button_blue_selector`}"
+                    nkspo:translatedText="@{`security_unlock_with_pin_code_forgotten_pin`}"
+                    tools:text="@string/security_unlock_with_pin_code_forgotten_pin_pl" />
+
+                <ImageView
+                    android:id="@+id/security_unlock_with_unlock_info_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/xs_spacing"
+                    android:src="@drawable/ic_security_unlock_info"
+                    app:layout_constraintBottom_toBottomOf="@+id/security_unlock_with_unlock_info_textview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/security_unlock_with_unlock_info_textview"
+                    nkspo:tintInMode="@{`blackIcon`}" />
+
+                <TextView
+                    android:id="@+id/security_unlock_with_unlock_info_textview"
+                    style="@style/TextAppearance.Spoe.TextContent600"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xl_spacing"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:layout_marginEnd="@dimen/xl_spacing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/security_unlock_with_unlock_info_imageview"
+                    app:layout_constraintTop_toBottomOf="@id/security_unlock_with_pin_code_forgotten_pin_button"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`security_unlock_with_unlock_info`}"
+                    tools:text="@string/security_unlock_with_unlock_info_pl" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

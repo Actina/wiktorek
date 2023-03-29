@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/ride_history_menu_calendar"
+        android:enabled="true"
+        android:icon="@drawable/ic_calendar_white_light"
+        android:title="ride_history_calendar_android"
+        app:showAsAction="ifRoom"
+        tools:ignore="HardcodedText" />
+
+
+</menu>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.configridetypeselection.ConfigRideTypeSelectionFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_ride_type_selection_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`config_ride_type_selection_title`}"
+                tools:text="@string/config_ride_type_selection_title_en" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <!-- share area -->
+        <pl.gov.mf.mobile.ui.components.views.BusinessNumberView
+            android:id="@+id/config_ride_type_selection_business_number_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/config_ride_type_selection_toolbar" />
+
+        <!-- end of share area -->
+
+        <!-- content -->
+        <ScrollView
+            android:id="@+id/config_ride_type_selection_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/config_ride_type_selection_bottom_area"
+            app:layout_constraintTop_toBottomOf="@id/config_ride_type_selection_business_number_area">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <View
+                    android:id="@+id/config_ride_type_selection_tolled_area"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    app:layout_constraintBottom_toBottomOf="@id/config_ride_type_selection_tolled_content"
+                    app:layout_constraintHeight_min="@dimen/config_ride_type_min_cell_height"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+                <TextView
+                    android:id="@+id/config_ride_type_selection_tolled_header"
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    app:layout_constraintBottom_toBottomOf="@id/config_ride_type_selection_tolled_switch"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/config_ride_type_selection_tolled_switch"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`config_ride_type_selection_tolled_header`}"
+                    tools:text="@string/config_ride_type_selection_tolled_header_en" />
+
+                <TextView
+                    android:id="@+id/config_ride_type_selection_tolled_content"
+                    style="@style/TextAppearance.Spoe.Content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/padding_content_horizontal"
+                    android:layout_marginTop="@dimen/s_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    android:paddingBottom="@dimen/m_spacing"
+                    app:layout_constraintHeight_default="wrap"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="@id/config_ride_type_selection_tolled_switch"
+                    app:layout_constraintTop_toBottomOf="@id/config_ride_type_selection_tolled_switch"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`config_ride_type_selection_tolled_content`}"
+                    tools:text="@string/config_ride_type_selection_tolled_content_en" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/config_ride_type_selection_tolled_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s_spacing"
+                    android:layout_marginRight="@dimen/padding_content_horizontal"
+                    android:layout_marginBottom="@dimen/m_spacing"
+                    android:clickable="false"
+                    android:elevation="@dimen/elevation_high"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/config_ride_type_selection_tolled_area"
+                    app:switchPadding="@dimen/m_spacing"
+                    nkspo:thumbInMode="@{`switch_thumb_mode_selector`}"
+                    nkspo:trackInMode="@{`switch_track_mode_selector`}"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                <View
+                    android:id="@+id/config_ride_type_selection_sent_area"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:background="@color/tileBackgroundPrimary"
+                    android:elevation="@dimen/elevation_high"
+                    app:layout_constraintBottom_toBottomOf="@+id/config_ride_type_selection_sent_content"
+                    app:layout_constraintHeight_min="@dimen/config_ride_type_min_cell_height"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/config_ride_type_selection_tolled_area"
+                    app:layout_constraintVertical_bias="0"
+                    nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+                <TextView
+                    android:id="@id/config_ride_type_selection_sent_content"
+                    style="@style/TextAppearance.Spoe.Content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/s_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    android:paddingBottom="@dimen/m_spacing"
+                    app:layout_constraintHeight_default="wrap"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="@id/config_ride_type_selection_sent_switch"
+                    app:layout_constraintTop_toBottomOf="@id/config_ride_type_selection_sent_switch"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    nkspo:translatedText="@{`config_ride_type_selection_sent_content`}"
+                    tools:text="@string/config_ride_type_selection_sent_content_en" />
+
+                <TextView
+                    android:id="@+id/config_ride_type_selection_sent_header"
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:elevation="@dimen/elevation_high"
+                    app:layout_constraintBottom_toBottomOf="@id/config_ride_type_selection_sent_switch"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/config_ride_type_selection_sent_switch"
+                    nkspo:textColorInMode="@{`spoeHeader`}"
+                    nkspo:translatedText="@{`config_ride_type_selection_sent_header`}"
+                    tools:text="@string/config_ride_type_selection_sent_header_en" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/config_ride_type_selection_sent_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s_spacing"
+                    android:layout_marginRight="@dimen/xxl_spacing"
+                    android:layout_marginBottom="@dimen/m_spacing"
+                    android:clickable="false"
+                    android:elevation="@dimen/elevation_high"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/config_ride_type_selection_sent_area"
+                    app:switchPadding="@dimen/m_spacing"
+                    nkspo:thumbInMode="@{`switch_thumb_mode_selector`}"
+                    nkspo:trackInMode="@{`switch_track_mode_selector`}"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!-- end of content -->
+
+        <!-- bottom bar -->
+        <View
+            android:id="@+id/config_ride_type_selection_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_area_height_small"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_ride_type_selection_bottom_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/xxl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:enabled="@{viewModel.continueShouldBeAvailable}"
+            app:layout_constraintBottom_toBottomOf="@+id/config_ride_type_selection_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/config_ride_type_selection_bottom_area"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`config_ride_type_selection_continue`}"
+            tools:text="@string/config_ride_type_selection_continue_en" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

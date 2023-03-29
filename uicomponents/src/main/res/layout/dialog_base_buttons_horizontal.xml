@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonStandard="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.mobile.ui.components.dialogs.basic.BasicTwoActionsDialogFragment.DialogViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_high">
+
+        <View
+            android:id="@+id/dialog_isle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/isle_default_height"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`dialogBackgroundPrimary`}" />
+
+<!--        remove?-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oneactioncontinue_button_green"
+            style="@style/Widget.Button.Green.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/s_spacing"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onPositiveButtonPressed()}"
+            android:visibility="@{viewModelSchema.buttonStyleGreen}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/oneaction_center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dialog_isle"
+            nkspo:backgroundTintListInMode="@{`button_green_selector`}"
+            nkspo:rippleListInMode="@{`button_green_selector`}"
+            nkspo:textColorInMode="@{`buttonGreenText`}"
+            nkspo:translatedText="@{viewModelSchema.buttonText}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oneactioncontinue_button_blue"
+            style="@style/Widget.Button.Blue.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/s_spacing"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onPositiveButtonPressed()}"
+            android:visibility="@{viewModelSchema.buttonStyleBlue}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/oneaction_center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dialog_isle"
+            buttonStandard:backgroundTintListInMode="@{`button_blue_selector`}"
+            buttonStandard:rippleListInMode="@{`button_blue_selector`}"
+            buttonStandard:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{viewModelSchema.buttonText}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oneactioncontinue_button_red"
+            style="@style/Widget.Button.Red.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/s_spacing"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onPositiveButtonPressed()}"
+            android:singleLine="true"
+            android:visibility="@{viewModelSchema.buttonStyleRed}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/oneaction_center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dialog_isle"
+            buttonStandard:backgroundTintListInMode="@{`button_red_selector`}"
+            buttonStandard:rippleListInMode="@{`button_red_selector`}"
+            buttonStandard:textColorInMode="@{`buttonRedText`}"
+            nkspo:translatedText="@{viewModelSchema.buttonText}"
+            tools:text="Sample text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oneactioncancel_button_red"
+            style="@style/Widget.Button.White.Outlined.Old.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginEnd="@dimen/s_spacing"
+            android:layout_marginRight="@dimen/s_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onNegativeButtonPressed()}"
+            android:visibility="@{viewModelSchema.cancelButtonStyleRed}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/oneaction_center"
+            app:layout_constraintTop_toTopOf="@id/dialog_isle"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_red_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_red_selector`}"
+            nkspo:translatedText="@{viewModelSchema.cancelButtonText}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oneactioncancel_button_blue"
+            style="@style/Widget.Button.White.Outlined.Old.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginEnd="@dimen/s_spacing"
+            android:layout_marginRight="@dimen/s_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onNegativeButtonPressed()}"
+            android:visibility="@{viewModelSchema.cancelButtonStyleBlue}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/oneaction_center"
+            app:layout_constraintTop_toTopOf="@id/dialog_isle"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{viewModelSchema.cancelButtonText}" />
+
+<!--        remove?-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oneactioncancel_button_green"
+            style="@style/Widget.Button.Green.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginEnd="@dimen/s_spacing"
+            android:layout_marginRight="@dimen/s_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:minHeight="@dimen/dialog_button_height"
+            android:onClick="@{()->viewModelSchema.onNegativeButtonPressed()}"
+            android:singleLine="true"
+            android:visibility="@{viewModelSchema.cancelButtonStyleGreen}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/oneaction_center"
+            app:layout_constraintTop_toTopOf="@id/dialog_isle"
+            nkspo:backgroundTintListInMode="@{`button_green_selector`}"
+            nkspo:rippleListInMode="@{`button_green_selector`}"
+            nkspo:textColorInMode="@{`buttonGreenText`}"
+            nkspo:translatedText="@{viewModelSchema.cancelButtonText}"
+            tools:text="Sample text" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/oneaction_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

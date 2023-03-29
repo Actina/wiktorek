@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.configsentridesselection.details.SentRideDetailsFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_sent_ride_details_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{viewModel.sent.untranslatedScreenTitle}"
+                tools:text="@string/config_sent_rides_selection_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <TextView
+            android:id="@+id/sent_ride_details_vehicle_plate_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/m_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_start_date_header"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_start_date_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_vehicle_plate`}"
+            tools:text="@string/sent_ride_details_vehicle_plate_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_sent_ride_details_select"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/xxl_spacing"
+            android:layout_marginEnd="@dimen/xl_spacing"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            android:visibility="@{viewModel.sent.confirmButtonIsVisible}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/config_sent_ride_details_back"
+            app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`sent_ride_details_select`}"
+            tools:text="@string/sent_ride_details_select_pl" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_sent_ride_details_back"
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xl_spacing"
+            android:layout_marginTop="@dimen/xxl_spacing"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            android:visibility="@{viewModel.sent.backButtonIsVisible()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/config_sent_ride_details_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
+            app:layout_goneMarginEnd="@dimen/xl_spacing"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_red_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_red_selector`}"
+            nkspo:translatedText="@{`sent_ride_details_back`}"
+            tools:text="@string/sent_ride_details_back_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_end_point_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xl_spacing"
+            app:layout_constraintBottom_toTopOf="@id/bottomBarrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sent_ride_details_end_point_content"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_end_point`}"
+            tools:text="@string/sent_ride_details_end_point_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_end_date_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/m_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_start_point_header"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_start_point_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_end_date`}"
+            tools:text="@string/sent_ride_details_end_date_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_order_number_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_trailer_plate_header"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_trailer_plate_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_order_number`}"
+            tools:text="@string/sent_ride_details_order_number_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_trailer_plate_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_vehicle_plate_header"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_vehicle_plate_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_trailer_plate`}"
+            tools:text="@string/sent_ride_details_trailer_plate_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_start_date_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_end_date_header"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_end_date_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_start_date`}"
+            tools:text="@string/sent_ride_details_start_date_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_start_point_header"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_end_point_header"
+            app:layout_constraintTop_toTopOf="@+id/sent_ride_details_start_point_content"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`sent_ride_details_start_point`}"
+            tools:text="@string/sent_ride_details_start_point_pl" />
+
+        <fragment
+            android:id="@+id/sent_ride_details_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/xxxl_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/ride_details_map_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/config_sent_ride_details_toolbar" />
+
+        <TextView
+            android:id="@+id/ride_details_map_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/xl_spacing"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_order_number_header"
+            app:layout_constraintStart_toStartOf="@+id/sent_ride_details_order_number_header"
+            app:layout_constraintWidth_percent="0.9"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`sent_ride_details_header`}"
+            tools:text="@string/sent_ride_details_header_pl" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_order_number_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.sent.item.sentNumber}"
+            app:layout_constraintBottom_toBottomOf="@+id/sent_ride_details_order_number_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_order_number_header"
+            app:layout_constraintTop_toTopOf="@+id/sent_ride_details_order_number_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="SENT202012010000002" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_trailer_plate_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.sent.item.trailer.licensePlateNumber}"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_vehicle_plate_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_trailer_plate_header"
+            app:layout_constraintTop_toTopOf="@+id/sent_ride_details_trailer_plate_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="WE 4123W" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_vehicle_plate_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.sent.item.vehicle.licensePlateNumber}"
+            app:layout_constraintBottom_toBottomOf="@+id/sent_ride_details_vehicle_plate_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_vehicle_plate_header"
+            app:layout_constraintTop_toBottomOf="@+id/sent_ride_details_trailer_plate_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="WE 8121D" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_start_date_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.sent.formattedStartDate()}"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_end_date_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_start_date_header"
+            app:layout_constraintTop_toTopOf="@+id/sent_ride_details_start_date_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="29.08.2020" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_end_date_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.sent.formattedEndDate()}"
+            app:layout_constraintBottom_toBottomOf="@+id/sent_ride_details_end_date_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_end_date_header"
+            app:layout_constraintTop_toTopOf="@+id/sent_ride_details_end_date_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="03.09.2020" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_start_point_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.sent.loadingAddress()}"
+            app:layout_constraintBottom_toTopOf="@+id/sent_ride_details_end_point_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_start_point_header"
+            nkspo:textColorInMode="@{`sentRideLoadingAddress`}"
+            tools:text="Świecko, PL" />
+
+        <TextView
+            android:id="@+id/sent_ride_details_end_point_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            android:text="@{viewModel.sent.deliveryAddress()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sent_ride_details_end_point_header"
+            app:layout_constraintTop_toBottomOf="@id/sent_ride_details_start_point_content"
+            nkspo:textColorInMode="@{`sentRideDeliveryAddress`}"
+            tools:text="Ujazd, PL" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottomBarrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="bottom_space,config_sent_ride_details_back,config_sent_ride_details_select"
+            app:layout_constraintTop_toBottomOf="@id/sent_ride_details_end_date_content" />
+
+        <Space
+            android:id="@+id/bottom_space"
+            android:layout_width="wrap_content"
+            android:layout_height="128dp"
+            android:visibility="@{viewModel.sent.bottomSpaceIsVisible()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

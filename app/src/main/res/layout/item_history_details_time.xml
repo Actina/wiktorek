@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.rideshistory.details.adapter.RideHistoryCellItem.RideTimeItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingStart="@dimen/padding_content_horizontal"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/padding_content_horizontal"
+        android:paddingBottom="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/ride_summary_location_reporting_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{item.viewModel.untranslatedHeader}"
+            tools:text="@string/ride_history_ride_started_pl" />
+
+        <TextView
+            android:id="@+id/ride_summary_duration_start_date"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ride_summary_location_reporting_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_event_date`}"
+            tools:text="@string/ride_history_details_event_date_pl" />
+
+        <TextView
+            android:id="@+id/ride_summary_duration_end_date"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ride_summary_duration_start_date"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`ride_history_details_event_time`}"
+            tools:text="@string/ride_history_details_event_time_pl" />
+
+        <TextView
+            android:id="@+id/ride_summary_duration_start_date_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:text="@{item.viewModel.rideStartDate}"
+            app:layout_constraintBottom_toBottomOf="@+id/ride_summary_duration_start_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ride_summary_duration_start_date"
+            app:layout_constraintTop_toTopOf="@+id/ride_summary_duration_start_date"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="04.05.2021" />
+
+        <TextView
+            android:id="@+id/ride_summary_duration_end_date_value"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_content_horizontal"
+            android:text="@{item.viewModel.rideStartTime}"
+            app:layout_constraintBottom_toBottomOf="@+id/ride_summary_duration_end_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ride_summary_duration_end_date"
+            app:layout_constraintTop_toTopOf="@+id/ride_summary_duration_end_date"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="12:10:56" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

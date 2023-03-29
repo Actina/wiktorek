@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.configvehicleselection.adapteritem.ConfigVehicleSelectionSectionHeader.ViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/xs_spacing"
+        android:paddingStart="@dimen/m_spacing"
+        android:paddingTop="@{item.isPaddingTop ? @dimen/s_spacing : @dimen/no_spacing}"
+        android:paddingEnd="@dimen/m_spacing">
+
+        <TextView
+            android:id="@+id/config_vehicle_selection_section_header"
+            style="@style/TextAppearance.Spoe.Header.Section.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="@{item.gravity}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{item.untranslated}"
+            tools:text="@string/config_vehicle_selection_section_last_used_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

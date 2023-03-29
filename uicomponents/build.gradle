@@ -1,0 +1,132 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.targetSDK
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        flavorDimensions "edition"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // For Kotlin projects
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    productFlavors {
+        _prod {
+            dimension "edition"
+        }
+        _preprod {
+            dimension "edition"
+        }
+        _edu {
+            dimension "edition"
+        }
+        _test {
+            dimension "edition"
+        }
+        _dev {
+            dimension "edition"
+        }
+    }
+
+    sourceSets {
+        _prod {
+            java.srcDirs = ['src/_prod/java']
+            res.srcDirs = ['src/_prod/res']
+        }
+        _preprod {
+            java.srcDirs = ['src/_preprod/java']
+            res.srcDirs = ['src/_preprod/res']
+        }
+        _edu {
+            java.srcDirs = ['src/_edu/java']
+            res.srcDirs = ['src/_edu/res']
+        }
+        _test {
+            java.srcDirs = ['src/_test/java']
+            res.srcDirs = ['src/_test/res']
+        }
+        _dev {
+            java.srcDirs = ['src/_dev/java']
+            res.srcDirs = ['src/_dev/res']
+        }
+    }
+
+    //Required for TranslationsAdapter
+    buildFeatures {
+        dataBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose_compiler_version
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    kapt Dependencies.dagger_compiler
+    compileOnly Dependencies.dagger_compiler_annotations
+    api Dependencies.androidX_constraintLayout
+
+    api Dependencies.androidX_viewmodel
+    api Dependencies.androidX_viewmodel_savedstate
+    api Dependencies.androidX_lifecycle
+
+    api Dependencies.viewpager_indicator
+
+    testImplementation Dependencies.tests_junit
+    androidTestImplementation Dependencies.tests_androidX_junit
+    androidTestImplementation Dependencies.tests_androidX_espresso
+    api Dependencies.viewpager2
+    api Dependencies.material_design
+    api(Dependencies.lottie) {
+        exclude group: 'androidx.appcompat' //This will probably disappear after appcompat update
+    }
+    def composeBom = platform(Dependencies.composeBom)
+    api composeBom
+    androidTestImplementation composeBom
+
+    api Dependencies.pdf
+
+    api Dependencies.composeMaterial
+
+    // Android Studio Preview support
+    api Dependencies.composeUiToolingPreview
+    debugApi Dependencies.composeUiTooling
+
+    // UI Tests
+    androidTestImplementation Dependencies.composeUiTestsJUnit
+    debugApi Dependencies.composeUiTestsManifest
+
+    // Optional - Integration with activities
+    api Dependencies.composeActivity
+    // Optional - Integration with ViewModels
+    api Dependencies.composeViewModel
+    // Optional - Integration with LiveData
+    api Dependencies.composeLiveData
+    api Dependencies.composeHtml
+
+    api project("::commons")
+
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.notificationdetails.NotificationDetailsFragmentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/notification_details_list_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/notification_details"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{true}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`app_settings_notifications_header`}"
+                tools:text="@string/app_settings_notifications_header_pl" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <TextView
+                    android:id="@+id/notification_details_header"
+                    style="@style/TextAppearance.Spoe.HeaderLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/padding_leftright_cell"
+                    android:paddingVertical="@dimen/padding_topdown_content"
+                    android:text="@{viewModel.title}"
+                    nkspo:textColorInMode="@{`textPrimary`}"
+                    tools:text="10.02.2021" />
+
+                <TextView
+                    android:id="@+id/notification_details_content"
+                    style="@style/TextAppearance.Spoe.TextContent16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/padding_leftright_cell"
+                    android:paddingBottom="@dimen/padding_topdown_content"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedHtmlWithUrls="@{viewModel.content}"
+                    tools:text="10.02.2021" />
+
+                <TextView
+                    android:id="@+id/notification_details_date"
+                    style="@style/TextAppearance.Spoe.TextContent16.light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/padding_leftright_cell"
+                    android:paddingBottom="@dimen/padding_topdown_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/notification_details_content"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{viewModel.formattedDate}"
+                    tools:text="10.02.2021" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

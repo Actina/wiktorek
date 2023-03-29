@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.security.settings.adapteritem.PinConfigItem.ViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xl_spacing"
+        android:layout_marginBottom="@dimen/s_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/xxl_spacing"
+        android:paddingTop="@dimen/xxl_spacing"
+        android:paddingEnd="@dimen/xxl_spacing"
+        android:paddingBottom="@dimen/xxxl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`security_pin_code_header`}"
+            tools:text="@string/security_pin_code_header_pl" />
+
+        <TextView
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`security_pin_code_content`}"
+            tools:text="@string/security_pin_code_content_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> item.onResetPinClicked()}"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`security_pin_code_reset`}"
+            tools:text="@string/security_pin_code_reset_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_spacing"
+            android:onClick="@{() -> item.onTurnOffSecurityClicked()}"
+            buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+            buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+            buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+            buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{`security_pin_code_disable`}"
+            tools:text="@string/security_pin_code_disable_pl" />
+
+    </LinearLayout>
+
+</layout>

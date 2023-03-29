@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.ridedetails.sentselection.adapter.SentRideItem.SentHeader" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/xxl_spacing"
+        android:paddingTop="@dimen/sm_spacing"
+        android:paddingEnd="@dimen/xxl_spacing"
+        android:paddingBottom="@dimen/s_spacing"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/item_config_sent_rides_header_group_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`sentRideDetailsListHeader`}"
+            nkspo:translatedText="@{item.name}"
+            tools:text="@string/ride_details_sent_selection_section_available_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

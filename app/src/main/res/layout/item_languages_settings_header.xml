@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/s_spacing"
+        android:paddingStart="@dimen/padding_leftright_cell"
+        android:paddingTop="@dimen/padding_topdown_content"
+        android:paddingEnd="@dimen/padding_leftright_cell"
+        android:paddingBottom="@dimen/padding_topdown_content"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/languages_settings_header"
+            style="@style/TextAppearance.Spoe.HeaderFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`app_language_settings_header`}"
+            tools:text="@string/app_language_settings_header_pl" />
+
+        <TextView
+            android:id="@+id/languages_settings_content"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            app:layout_constraintTop_toBottomOf="@+id/languages_settings_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{`app_language_settings_content`}"
+            tools:text="@string/app_language_settings_content_pl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

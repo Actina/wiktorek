@@ -1,0 +1,103 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.targetSDK
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        flavorDimensions "edition"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // For Kotlin projects
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    productFlavors {
+        _prod {
+            dimension "edition"
+        }
+        _preprod {
+            dimension "edition"
+        }
+        _edu {
+            dimension "edition"
+        }
+        _test {
+            dimension "edition"
+        }
+        _dev {
+            dimension "edition"
+        }
+    }
+
+    sourceSets {
+        _prod {
+            java.srcDirs = ['src/_prod/java']
+            res.srcDirs = ['src/_prod/res']
+        }
+        _preprod {
+            java.srcDirs = ['src/_preprod/java']
+            res.srcDirs = ['src/_preprod/res']
+        }
+        _edu {
+            java.srcDirs = ['src/_edu/java']
+            res.srcDirs = ['src/_edu/res']
+        }
+        _test {
+            java.srcDirs = ['src/_test/java']
+            res.srcDirs = ['src/_test/res']
+        }
+        _dev {
+            java.srcDirs = ['src/_dev/java']
+            res.srcDirs = ['src/_dev/res']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    api Dependencies.kotlin_StandardLibrary
+    api Dependencies.kotlin_ktxCore
+    api Dependencies.utils_jodatime
+
+    api Dependencies.androidX_AppCompat
+
+    api Dependencies.rx_android
+    api Dependencies.rx_java
+    api Dependencies.rx_kotlin
+
+    api Dependencies.dagger_core
+    api Dependencies.networking_retrofit2_gsonadapter
+
+    api Dependencies.kotlin_coroutines
+    api Dependencies.kotlin_coroutines_android
+    api Dependencies.firebase_messaging
+
+    testImplementation Dependencies.tests_junit
+    testImplementation Dependencies.tests_mockk
+    androidTestImplementation Dependencies.tests_androidX_junit
+    androidTestImplementation Dependencies.tests_androidX_espresso
+    api Dependencies.play_services_location
+    kapt Dependencies.dagger_compiler
+    compileOnly Dependencies.dagger_compiler_annotations
+}

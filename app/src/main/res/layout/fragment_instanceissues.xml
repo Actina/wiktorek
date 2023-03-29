@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:buttonWhiteOutlined="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.errors.instanceissues.InstanceIssuesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/instanceissues_bottom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_content_horizontal"
+                android:paddingTop="@dimen/margin_content_vertical"
+                android:paddingRight="@dimen/padding_content_horizontal"
+                android:paddingBottom="@dimen/margin_content_vertical"
+                nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xh_spacing"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    nkspo:srcInMode="@{`ic_error_new`}"
+                    tools:src="@drawable/ic_error_new_light" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Text28dpRed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    android:textAlignment="center"
+                    nkspo:textColorInMode="@{`textColorRed`}"
+                    nkspo:translatedText="@{`error410_title`}"
+                    tools:text="@string/error410_title_pl" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Text16dpBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    android:textAlignment="center"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`error410_header`}"
+                    tools:text="@string/error410_header_pl" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="top"
+                        android:layout_marginRight="@dimen/margin_content_horizontal"
+                        nkspo:srcInMode="@{`ic_sync`}"
+                        tools:src="@drawable/ic_sync_light" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Text16dpBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        nkspo:translatedText="@{`error410_hint1`}"
+                        tools:text="@string/error410_hint1_pl" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Button.White.Outlined.NoInsets.InMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    android:onClick="@{() -> viewModel.onShowShopClick()}"
+                    android:singleLine="true"
+                    android:textSize="16dp"
+                    buttonWhiteOutlined:backgroundTintColorInMode="@{`transparent`}"
+                    buttonWhiteOutlined:rippleColorInMode="@{`buttonBlue`}"
+                    buttonWhiteOutlined:strokeColorListInMode="@{`button_blue_selector`}"
+                    buttonWhiteOutlined:textColorListInMode="@{`button_blue_selector`}"
+                    nkspo:translatedText="@{`error410_goToShop_android`}"
+                    tools:ignore="SpUsage"
+                    tools:text="@string/error410_goToShop_android_pl" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    nkspo:backgroundColorInMode="@{`instanceIssuesDivider`}" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="top"
+                        android:layout_marginRight="@dimen/margin_content_horizontal"
+                        nkspo:srcInMode="@{`ic_error_icon1`}"
+                        tools:src="@drawable/ic_error_icon1_light"  />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Text16dpBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        nkspo:translatedText="@{`error410_hint2`}"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        tools:text="@string/error410_hint2_pl" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_content_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="top"
+                        android:layout_marginRight="@dimen/margin_content_horizontal"
+                        nkspo:srcInMode="@{`ic_noentry`}"
+                        tools:src="@drawable/ic_noentry_light" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Text16dpBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        nkspo:translatedText="@{`error410_hint3`}"
+                        nkspo:textColorInMode="@{`spoeTextContent`}"
+                        tools:text="@string/error410_hint3_pl" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+        <View
+            android:id="@+id/instanceissues_bottom"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_area_height_small"
+            android:elevation="@dimen/elevation_high"
+            android:visibility="@{viewModel.isDismissable()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/config_vehicle_selection_bottom_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_content_horizontal"
+            android:layout_marginRight="@dimen/padding_content_horizontal"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{() -> viewModel.onOkClick()}"
+            android:singleLine="true"
+            android:visibility="@{viewModel.isDismissable()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/instanceissues_bottom"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`error410_button`}"
+            tools:text="@string/error410_button_pl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

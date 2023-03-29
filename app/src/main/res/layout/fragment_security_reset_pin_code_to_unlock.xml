@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.gov.mf.etoll.front.security.resettounlock.SecurityResetPinCodeToUnlockViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/security_reset_pin_code_to_unlock_toolbar"
+            style="@style/Widget.Spoe.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`toolbarBackgroundPrimary`}"
+            nkspo:navigationIconVisible="@{viewModel.configuration.navigationBackAvailable}">
+
+            <TextView
+                style="@style/TextAppearance.Spoe.HeaderSecond.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                nkspo:textColorInMode="@{`headerTextPrimary`}"
+                nkspo:translatedText="@{`security_reset_pin_code_to_unlock_title`}"
+                tools:text="@string/security_reset_pin_code_to_unlock_title_pl" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/security_reset_pin_code_to_unlock_bottom_area"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/security_reset_pin_code_to_unlock_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/m_spacing">
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/h_spacing"
+                    android:layout_marginEnd="@dimen/xxl_spacing"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`security_reset_pin_code_to_unlock_header`}"
+                    tools:text="@string/security_reset_pin_code_to_unlock_header_pl" />
+
+                <TextView
+                    style="@style/TextAppearance.Spoe.Header.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/xxl_spacing"
+                    android:layout_marginRight="@dimen/xxl_spacing"
+                    nkspo:textColorInMode="@{`spoeTextContent`}"
+                    nkspo:translatedText="@{`security_reset_pin_code_to_unlock_recovery_password`}"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/security_reset_pin_code_to_unlock_recovery_password_pl" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/security_reset_pin_code_to_unlock_password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/m_spacing"
+                    android:layout_marginRight="@dimen/xxl_spacing"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:passwordToggleDrawable="@drawable/password_toggle_light"
+                    app:passwordToggleEnabled="true"
+                    nkspo:isLocked="@{viewModel.configuration.inputLocked}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/security_reset_pin_code_to_unlock_password_input"
+                        style="@style/DefaultInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:text="@={viewModel.resetPinCode.password}"
+                        nkspo:hintColorInMode="@{`inputHint`}"
+                        nkspo:textColorInMode="@{`inputText`}"
+                        nkspo:translatedHint="@{`security_confirm_with_password_input_placeholder`}"
+                        tools:hint="@string/security_confirm_with_password_input_placeholder_pl" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/security_reset_pin_code_to_unlock_error_message"
+                    style="@style/TextAppearance.Spoe.TextContent.Red.Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/xxl_spacing"
+                    android:layout_marginTop="@dimen/s_spacing"
+                    android:layout_marginRight="@dimen/xxl_spacing"
+                    android:text="@{viewModel.configuration.errorText}"
+                    android:visibility="@{viewModel.configuration.errorVisible}"
+                    nkspo:textColorInMode="@{`buttonRed`}"
+                    tools:text="@string/security_reset_pin_code_to_unlock_two_attempts_left_pl" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <View
+            android:id="@+id/security_reset_pin_code_to_unlock_bottom_area"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/security_reset_pin_code_to_unlock_bottom_area_space"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <Space
+            android:id="@+id/security_reset_pin_code_to_unlock_bottom_area_space"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/xxl_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/security_reset_pin_code_to_unlock_confirm_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/security_reset_pin_code_to_unlock_confirm_button"
+            style="@style/Widget.Button.Blue.NoInsets.InMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxl_spacing"
+            android:layout_marginEnd="@dimen/xxl_spacing"
+            android:layout_marginBottom="@dimen/xxl_spacing"
+            android:elevation="@dimen/elevation_high"
+            android:onClick="@{()->viewModel.checkPassword()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            nkspo:backgroundTintListInMode="@{`button_blue_selector`}"
+            nkspo:rippleListInMode="@{`button_blue_selector`}"
+            nkspo:textColorInMode="@{`buttonBlueText`}"
+            nkspo:translatedText="@{`security_reset_pin_code_to_unlock_confirm`}"
+            tools:text="@string/security_reset_pin_code_to_unlock_confirm_pl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.about.adapteritem.SystemInfoItem.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s_spacing"
+        android:layout_marginBottom="@dimen/xxxl_spacing"
+        android:clipToPadding="false"
+        android:elevation="@dimen/elevation_high"
+        android:paddingStart="@dimen/xxl_spacing"
+        android:paddingTop="@dimen/xl_spacing"
+        android:paddingEnd="@dimen/xxl_spacing"
+        android:paddingBottom="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <TextView
+            android:id="@+id/about_system_info_header"
+            style="@style/TextAppearance.Spoe.Header.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`spoeHeader`}"
+            nkspo:translatedText="@{`about_app_system_info_header`}"
+            tools:text="@string/about_app_system_info_header_pl" />
+
+        <TextView
+            android:id="@+id/about_system_info_version_number"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sm_spacing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_header"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`about_app_system_info_android_version_number_android`}"
+            tools:text="@string/about_app_system_info_android_version_number_android_pl" />
+
+        <TextView
+            android:id="@+id/about_system_info_version_number_value"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.systemInfoViewData.systemVersionNumber}"
+            app:layout_constraintBottom_toTopOf="@id/about_system_info_version_number"
+            app:layout_constraintStart_toEndOf="@id/about_system_info_version_number"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_version_number"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="8.0" />
+
+        <TextView
+            android:id="@+id/about_system_info_api_level"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_version_number_value"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`about_app_system_info_api_level_android`}"
+            tools:text="@string/about_app_system_info_api_level_android_pl" />
+
+        <TextView
+            android:id="@+id/about_system_info_api_level_value"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.systemInfoViewData.apiLevel}"
+            app:layout_constraintBottom_toTopOf="@id/about_system_info_api_level"
+            app:layout_constraintStart_toEndOf="@id/about_system_info_api_level"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_api_level"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="26" />
+
+        <TextView
+            android:id="@+id/about_system_info_api_code_name"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_api_level"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`about_app_system_info_code_name_android`}"
+            tools:text="@string/about_app_system_info_code_name_android_pl" />
+
+        <TextView
+            android:id="@+id/about_system_info_api_code_name_value"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.systemInfoViewData.apiCodeName}"
+            app:layout_constraintBottom_toTopOf="@id/about_system_info_api_code_name"
+            app:layout_constraintStart_toEndOf="@id/about_system_info_api_code_name"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_api_code_name"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="26" />
+
+        <TextView
+            android:id="@+id/about_system_info_play_services_version"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_api_code_name"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedTextColonsEnded="@{`about_app_system_info_google_play_service_android`}"
+            tools:text="@string/about_app_system_info_google_play_service_android_pl" />
+
+        <TextView
+            android:id="@+id/about_system_info_play_services_version_value_part_one"
+            style="@style/TextAppearance.Spoe.TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.systemInfoViewData.playServicesVersion}"
+            app:layout_constraintBottom_toTopOf="@id/about_system_info_play_services_version"
+            app:layout_constraintStart_toEndOf="@id/about_system_info_play_services_version"
+            app:layout_constraintTop_toBottomOf="@id/about_system_info_play_services_version"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            tools:text="20.24.14" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

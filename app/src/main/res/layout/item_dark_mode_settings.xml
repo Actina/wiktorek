@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="pl.gov.mf.etoll.front.settings.darkmode.adapteritem.DarkModeSettingsItem.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/padding_leftright_content"
+        android:paddingTop="@dimen/xs_spacing"
+        android:paddingEnd="@dimen/padding_leftright_content"
+        android:paddingBottom="@dimen/xs_spacing"
+        nkspo:backgroundColorInMode="@{`backgroundPrimary`}">
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/topBarrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="dark_mode_settings_dark_mode_item_radio_button,
+             dark_mode_settings_vehicle_item_tile"
+            app:layout_constraintTop_toTopOf="@id/dark_mode_settings_vehicle_item_tile" />
+
+        <View
+            android:id="@+id/dark_mode_settings_vehicle_item_tile"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:clickable="true"
+            android:elevation="@dimen/elevation_high"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{()->item.onItemBodySelected()}"
+            app:layout_constraintBottom_toTopOf="@id/bottomBarrier"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBarrier"
+            app:layout_constraintVertical_bias="0.0"
+            nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/dark_mode_settings_dark_mode_item_radio_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/m_spacing"
+            android:checked="@{item.radioButtonChecked}"
+            android:clickable="false"
+            android:elevation="@dimen/elevation_high"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/bottomBarrier"
+            app:layout_constraintStart_toStartOf="@id/dark_mode_settings_vehicle_item_tile"
+            app:layout_constraintTop_toBottomOf="@id/topBarrier"
+            app:layout_constraintWidth_default="wrap"
+            nkspo:tintInMode="@{`radiobutton_tint_mode_selector`}" />
+
+        <TextView
+            android:id="@+id/dark_mode_settings_dark_mode_item_content"
+            style="@style/TextAppearance.Spoe.TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation_high"
+            app:layout_constraintBottom_toTopOf="@id/bottomBarrier"
+            app:layout_constraintStart_toEndOf="@id/dark_mode_settings_dark_mode_item_radio_button"
+            app:layout_constraintTop_toBottomOf="@id/topBarrier"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            nkspo:textColorInMode="@{`spoeTextContent`}"
+            nkspo:translatedText="@{item.mode}"
+            tools:text="mode" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottomBarrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="dark_mode_settings_dark_mode_item_radio_button,
+             dark_mode_settings_vehicle_item_tile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dark_mode_settings_dark_mode_item_radio_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

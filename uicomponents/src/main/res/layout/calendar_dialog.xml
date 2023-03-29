@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nkspo="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="pl.gov.mf.etoll.appmode.AppMode" />
+
+        <variable
+            name="viewModelSchema"
+            type="pl.gov.mf.etoll.ui.components.dialogs.CalendarDialogFragment.CalendarViewModelSchema" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/xl_spacing"
+        nkspo:backgroundColorInMode="@{`tileBackgroundPrimary`}">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/calendar_dialog_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:backgroundColorInMode="@{`calendarHeaderRedBackground`}" />
+
+        <TextView
+            android:id="@+id/calendar_dialog_year"
+            style="@style/TextAppearance.Spoe.Standard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xl_spacing"
+            android:layout_marginTop="@dimen/m_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            nkspo:textColorInMode="@{`calendarHeaderText`}"
+            tools:text="2020" />
+
+        <TextView
+            android:id="@+id/calendar_dialog_date"
+            style="@style/TextAppearance.Montserat.Header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xl_spacing"
+            android:layout_marginTop="@dimen/sm_spacing"
+            android:paddingBottom="@dimen/xl_spacing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendar_dialog_year"
+            nkspo:textColorInMode="@{`calendarHeaderText`}"
+            tools:text="Piątek 13 lipca" />
+
+        <CalendarView
+            android:id="@+id/calendarView_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Calendar.Light.InMode"
+            android:weekDayTextAppearance="@style/CalendarWeekDays.Light.InMode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            nkspo:backgroundColorInMode="@{`calendarBackground`}"
+            nkspo:visibleWhenMode="@{AppMode.LIGHT_MODE}" />
+
+        <CalendarView
+            android:id="@+id/calendarView_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Calendar.Dark.InMode"
+            android:weekDayTextAppearance="@style/CalendarWeekDays.Dark.InMode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            nkspo:backgroundColorInMode="@{`calendarBackground`}"
+            nkspo:visibleWhenMode="@{AppMode.DARK_MODE}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/calendarViewBarrierHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="calendarView_light,calendarView_dark" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/calendarViewBarrierVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="calendarView_light,calendarView_dark" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/calendar_dialog_confirm"
+            style="@style/Widget.TextButton.Blue.InMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/m_spacing"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:minWidth="0dp"
+            android:onClick="@{() -> viewModelSchema.onConfirm()}"
+            app:layout_constraintRight_toRightOf="@id/calendarViewBarrierVertical"
+            app:layout_constraintTop_toBottomOf="@+id/calendarViewBarrierHorizontal"
+            nkspo:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{`ride_history_calendar_confirm`}"
+            tools:text="@string/ride_history_calendar_confirm_pl" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/calendar_dialog_dismiss"
+            style="@style/Widget.TextButton.Blue.InMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:minWidth="0dp"
+            android:onClick="@{() -> viewModelSchema.onClear()}"
+            app:layout_constraintBottom_toBottomOf="@+id/calendar_dialog_confirm"
+            app:layout_constraintEnd_toStartOf="@+id/calendar_dialog_confirm"
+            app:layout_constraintTop_toTopOf="@+id/calendar_dialog_confirm"
+            nkspo:textColorListInMode="@{`button_blue_selector`}"
+            nkspo:translatedText="@{`ride_history_calendar_clear`}"
+            tools:text="@string/ride_history_calendar_clear_pl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
